@@ -15,6 +15,7 @@ RAW_DATA_DIR = DATA_DIR / "raw"
 INTERIM_DATA_DIR = DATA_DIR / "interim"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 EXTERNAL_DATA_DIR = DATA_DIR / "external"
+PROCESSED_DATA_FILE = PROCESSED_DATA_DIR / "cars_train.csv"
 
 MODELS_DIR = PROJ_ROOT / "models"
 

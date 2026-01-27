@@ -1,14 +1,16 @@
 ipython
 jupyterlab
-loguru
+loguru~=0.7.3
 matplotlib
 notebook
 numpy
-pandas
+pandas~=3.0.0
 pip
-python-dotenv
+python-dotenv~=1.2.1
 ruff
 scikit-learn
-tqdm
-typer
+tqdm~=4.67.1
+typer~=0.21.1
 -e .
+
+scipy~=1.17.0
