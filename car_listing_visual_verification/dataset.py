@@ -25,22 +25,21 @@ def main(
     for annotation in train_annotations[0]:
         fname = str(annotation["fname"][0])
         class_id = int(annotation["class"][0][0])
-        bboxes =[
-            str(annotation["class"][0][0]),
-            str(annotation["class"][0][0]),
-            str(annotation["class"][0][0]),
-            str(annotation["class"][0][0])
-        ]
+        x1 = int(annotation["bbox_x1"][0][0])
+        y1 = int(annotation["bbox_y1"][0][0])
+        x2 = int(annotation["bbox_x2"][0][0])
+        y2 = int(annotation["bbox_y2"][0][0])
+
         class_index = class_id - 1
         class_name = meta[0][class_index][0]
         rows.append({
             "image_path": fname,
             "class_id": class_id,
             "class_name": class_name,
-            "bbox_x1": bboxes[0],
-            "bbox_x2": bboxes[1],
-            "bbox_y1": bboxes[2],
-            "bbox_y2": bboxes[3],
+            "bbox_x1": x1,
+            "bbox_y1": y1,
+            "bbox_x2": x2,
+            "bbox_y2": y2,
         })
 
     df = pd.DataFrame(rows)
