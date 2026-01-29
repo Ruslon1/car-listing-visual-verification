@@ -1,16 +1,19 @@
 ipython
 jupyterlab
 loguru~=0.7.3
-matplotlib
+matplotlib~=3.10.8
 notebook
 numpy
 pandas~=3.0.0
 pip
 python-dotenv~=1.2.1
 ruff
-scikit-learn
+scikit-learn~=1.8.0
 tqdm~=4.67.1
 typer~=0.21.1
 -e .
 
 scipy~=1.17.0
+torch~=2.10.0
+torchvision~=0.25.0
+pillow~=12.1.0
