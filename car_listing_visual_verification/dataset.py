@@ -3,7 +3,7 @@ import scipy.io
 import pandas as pd
 import typer
 from loguru import logger
-from sklearn.model_selection import train_test_split  # <--- Make sure to pip install scikit-learn
+from sklearn.model_selection import train_test_split
 
 from car_listing_visual_verification.config import PROCESSED_DATA_DIR, RAW_DATA_DIR
 

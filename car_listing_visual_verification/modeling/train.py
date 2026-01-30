@@ -49,8 +49,8 @@ def main(
     val_dataset = data_loader.StanfordCarsDataset(validation_path, images_dir, val_transforms)
 
     logger.info("init dataloaders")
-    train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True, num_workers=4)
-    val_dataloader = DataLoader(val_dataset, batch_size=64, shuffle=False, num_workers=4)
+    train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True, num_workers=6)
+    val_dataloader = DataLoader(val_dataset, batch_size=64, shuffle=False, num_workers=6)
 
     device = torch.device('mps')
 
@@ -70,7 +70,7 @@ def main(
 
     adam = optim.Adam(model.fc.parameters(), lr=0.001)
 
-    num_epochs = 10
+    num_epochs = 25
 
     for epoch in range(num_epochs):
         model.train()
