@@ -1,31 +1,24 @@
 from pathlib import Path
-
 import torch
 from loguru import logger
 from tqdm import tqdm
 import typer
 import torch.nn as nn
 import torch.optim as optim
-
 from car_listing_visual_verification.config import MODELS_DIR, PROCESSED_DATA_DIR, RAW_DATA_DIR
 import car_listing_visual_verification.data_loader as data_loader
-from sklearn.model_selection import train_test_split
-import pandas as pd
 from torchvision.transforms import transforms
 from torch.utils.data import DataLoader
 from torchvision import models
-
 
 imagenet_mean = [0.485, 0.456, 0.406]
 imagenet_std = [0.229, 0.224, 0.225]
 
 train_transforms = transforms.Compose([
     transforms.Resize((224, 224)),
-
     transforms.RandomHorizontalFlip(p=0.5),
     transforms.RandomRotation(degrees=10),
     transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
-
     transforms.ToTensor(),
     transforms.Normalize(imagenet_mean, imagenet_std)
 ])
@@ -48,13 +41,12 @@ def main(
     train_dataset = data_loader.StanfordCarsDataset(train_path, images_dir, train_transforms)
     val_dataset = data_loader.StanfordCarsDataset(validation_path, images_dir, val_transforms)
 
-    logger.info("init dataloaders")
-    train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True, num_workers=6)
-    val_dataloader = DataLoader(val_dataset, batch_size=64, shuffle=False, num_workers=6)
+    logger.info("Init dataloaders...")
+
+    train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True, num_workers=2, pin_memory=True)
+    val_dataloader = DataLoader(val_dataset, batch_size=64, shuffle=False, num_workers=2, pin_memory=True)
 
     device = torch.device('mps')
-
-    logger.info("Device: " + device.__str__())
 
     model = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
 
@@ -63,45 +55,60 @@ def main(
 
     num_ftrs = model.fc.in_features
     model.fc = nn.Linear(num_ftrs, 196)
-
     model.to(device)
 
     criterion = nn.CrossEntropyLoss()
 
-    adam = optim.Adam(model.fc.parameters(), lr=0.001)
+    optimizer = optim.Adam(model.parameters(), lr=1e-3)
+
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.1, patience=2)
 
     num_epochs = 25
+    unfreeze_epoch = 5
+
+    logger.info("Starting training pipeline...")
 
     for epoch in range(num_epochs):
+        if epoch == unfreeze_epoch:
+            logger.warning("unfreezing")
+
+            for param in model.parameters():
+                param.requires_grad = True
+
+            optimizer = optim.Adam(model.parameters(), lr=1e-4)
+
+            scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.1, patience=2)
+
         model.train()
         running_loss = 0.0
         correct_predictions = 0
         total_samples = 0
 
-        progress = tqdm(train_dataloader, desc=f"Epoch {epoch+1}/{num_epochs}")
+        progress = tqdm(train_dataloader, desc=f"Epoch {epoch + 1}/{num_epochs}")
 
         for inputs, labels in progress:
             inputs, labels = inputs.to(device), labels.to(device)
 
-            adam.zero_grad()
+            optimizer.zero_grad()
 
             outputs = model(inputs)
             loss = criterion(outputs, labels)
 
             loss.backward()
-            adam.step()
+            optimizer.step()
 
-            running_loss += loss.item() * inputs.size(0)
+            current_batch_size = inputs.size(0)
+            running_loss += loss.item() * current_batch_size
             _, predicted = torch.max(outputs, 1)
             correct_predictions += (predicted == labels).sum().item()
-            total_samples += labels.size(0)
+            total_samples += current_batch_size
 
             progress.set_postfix(loss=loss.item())
 
         epoch_loss = running_loss / total_samples
         epoch_acc = correct_predictions / total_samples
 
-        logger.info(f"Epoch {epoch + 1} Results - Loss: {epoch_loss:.4f} - Acc: {epoch_acc:.4f}")
+        logger.info(f"Train - Loss: {epoch_loss:.4f} - Acc: {epoch_acc:.4f}")
 
         model.eval()
         val_correct = 0
@@ -116,7 +123,9 @@ def main(
                 val_correct += (predicted == labels).sum().item()
 
         val_acc = val_correct / val_total
-        logger.success(f"Validation Accuracy: {val_acc:.4f}")
+        logger.success(f"Val Acc: {val_acc:.4f}")
+
+        scheduler.step(val_acc)
 
         torch.save(model.state_dict(), MODELS_DIR / "model.pkl")
 
