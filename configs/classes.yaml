@@ -1,0 +1,2526 @@
+source:
+  name: drom
+  base_url: https://www.drom.ru
+  discover_path: /
+  page_param: page
+  start_page: 1
+  max_pages_per_class: 30
+  stop_on_empty_page: true
+  listing_id_regex: (\d+)(?:\.html)?(?:\?.*)?$
+  timeout_seconds: 20
+  retries: 5
+  retry_backoff_base_seconds: 0.5
+  retry_backoff_max_seconds: 20
+  qps: 1.5
+  burst: 3
+  concurrency: 12
+  cache_ttl_seconds: 86400
+  circuit_breaker_failures: 8
+  circuit_breaker_cooldown_seconds: 30
+  user_agent: car-listing-visual-verification/1.0 (authorized drom.ru data collection)
+  headers:
+    Accept-Language: ru-RU,ru;q=0.9,en;q=0.7
+  listing_url_patterns:
+  - /[^\s\"'<>]+\.html(?:\?.*)?$
+  - /auto/[^\s\"'<>]+
+classes:
+- class_id: 1
+  make: Toyota
+  model: camry
+  generation: g_200601_988
+  body_type: sedan
+  class_name: toyota_camry_g_200601_988_sedan
+  search_path: /toyota/camry/
+  search_params:
+    generation: g_200601_988
+    body_type: sedan
+- class_id: 2
+  make: Audi
+  model: '50'
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_50_g_fallback_01_sedan
+  search_path: /audi/50/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 3
+  make: Audi
+  model: '80'
+  generation: g_198609_5520
+  body_type: sedan
+  class_name: audi_80_g_198609_5520_sedan
+  search_path: /audi/80/
+  search_params:
+    generation: g_198609_5520
+    body_type: sedan
+- class_id: 4
+  make: Audi
+  model: '90'
+  generation: g_198704_7067
+  body_type: sedan
+  class_name: audi_90_g_198704_7067_sedan
+  search_path: /audi/90/
+  search_params:
+    generation: g_198704_7067
+    body_type: sedan
+- class_id: 5
+  make: Audi
+  model: '100'
+  generation: g_199012_1756
+  body_type: sedan
+  class_name: audi_100_g_199012_1756_sedan
+  search_path: /audi/100/
+  search_params:
+    generation: g_199012_1756
+    body_type: sedan
+- class_id: 6
+  make: Audi
+  model: '200'
+  generation: g_198406_2305
+  body_type: sedan
+  class_name: audi_200_g_198406_2305_sedan
+  search_path: /audi/200/
+  search_params:
+    generation: g_198406_2305
+    body_type: sedan
+- class_id: 7
+  make: Audi
+  model: a1
+  generation: g_201002_1261
+  body_type: sedan
+  class_name: audi_a1_g_201002_1261_sedan
+  search_path: /audi/a1/
+  search_params:
+    generation: g_201002_1261
+    body_type: sedan
+- class_id: 8
+  make: Audi
+  model: a2
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_a2_g_fallback_01_sedan
+  search_path: /audi/a2/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 9
+  make: Audi
+  model: a3
+  generation: g_201209_1808
+  body_type: sedan
+  class_name: audi_a3_g_201209_1808_sedan
+  search_path: /audi/a3/
+  search_params:
+    generation: g_201209_1808
+    body_type: sedan
+- class_id: 10
+  make: Audi
+  model: a4
+  generation: g_200710_1311
+  body_type: sedan
+  class_name: audi_a4_g_200710_1311_sedan
+  search_path: /audi/a4/
+  search_params:
+    generation: g_200710_1311
+    body_type: sedan
+- class_id: 11
+  make: Audi
+  model: a4_allroad_quattro
+  generation: g_201110_7025
+  body_type: sedan
+  class_name: audi_a4_allroad_quattro_g_201110_7025_sedan
+  search_path: /audi/a4_allroad_quattro/
+  search_params:
+    generation: g_201110_7025
+    body_type: sedan
+- class_id: 12
+  make: Audi
+  model: a5
+  generation: g_200703_1314
+  body_type: sedan
+  class_name: audi_a5_g_200703_1314_sedan
+  search_path: /audi/a5/
+  search_params:
+    generation: g_200703_1314
+    body_type: sedan
+- class_id: 13
+  make: Audi
+  model: a5l
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_a5l_g_fallback_01_sedan
+  search_path: /audi/a5l/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 14
+  make: Audi
+  model: a6
+  generation: g_200404_1267
+  body_type: sedan
+  class_name: audi_a6_g_200404_1267_sedan
+  search_path: /audi/a6/
+  search_params:
+    generation: g_200404_1267
+    body_type: sedan
+- class_id: 15
+  make: Audi
+  model: a6_allroad_quattro
+  generation: g_200105_2388
+  body_type: sedan
+  class_name: audi_a6_allroad_quattro_g_200105_2388_sedan
+  search_path: /audi/a6_allroad_quattro/
+  search_params:
+    generation: g_200105_2388
+    body_type: sedan
+- class_id: 16
+  make: Audi
+  model: a6_e-tron
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_a6_e_tron_g_fallback_01_sedan
+  search_path: /audi/a6_e-tron/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 17
+  make: Audi
+  model: a7
+  generation: g_201007_1327
+  body_type: sedan
+  class_name: audi_a7_g_201007_1327_sedan
+  search_path: /audi/a7/
+  search_params:
+    generation: g_201007_1327
+    body_type: sedan
+- class_id: 18
+  make: Audi
+  model: a8
+  generation: g_200911_1260
+  body_type: sedan
+  class_name: audi_a8_g_200911_1260_sedan
+  search_path: /audi/a8/
+  search_params:
+    generation: g_200911_1260
+    body_type: sedan
+- class_id: 19
+  make: Audi
+  model: cabriolet
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_cabriolet_g_fallback_01_sedan
+  search_path: /audi/cabriolet/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 20
+  make: Audi
+  model: coupe-model
+  generation: g_199107_2392
+  body_type: sedan
+  class_name: audi_coupe_model_g_199107_2392_sedan
+  search_path: /audi/coupe-model/
+  search_params:
+    generation: g_199107_2392
+    body_type: sedan
+- class_id: 21
+  make: Audi
+  model: e-tron
+  generation: g_201809_11653
+  body_type: sedan
+  class_name: audi_e_tron_g_201809_11653_sedan
+  search_path: /audi/e-tron/
+  search_params:
+    generation: g_201809_11653
+    body_type: sedan
+- class_id: 22
+  make: Audi
+  model: e-tron_gt
+  generation: g_202012_12940
+  body_type: sedan
+  class_name: audi_e_tron_gt_g_202012_12940_sedan
+  search_path: /audi/e-tron_gt/
+  search_params:
+    generation: g_202012_12940
+    body_type: sedan
+- class_id: 23
+  make: Audi
+  model: e-tron_s
+  generation: g_202009_18489
+  body_type: sedan
+  class_name: audi_e_tron_s_g_202009_18489_sedan
+  search_path: /audi/e-tron_s/
+  search_params:
+    generation: g_202009_18489
+    body_type: sedan
+- class_id: 24
+  make: Audi
+  model: e-tron_sportback
+  generation: g_202004_12926
+  body_type: sedan
+  class_name: audi_e_tron_sportback_g_202004_12926_sedan
+  search_path: /audi/e-tron_sportback/
+  search_params:
+    generation: g_202004_12926
+    body_type: sedan
+- class_id: 25
+  make: Audi
+  model: e-tron_sportback_s
+  generation: g_202009_14695
+  body_type: sedan
+  class_name: audi_e_tron_sportback_s_g_202009_14695_sedan
+  search_path: /audi/e-tron_sportback_s/
+  search_params:
+    generation: g_202009_14695
+    body_type: sedan
+- class_id: 26
+  make: Audi
+  model: e5_sportback
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_e5_sportback_g_fallback_01_sedan
+  search_path: /audi/e5_sportback/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 27
+  make: Audi
+  model: q2
+  generation: g_201610_16950
+  body_type: sedan
+  class_name: audi_q2_g_201610_16950_sedan
+  search_path: /audi/q2/
+  search_params:
+    generation: g_201610_16950
+    body_type: sedan
+- class_id: 28
+  make: Audi
+  model: q2_e-tron
+  generation: g_201911_16948
+  body_type: sedan
+  class_name: audi_q2_e_tron_g_201911_16948_sedan
+  search_path: /audi/q2_e-tron/
+  search_params:
+    generation: g_201911_16948
+    body_type: sedan
+- class_id: 29
+  make: Audi
+  model: q3
+  generation: g_201106_1617
+  body_type: sedan
+  class_name: audi_q3_g_201106_1617_sedan
+  search_path: /audi/q3/
+  search_params:
+    generation: g_201106_1617
+    body_type: sedan
+- class_id: 30
+  make: Audi
+  model: q3_sportback
+  generation: g_201808_10640
+  body_type: sedan
+  class_name: audi_q3_sportback_g_201808_10640_sedan
+  search_path: /audi/q3_sportback/
+  search_params:
+    generation: g_201808_10640
+    body_type: sedan
+- class_id: 31
+  make: Audi
+  model: q4_e-tron
+  generation: g_202104_13195
+  body_type: sedan
+  class_name: audi_q4_e_tron_g_202104_13195_sedan
+  search_path: /audi/q4_e-tron/
+  search_params:
+    generation: g_202104_13195
+    body_type: sedan
+- class_id: 32
+  make: Audi
+  model: q4_sportback_e-tron
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_q4_sportback_e_tron_g_fallback_01_sedan
+  search_path: /audi/q4_sportback_e-tron/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 33
+  make: Audi
+  model: q5
+  generation: g_200804_1262
+  body_type: sedan
+  class_name: audi_q5_g_200804_1262_sedan
+  search_path: /audi/q5/
+  search_params:
+    generation: g_200804_1262
+    body_type: sedan
+- class_id: 34
+  make: Audi
+  model: q5_e-tron
+  generation: g_202202_17052
+  body_type: sedan
+  class_name: audi_q5_e_tron_g_202202_17052_sedan
+  search_path: /audi/q5_e-tron/
+  search_params:
+    generation: g_202202_17052
+    body_type: sedan
+- class_id: 35
+  make: Audi
+  model: q5_sportback
+  generation: g_202009_12215
+  body_type: sedan
+  class_name: audi_q5_sportback_g_202009_12215_sedan
+  search_path: /audi/q5_sportback/
+  search_params:
+    generation: g_202009_12215
+    body_type: sedan
+- class_id: 36
+  make: Audi
+  model: q6
+  generation: g_202207_15880
+  body_type: sedan
+  class_name: audi_q6_g_202207_15880_sedan
+  search_path: /audi/q6/
+  search_params:
+    generation: g_202207_15880
+    body_type: sedan
+- class_id: 37
+  make: Audi
+  model: q6_e-tron
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_q6_e_tron_g_fallback_01_sedan
+  search_path: /audi/q6_e-tron/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 38
+  make: Audi
+  model: q6_e-tron_sportback
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_q6_e_tron_sportback_g_fallback_01_sedan
+  search_path: /audi/q6_e-tron_sportback/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 39
+  make: Audi
+  model: q7
+  generation: g_201503_3524
+  body_type: sedan
+  class_name: audi_q7_g_201503_3524_sedan
+  search_path: /audi/q7/
+  search_params:
+    generation: g_201503_3524
+    body_type: sedan
+- class_id: 40
+  make: Audi
+  model: q8
+  generation: g_201808_8396
+  body_type: sedan
+  class_name: audi_q8_g_201808_8396_sedan
+  search_path: /audi/q8/
+  search_params:
+    generation: g_201808_8396
+    body_type: sedan
+- class_id: 41
+  make: Audi
+  model: q8_e-tron
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_q8_e_tron_g_fallback_01_sedan
+  search_path: /audi/q8_e-tron/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 42
+  make: Audi
+  model: q8_sportback_e-tron
+  generation: g_202211_20792
+  body_type: sedan
+  class_name: audi_q8_sportback_e_tron_g_202211_20792_sedan
+  search_path: /audi/q8_sportback_e-tron/
+  search_params:
+    generation: g_202211_20792
+    body_type: sedan
+- class_id: 43
+  make: Audi
+  model: quattro
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_quattro_g_fallback_01_sedan
+  search_path: /audi/quattro/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 44
+  make: Audi
+  model: quattro_sport
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_quattro_sport_g_fallback_01_sedan
+  search_path: /audi/quattro_sport/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 45
+  make: Audi
+  model: r8
+  generation: g_200609_13954
+  body_type: sedan
+  class_name: audi_r8_g_200609_13954_sedan
+  search_path: /audi/r8/
+  search_params:
+    generation: g_200609_13954
+    body_type: sedan
+- class_id: 46
+  make: Audi
+  model: rs_e-tron_gt
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_rs_e_tron_gt_g_fallback_01_sedan
+  search_path: /audi/rs_e-tron_gt/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 47
+  make: Audi
+  model: rs_q3
+  generation: g_201309_7142
+  body_type: sedan
+  class_name: audi_rs_q3_g_201309_7142_sedan
+  search_path: /audi/rs_q3/
+  search_params:
+    generation: g_201309_7142
+    body_type: sedan
+- class_id: 48
+  make: Audi
+  model: rs_q3_sportback
+  generation: g_201910_10393
+  body_type: sedan
+  class_name: audi_rs_q3_sportback_g_201910_10393_sedan
+  search_path: /audi/rs_q3_sportback/
+  search_params:
+    generation: g_201910_10393
+    body_type: sedan
+- class_id: 49
+  make: Audi
+  model: rs_q8
+  generation: g_201912_10591
+  body_type: sedan
+  class_name: audi_rs_q8_g_201912_10591_sedan
+  search_path: /audi/rs_q8/
+  search_params:
+    generation: g_201912_10591
+    body_type: sedan
+- class_id: 50
+  make: Audi
+  model: rs2
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_rs2_g_fallback_01_sedan
+  search_path: /audi/rs2/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 51
+  make: Audi
+  model: rs3
+  generation: g_201107_1998
+  body_type: sedan
+  class_name: audi_rs3_g_201107_1998_sedan
+  search_path: /audi/rs3/
+  search_params:
+    generation: g_201107_1998
+    body_type: sedan
+- class_id: 52
+  make: Audi
+  model: rs4
+  generation: g_201206_1983
+  body_type: sedan
+  class_name: audi_rs4_g_201206_1983_sedan
+  search_path: /audi/rs4/
+  search_params:
+    generation: g_201206_1983
+    body_type: sedan
+- class_id: 53
+  make: Audi
+  model: rs5
+  generation: g_201003_7146
+  body_type: sedan
+  class_name: audi_rs5_g_201003_7146_sedan
+  search_path: /audi/rs5/
+  search_params:
+    generation: g_201003_7146
+    body_type: sedan
+- class_id: 54
+  make: Audi
+  model: rs6
+  generation: g_201912_10309
+  body_type: sedan
+  class_name: audi_rs6_g_201912_10309_sedan
+  search_path: /audi/rs6/
+  search_params:
+    generation: g_201912_10309
+    body_type: sedan
+- class_id: 55
+  make: Audi
+  model: rs7
+  generation: g_201912_10377
+  body_type: sedan
+  class_name: audi_rs7_g_201912_10377_sedan
+  search_path: /audi/rs7/
+  search_params:
+    generation: g_201912_10377
+    body_type: sedan
+- class_id: 56
+  make: Audi
+  model: s1
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_s1_g_fallback_01_sedan
+  search_path: /audi/s1/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 57
+  make: Audi
+  model: s2
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_s2_g_fallback_01_sedan
+  search_path: /audi/s2/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 58
+  make: Audi
+  model: s3
+  generation: g_201308_2075
+  body_type: sedan
+  class_name: audi_s3_g_201308_2075_sedan
+  search_path: /audi/s3/
+  search_params:
+    generation: g_201308_2075
+    body_type: sedan
+- class_id: 59
+  make: Audi
+  model: s4
+  generation: g_201905_16005
+  body_type: sedan
+  class_name: audi_s4_g_201905_16005_sedan
+  search_path: /audi/s4/
+  search_params:
+    generation: g_201905_16005
+    body_type: sedan
+- class_id: 60
+  make: Audi
+  model: s5
+  generation: g_200911_9476
+  body_type: sedan
+  class_name: audi_s5_g_200911_9476_sedan
+  search_path: /audi/s5/
+  search_params:
+    generation: g_200911_9476
+    body_type: sedan
+- class_id: 61
+  make: Audi
+  model: s6
+  generation: g_201907_11565
+  body_type: sedan
+  class_name: audi_s6_g_201907_11565_sedan
+  search_path: /audi/s6/
+  search_params:
+    generation: g_201907_11565
+    body_type: sedan
+- class_id: 62
+  make: Audi
+  model: s6_e-tron
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_s6_e_tron_g_fallback_01_sedan
+  search_path: /audi/s6_e-tron/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 63
+  make: Audi
+  model: s7
+  generation: g_201907_11566
+  body_type: sedan
+  class_name: audi_s7_g_201907_11566_sedan
+  search_path: /audi/s7/
+  search_params:
+    generation: g_201907_11566
+    body_type: sedan
+- class_id: 64
+  make: Audi
+  model: s8
+  generation: g_201911_11105
+  body_type: sedan
+  class_name: audi_s8_g_201911_11105_sedan
+  search_path: /audi/s8/
+  search_params:
+    generation: g_201911_11105
+    body_type: sedan
+- class_id: 65
+  make: Audi
+  model: sq2
+  generation: g_201812_21600
+  body_type: sedan
+  class_name: audi_sq2_g_201812_21600_sedan
+  search_path: /audi/sq2/
+  search_params:
+    generation: g_201812_21600
+    body_type: sedan
+- class_id: 66
+  make: Audi
+  model: sq5
+  generation: g_201309_2084
+  body_type: sedan
+  class_name: audi_sq5_g_201309_2084_sedan
+  search_path: /audi/sq5/
+  search_params:
+    generation: g_201309_2084
+    body_type: sedan
+- class_id: 67
+  make: Audi
+  model: sq5_sportback
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_sq5_sportback_g_fallback_01_sedan
+  search_path: /audi/sq5_sportback/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 68
+  make: Audi
+  model: sq6_e-tron
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_sq6_e_tron_g_fallback_01_sedan
+  search_path: /audi/sq6_e-tron/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 69
+  make: Audi
+  model: sq6_e-tron_sportback
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_sq6_e_tron_sportback_g_fallback_01_sedan
+  search_path: /audi/sq6_e-tron_sportback/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 70
+  make: Audi
+  model: sq7
+  generation: g_201909_11186
+  body_type: sedan
+  class_name: audi_sq7_g_201909_11186_sedan
+  search_path: /audi/sq7/
+  search_params:
+    generation: g_201909_11186
+    body_type: sedan
+- class_id: 71
+  make: Audi
+  model: sq8
+  generation: g_202309_19242
+  body_type: sedan
+  class_name: audi_sq8_g_202309_19242_sedan
+  search_path: /audi/sq8/
+  search_params:
+    generation: g_202309_19242
+    body_type: sedan
+- class_id: 72
+  make: Audi
+  model: sq8_e-tron
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_sq8_e_tron_g_fallback_01_sedan
+  search_path: /audi/sq8_e-tron/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 73
+  make: Audi
+  model: sq8_sportback_e-tron
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_sq8_sportback_e_tron_g_fallback_01_sedan
+  search_path: /audi/sq8_sportback_e-tron/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 74
+  make: Audi
+  model: tt
+  generation: g_199906_9213
+  body_type: sedan
+  class_name: audi_tt_g_199906_9213_sedan
+  search_path: /audi/tt/
+  search_params:
+    generation: g_199906_9213
+    body_type: sedan
+- class_id: 75
+  make: Audi
+  model: tt_rs
+  generation: g_201012_1324
+  body_type: sedan
+  class_name: audi_tt_rs_g_201012_1324_sedan
+  search_path: /audi/tt_rs/
+  search_params:
+    generation: g_201012_1324
+    body_type: sedan
+- class_id: 76
+  make: Audi
+  model: tts
+  generation: g_200801_1322
+  body_type: sedan
+  class_name: audi_tts_g_200801_1322_sedan
+  search_path: /audi/tts/
+  search_params:
+    generation: g_200801_1322
+    body_type: sedan
+- class_id: 77
+  make: Audi
+  model: v8
+  generation: g_198808_2387
+  body_type: sedan
+  class_name: audi_v8_g_198808_2387_sedan
+  search_path: /audi/v8/
+  search_params:
+    generation: g_198808_2387
+    body_type: sedan
+- class_id: 78
+  make: Audi
+  model: engine
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_engine_g_fallback_01_sedan
+  search_path: /audi/engine/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 79
+  make: Audi
+  model: frame
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: audi_frame_g_fallback_01_sedan
+  search_path: /audi/frame/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 80
+  make: Bmw
+  model: 02_e10
+  generation: g_196604_11915
+  body_type: sedan
+  class_name: bmw_02_e10_g_196604_11915_sedan
+  search_path: /bmw/02_e10/
+  search_params:
+    generation: g_196604_11915
+    body_type: sedan
+- class_id: 81
+  make: Bmw
+  model: 1-series
+  generation: g_201109_1588
+  body_type: sedan
+  class_name: bmw_1_series_g_201109_1588_sedan
+  search_path: /bmw/1-series/
+  search_params:
+    generation: g_201109_1588
+    body_type: sedan
+- class_id: 82
+  make: Bmw
+  model: 1m
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_1m_g_fallback_01_sedan
+  search_path: /bmw/1m/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 83
+  make: Bmw
+  model: 2-series
+  generation: g_201705_7614
+  body_type: sedan
+  class_name: bmw_2_series_g_201705_7614_sedan
+  search_path: /bmw/2-series/
+  search_params:
+    generation: g_201705_7614
+    body_type: sedan
+- class_id: 84
+  make: Bmw
+  model: 2-series_active_tourer
+  generation: g_201403_7519
+  body_type: sedan
+  class_name: bmw_2_series_active_tourer_g_201403_7519_sedan
+  search_path: /bmw/2-series_active_tourer/
+  search_params:
+    generation: g_201403_7519
+    body_type: sedan
+- class_id: 85
+  make: Bmw
+  model: 2-series_gran_tourer
+  generation: g_201502_9101
+  body_type: sedan
+  class_name: bmw_2_series_gran_tourer_g_201502_9101_sedan
+  search_path: /bmw/2-series_gran_tourer/
+  search_params:
+    generation: g_201502_9101
+    body_type: sedan
+- class_id: 86
+  make: Bmw
+  model: 3-series
+  generation: g_201109_1809
+  body_type: sedan
+  class_name: bmw_3_series_g_201109_1809_sedan
+  search_path: /bmw/3-series/
+  search_params:
+    generation: g_201109_1809
+    body_type: sedan
+- class_id: 87
+  make: Bmw
+  model: 3-series_gran_turismo
+  generation: g_201305_2073
+  body_type: sedan
+  class_name: bmw_3_series_gran_turismo_g_201305_2073_sedan
+  search_path: /bmw/3-series_gran_turismo/
+  search_params:
+    generation: g_201305_2073
+    body_type: sedan
+- class_id: 88
+  make: Bmw
+  model: '321'
+  generation: g_193901_11958
+  body_type: sedan
+  class_name: bmw_321_g_193901_11958_sedan
+  search_path: /bmw/321/
+  search_params:
+    generation: g_193901_11958
+    body_type: sedan
+- class_id: 89
+  make: Bmw
+  model: '326'
+  generation: g_193602_11960
+  body_type: sedan
+  class_name: bmw_326_g_193602_11960_sedan
+  search_path: /bmw/326/
+  search_params:
+    generation: g_193602_11960
+    body_type: sedan
+- class_id: 90
+  make: Bmw
+  model: '340'
+  generation: g_194903_11962
+  body_type: sedan
+  class_name: bmw_340_g_194903_11962_sedan
+  search_path: /bmw/340/
+  search_params:
+    generation: g_194903_11962
+    body_type: sedan
+- class_id: 91
+  make: Bmw
+  model: 4-series
+  generation: g_202006_11592
+  body_type: sedan
+  class_name: bmw_4_series_g_202006_11592_sedan
+  search_path: /bmw/4-series/
+  search_params:
+    generation: g_202006_11592
+    body_type: sedan
+- class_id: 92
+  make: Bmw
+  model: 5-series
+  generation: g_201610_7380
+  body_type: sedan
+  class_name: bmw_5_series_g_201610_7380_sedan
+  search_path: /bmw/5-series/
+  search_params:
+    generation: g_201610_7380
+    body_type: sedan
+- class_id: 93
+  make: Bmw
+  model: 5-series_gran_turismo
+  generation: g_200910_4655
+  body_type: sedan
+  class_name: bmw_5_series_gran_turismo_g_200910_4655_sedan
+  search_path: /bmw/5-series_gran_turismo/
+  search_params:
+    generation: g_200910_4655
+    body_type: sedan
+- class_id: 94
+  make: Bmw
+  model: '503'
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_503_g_fallback_01_sedan
+  search_path: /bmw/503/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 95
+  make: Bmw
+  model: 6-series
+  generation: g_201106_23572
+  body_type: sedan
+  class_name: bmw_6_series_g_201106_23572_sedan
+  search_path: /bmw/6-series/
+  search_params:
+    generation: g_201106_23572
+    body_type: sedan
+- class_id: 96
+  make: Bmw
+  model: 6-series_gran_turismo
+  generation: g_201711_7671
+  body_type: sedan
+  class_name: bmw_6_series_gran_turismo_g_201711_7671_sedan
+  search_path: /bmw/6-series_gran_turismo/
+  search_params:
+    generation: g_201711_7671
+    body_type: sedan
+- class_id: 97
+  make: Bmw
+  model: 7-series
+  generation: g_200807_4152
+  body_type: sedan
+  class_name: bmw_7_series_g_200807_4152_sedan
+  search_path: /bmw/7-series/
+  search_params:
+    generation: g_200807_4152
+    body_type: sedan
+- class_id: 98
+  make: Bmw
+  model: 8-series
+  generation: g_201808_8405
+  body_type: sedan
+  class_name: bmw_8_series_g_201808_8405_sedan
+  search_path: /bmw/8-series/
+  search_params:
+    generation: g_201808_8405
+    body_type: sedan
+- class_id: 99
+  make: Bmw
+  model: e3
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_e3_g_fallback_01_sedan
+  search_path: /bmw/e3/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 100
+  make: Bmw
+  model: e9
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_e9_g_fallback_01_sedan
+  search_path: /bmw/e9/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 101
+  make: Bmw
+  model: i3
+  generation: g_201307_2436
+  body_type: sedan
+  class_name: bmw_i3_g_201307_2436_sedan
+  search_path: /bmw/i3/
+  search_params:
+    generation: g_201307_2436
+    body_type: sedan
+- class_id: 102
+  make: Bmw
+  model: i4
+  generation: g_202111_13429
+  body_type: sedan
+  class_name: bmw_i4_g_202111_13429_sedan
+  search_path: /bmw/i4/
+  search_params:
+    generation: g_202111_13429
+    body_type: sedan
+- class_id: 103
+  make: Bmw
+  model: i5
+  generation: g_202307_19455
+  body_type: sedan
+  class_name: bmw_i5_g_202307_19455_sedan
+  search_path: /bmw/i5/
+  search_params:
+    generation: g_202307_19455
+    body_type: sedan
+- class_id: 104
+  make: Bmw
+  model: i7
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_i7_g_fallback_01_sedan
+  search_path: /bmw/i7/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 105
+  make: Bmw
+  model: i8
+  generation: g_201802_23479
+  body_type: sedan
+  class_name: bmw_i8_g_201802_23479_sedan
+  search_path: /bmw/i8/
+  search_params:
+    generation: g_201802_23479
+    body_type: sedan
+- class_id: 106
+  make: Bmw
+  model: isetta
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_isetta_g_fallback_01_sedan
+  search_path: /bmw/isetta/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 107
+  make: Bmw
+  model: ix
+  generation: g_202106_13065
+  body_type: sedan
+  class_name: bmw_ix_g_202106_13065_sedan
+  search_path: /bmw/ix/
+  search_params:
+    generation: g_202106_13065
+    body_type: sedan
+- class_id: 108
+  make: Bmw
+  model: ix1
+  generation: g_202211_15776
+  body_type: sedan
+  class_name: bmw_ix1_g_202211_15776_sedan
+  search_path: /bmw/ix1/
+  search_params:
+    generation: g_202211_15776
+    body_type: sedan
+- class_id: 109
+  make: Bmw
+  model: ix2
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_ix2_g_fallback_01_sedan
+  search_path: /bmw/ix2/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 110
+  make: Bmw
+  model: ix3
+  generation: g_202109_15779
+  body_type: sedan
+  class_name: bmw_ix3_g_202109_15779_sedan
+  search_path: /bmw/ix3/
+  search_params:
+    generation: g_202109_15779
+    body_type: sedan
+- class_id: 111
+  make: Bmw
+  model: m2
+  generation: g_201706_7616
+  body_type: sedan
+  class_name: bmw_m2_g_201706_7616_sedan
+  search_path: /bmw/m2/
+  search_params:
+    generation: g_201706_7616
+    body_type: sedan
+- class_id: 112
+  make: Bmw
+  model: m3
+  generation: g_202009_12166
+  body_type: sedan
+  class_name: bmw_m3_g_202009_12166_sedan
+  search_path: /bmw/m3/
+  search_params:
+    generation: g_202009_12166
+    body_type: sedan
+- class_id: 113
+  make: Bmw
+  model: m4
+  generation: g_202010_12173
+  body_type: sedan
+  class_name: bmw_m4_g_202010_12173_sedan
+  search_path: /bmw/m4/
+  search_params:
+    generation: g_202010_12173
+    body_type: sedan
+- class_id: 114
+  make: Bmw
+  model: m5
+  generation: g_202006_18881
+  body_type: sedan
+  class_name: bmw_m5_g_202006_18881_sedan
+  search_path: /bmw/m5/
+  search_params:
+    generation: g_202006_18881
+    body_type: sedan
+- class_id: 115
+  make: Bmw
+  model: m6
+  generation: g_200503_8495
+  body_type: sedan
+  class_name: bmw_m6_g_200503_8495_sedan
+  search_path: /bmw/m6/
+  search_params:
+    generation: g_200503_8495
+    body_type: sedan
+- class_id: 116
+  make: Bmw
+  model: m8
+  generation: g_201906_9905
+  body_type: sedan
+  class_name: bmw_m8_g_201906_9905_sedan
+  search_path: /bmw/m8/
+  search_params:
+    generation: g_201906_9905
+    body_type: sedan
+- class_id: 117
+  make: Bmw
+  model: neue_klasse
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_neue_klasse_g_fallback_01_sedan
+  search_path: /bmw/neue_klasse/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 118
+  make: Bmw
+  model: x1
+  generation: g_202207_15605
+  body_type: sedan
+  class_name: bmw_x1_g_202207_15605_sedan
+  search_path: /bmw/x1/
+  search_params:
+    generation: g_202207_15605
+    body_type: sedan
+- class_id: 119
+  make: Bmw
+  model: x2
+  generation: g_201711_7937
+  body_type: sedan
+  class_name: bmw_x2_g_201711_7937_sedan
+  search_path: /bmw/x2/
+  search_params:
+    generation: g_201711_7937
+    body_type: sedan
+- class_id: 120
+  make: Bmw
+  model: x3
+  generation: g_202408_21755
+  body_type: sedan
+  class_name: bmw_x3_g_202408_21755_sedan
+  search_path: /bmw/x3/
+  search_params:
+    generation: g_202408_21755
+    body_type: sedan
+- class_id: 121
+  make: Bmw
+  model: x4
+  generation: g_201803_8166
+  body_type: sedan
+  class_name: bmw_x4_g_201803_8166_sedan
+  search_path: /bmw/x4/
+  search_params:
+    generation: g_201803_8166
+    body_type: sedan
+- class_id: 122
+  make: Bmw
+  model: x5
+  generation: g_200611_5120
+  body_type: sedan
+  class_name: bmw_x5_g_200611_5120_sedan
+  search_path: /bmw/x5/
+  search_params:
+    generation: g_200611_5120
+    body_type: sedan
+- class_id: 123
+  make: Bmw
+  model: x6
+  generation: g_200803_1611
+  body_type: sedan
+  class_name: bmw_x6_g_200803_1611_sedan
+  search_path: /bmw/x6/
+  search_params:
+    generation: g_200803_1611
+    body_type: sedan
+- class_id: 124
+  make: Bmw
+  model: x7
+  generation: g_201901_9048
+  body_type: sedan
+  class_name: bmw_x7_g_201901_9048_sedan
+  search_path: /bmw/x7/
+  search_params:
+    generation: g_201901_9048
+    body_type: sedan
+- class_id: 125
+  make: Bmw
+  model: xm
+  generation: g_202212_16612
+  body_type: sedan
+  class_name: bmw_xm_g_202212_16612_sedan
+  search_path: /bmw/xm/
+  search_params:
+    generation: g_202212_16612
+    body_type: sedan
+- class_id: 126
+  make: Bmw
+  model: z1
+  generation: g_198807_2428
+  body_type: sedan
+  class_name: bmw_z1_g_198807_2428_sedan
+  search_path: /bmw/z1/
+  search_params:
+    generation: g_198807_2428
+    body_type: sedan
+- class_id: 127
+  make: Bmw
+  model: z3
+  generation: g_199603_2431
+  body_type: sedan
+  class_name: bmw_z3_g_199603_2431_sedan
+  search_path: /bmw/z3/
+  search_params:
+    generation: g_199603_2431
+    body_type: sedan
+- class_id: 128
+  make: Bmw
+  model: z4
+  generation: g_201808_8795
+  body_type: sedan
+  class_name: bmw_z4_g_201808_8795_sedan
+  search_path: /bmw/z4/
+  search_params:
+    generation: g_201808_8795
+    body_type: sedan
+- class_id: 129
+  make: Bmw
+  model: z8
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_z8_g_fallback_01_sedan
+  search_path: /bmw/z8/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 130
+  make: Bmw
+  model: engine
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_engine_g_fallback_01_sedan
+  search_path: /bmw/engine/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 131
+  make: Bmw
+  model: frame
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: bmw_frame_g_fallback_01_sedan
+  search_path: /bmw/frame/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 132
+  make: Chevrolet
+  model: '3600'
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_3600_g_fallback_01_sedan
+  search_path: /chevrolet/3600/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 133
+  make: Chevrolet
+  model: alero
+  generation: g_199804_2312
+  body_type: sedan
+  class_name: chevrolet_alero_g_199804_2312_sedan
+  search_path: /chevrolet/alero/
+  search_params:
+    generation: g_199804_2312
+    body_type: sedan
+- class_id: 134
+  make: Chevrolet
+  model: astro
+  generation: g_198403_11813
+  body_type: sedan
+  class_name: chevrolet_astro_g_198403_11813_sedan
+  search_path: /chevrolet/astro/
+  search_params:
+    generation: g_198403_11813
+    body_type: sedan
+- class_id: 135
+  make: Chevrolet
+  model: avalanche
+  generation: g_200109_11263
+  body_type: sedan
+  class_name: chevrolet_avalanche_g_200109_11263_sedan
+  search_path: /chevrolet/avalanche/
+  search_params:
+    generation: g_200109_11263
+    body_type: sedan
+- class_id: 136
+  make: Chevrolet
+  model: aveo
+  generation: g_200709_1336
+  body_type: sedan
+  class_name: chevrolet_aveo_g_200709_1336_sedan
+  search_path: /chevrolet/aveo/
+  search_params:
+    generation: g_200709_1336
+    body_type: sedan
+- class_id: 137
+  make: Chevrolet
+  model: beretta
+  generation: g_198706_15479
+  body_type: sedan
+  class_name: chevrolet_beretta_g_198706_15479_sedan
+  search_path: /chevrolet/beretta/
+  search_params:
+    generation: g_198706_15479
+    body_type: sedan
+- class_id: 138
+  make: Chevrolet
+  model: blazer
+  generation: g_199512_7418
+  body_type: sedan
+  class_name: chevrolet_blazer_g_199512_7418_sedan
+  search_path: /chevrolet/blazer/
+  search_params:
+    generation: g_199512_7418
+    body_type: sedan
+- class_id: 139
+  make: Chevrolet
+  model: blazer_ev
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_blazer_ev_g_fallback_01_sedan
+  search_path: /chevrolet/blazer_ev/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 140
+  make: Chevrolet
+  model: blazer_k5
+  generation: g_197607_12292
+  body_type: sedan
+  class_name: chevrolet_blazer_k5_g_197607_12292_sedan
+  search_path: /chevrolet/blazer_k5/
+  search_params:
+    generation: g_197607_12292
+    body_type: sedan
+- class_id: 141
+  make: Chevrolet
+  model: blazer_s-10
+  generation: g_199003_14136
+  body_type: sedan
+  class_name: chevrolet_blazer_s_10_g_199003_14136_sedan
+  search_path: /chevrolet/blazer_s-10/
+  search_params:
+    generation: g_199003_14136
+    body_type: sedan
+- class_id: 142
+  make: Chevrolet
+  model: bolt
+  generation: g_201612_9513
+  body_type: sedan
+  class_name: chevrolet_bolt_g_201612_9513_sedan
+  search_path: /chevrolet/bolt/
+  search_params:
+    generation: g_201612_9513
+    body_type: sedan
+- class_id: 143
+  make: Chevrolet
+  model: c10
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_c10_g_fallback_01_sedan
+  search_path: /chevrolet/c10/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 144
+  make: Chevrolet
+  model: camaro
+  generation: g_201810_9366
+  body_type: sedan
+  class_name: chevrolet_camaro_g_201810_9366_sedan
+  search_path: /chevrolet/camaro/
+  search_params:
+    generation: g_201810_9366
+    body_type: sedan
+- class_id: 145
+  make: Chevrolet
+  model: caprice
+  generation: g_199010_12191
+  body_type: sedan
+  class_name: chevrolet_caprice_g_199010_12191_sedan
+  search_path: /chevrolet/caprice/
+  search_params:
+    generation: g_199010_12191
+    body_type: sedan
+- class_id: 146
+  make: Chevrolet
+  model: captiva
+  generation: g_200602_1343
+  body_type: sedan
+  class_name: chevrolet_captiva_g_200602_1343_sedan
+  search_path: /chevrolet/captiva/
+  search_params:
+    generation: g_200602_1343
+    body_type: sedan
+- class_id: 147
+  make: Chevrolet
+  model: cavalier
+  generation: g_199408_11838
+  body_type: sedan
+  class_name: chevrolet_cavalier_g_199408_11838_sedan
+  search_path: /chevrolet/cavalier/
+  search_params:
+    generation: g_199408_11838
+    body_type: sedan
+- class_id: 148
+  make: Chevrolet
+  model: celebrity
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_celebrity_g_fallback_01_sedan
+  search_path: /chevrolet/celebrity/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 149
+  make: Chevrolet
+  model: cobalt
+  generation: g_201111_11686
+  body_type: sedan
+  class_name: chevrolet_cobalt_g_201111_11686_sedan
+  search_path: /chevrolet/cobalt/
+  search_params:
+    generation: g_201111_11686
+    body_type: sedan
+- class_id: 150
+  make: Chevrolet
+  model: colorado
+  generation: g_201404_2667
+  body_type: sedan
+  class_name: chevrolet_colorado_g_201404_2667_sedan
+  search_path: /chevrolet/colorado/
+  search_params:
+    generation: g_201404_2667
+    body_type: sedan
+- class_id: 151
+  make: Chevrolet
+  model: corsica
+  generation: g_198710_15224
+  body_type: sedan
+  class_name: chevrolet_corsica_g_198710_15224_sedan
+  search_path: /chevrolet/corsica/
+  search_params:
+    generation: g_198710_15224
+    body_type: sedan
+- class_id: 152
+  make: Chevrolet
+  model: corvette
+  generation: g_202002_13966
+  body_type: sedan
+  class_name: chevrolet_corvette_g_202002_13966_sedan
+  search_path: /chevrolet/corvette/
+  search_params:
+    generation: g_202002_13966
+    body_type: sedan
+- class_id: 153
+  make: Chevrolet
+  model: cruze
+  generation: g_200110_8691
+  body_type: sedan
+  class_name: chevrolet_cruze_g_200110_8691_sedan
+  search_path: /chevrolet/cruze/
+  search_params:
+    generation: g_200110_8691
+    body_type: sedan
+- class_id: 154
+  make: Chevrolet
+  model: damas
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_damas_g_fallback_01_sedan
+  search_path: /chevrolet/damas/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 155
+  make: Chevrolet
+  model: epica
+  generation: g_200810_4468
+  body_type: sedan
+  class_name: chevrolet_epica_g_200810_4468_sedan
+  search_path: /chevrolet/epica/
+  search_params:
+    generation: g_200810_4468
+    body_type: sedan
+- class_id: 156
+  make: Chevrolet
+  model: equinox
+  generation: g_201704_11679
+  body_type: sedan
+  class_name: chevrolet_equinox_g_201704_11679_sedan
+  search_path: /chevrolet/equinox/
+  search_params:
+    generation: g_201704_11679
+    body_type: sedan
+- class_id: 157
+  make: Chevrolet
+  model: equinox_ev
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_equinox_ev_g_fallback_01_sedan
+  search_path: /chevrolet/equinox_ev/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 158
+  make: Chevrolet
+  model: equinox_plus
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_equinox_plus_g_fallback_01_sedan
+  search_path: /chevrolet/equinox_plus/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 159
+  make: Chevrolet
+  model: evanda
+  generation: g_200409_2638
+  body_type: sedan
+  class_name: chevrolet_evanda_g_200409_2638_sedan
+  search_path: /chevrolet/evanda/
+  search_params:
+    generation: g_200409_2638
+    body_type: sedan
+- class_id: 160
+  make: Chevrolet
+  model: groove
+  generation: g_202105_16501
+  body_type: sedan
+  class_name: chevrolet_groove_g_202105_16501_sedan
+  search_path: /chevrolet/groove/
+  search_params:
+    generation: g_202105_16501
+    body_type: sedan
+- class_id: 161
+  make: Chevrolet
+  model: hhr
+  generation: g_200509_10869
+  body_type: sedan
+  class_name: chevrolet_hhr_g_200509_10869_sedan
+  search_path: /chevrolet/hhr/
+  search_params:
+    generation: g_200509_10869
+    body_type: sedan
+- class_id: 162
+  make: Chevrolet
+  model: impala
+  generation: g_201303_2639
+  body_type: sedan
+  class_name: chevrolet_impala_g_201303_2639_sedan
+  search_path: /chevrolet/impala/
+  search_params:
+    generation: g_201303_2639
+    body_type: sedan
+- class_id: 163
+  make: Chevrolet
+  model: lacetti
+  generation: g_200411_1339
+  body_type: sedan
+  class_name: chevrolet_lacetti_g_200411_1339_sedan
+  search_path: /chevrolet/lacetti/
+  search_params:
+    generation: g_200411_1339
+    body_type: sedan
+- class_id: 164
+  make: Chevrolet
+  model: lanos
+  generation: g_200504_1747
+  body_type: sedan
+  class_name: chevrolet_lanos_g_200504_1747_sedan
+  search_path: /chevrolet/lanos/
+  search_params:
+    generation: g_200504_1747
+    body_type: sedan
+- class_id: 165
+  make: Chevrolet
+  model: lumina
+  generation: g_198905_11801
+  body_type: sedan
+  class_name: chevrolet_lumina_g_198905_11801_sedan
+  search_path: /chevrolet/lumina/
+  search_params:
+    generation: g_198905_11801
+    body_type: sedan
+- class_id: 166
+  make: Chevrolet
+  model: lumina_apv
+  generation: g_199107_11808
+  body_type: sedan
+  class_name: chevrolet_lumina_apv_g_199107_11808_sedan
+  search_path: /chevrolet/lumina_apv/
+  search_params:
+    generation: g_199107_11808
+    body_type: sedan
+- class_id: 167
+  make: Chevrolet
+  model: malibu
+  generation: g_201804_19992
+  body_type: sedan
+  class_name: chevrolet_malibu_g_201804_19992_sedan
+  search_path: /chevrolet/malibu/
+  search_params:
+    generation: g_201804_19992
+    body_type: sedan
+- class_id: 168
+  make: Chevrolet
+  model: menlo
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_menlo_g_fallback_01_sedan
+  search_path: /chevrolet/menlo/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 169
+  make: Chevrolet
+  model: metro
+  generation: g_199707_2642
+  body_type: sedan
+  class_name: chevrolet_metro_g_199707_2642_sedan
+  search_path: /chevrolet/metro/
+  search_params:
+    generation: g_199707_2642
+    body_type: sedan
+- class_id: 170
+  make: Chevrolet
+  model: monte_carlo
+  generation: g_199402_2650
+  body_type: sedan
+  class_name: chevrolet_monte_carlo_g_199402_2650_sedan
+  search_path: /chevrolet/monte_carlo/
+  search_params:
+    generation: g_199402_2650
+    body_type: sedan
+- class_id: 171
+  make: Chevrolet
+  model: monza
+  generation: g_202209_18341
+  body_type: sedan
+  class_name: chevrolet_monza_g_202209_18341_sedan
+  search_path: /chevrolet/monza/
+  search_params:
+    generation: g_202209_18341
+    body_type: sedan
+- class_id: 172
+  make: Chevrolet
+  model: mw
+  generation: g_200302_2652
+  body_type: sedan
+  class_name: chevrolet_mw_g_200302_2652_sedan
+  search_path: /chevrolet/mw/
+  search_params:
+    generation: g_200302_2652
+    body_type: sedan
+- class_id: 173
+  make: Chevrolet
+  model: nexia
+  generation: g_201602_11663
+  body_type: sedan
+  class_name: chevrolet_nexia_g_201602_11663_sedan
+  search_path: /chevrolet/nexia/
+  search_params:
+    generation: g_201602_11663
+    body_type: sedan
+- class_id: 174
+  make: Chevrolet
+  model: niva
+  generation: g_200904_1658
+  body_type: sedan
+  class_name: chevrolet_niva_g_200904_1658_sedan
+  search_path: /chevrolet/niva/
+  search_params:
+    generation: g_200904_1658
+    body_type: sedan
+- class_id: 175
+  make: Chevrolet
+  model: nova
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_nova_g_fallback_01_sedan
+  search_path: /chevrolet/nova/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 176
+  make: Chevrolet
+  model: nubira
+  generation: g_200409_2644
+  body_type: sedan
+  class_name: chevrolet_nubira_g_200409_2644_sedan
+  search_path: /chevrolet/nubira/
+  search_params:
+    generation: g_200409_2644
+    body_type: sedan
+- class_id: 177
+  make: Chevrolet
+  model: onix
+  generation: g_201904_16926
+  body_type: sedan
+  class_name: chevrolet_onix_g_201904_16926_sedan
+  search_path: /chevrolet/onix/
+  search_params:
+    generation: g_201904_16926
+    body_type: sedan
+- class_id: 178
+  make: Chevrolet
+  model: optra
+  generation: g_200411_13961
+  body_type: sedan
+  class_name: chevrolet_optra_g_200411_13961_sedan
+  search_path: /chevrolet/optra/
+  search_params:
+    generation: g_200411_13961
+    body_type: sedan
+- class_id: 179
+  make: Chevrolet
+  model: orlando
+  generation: g_201111_1659
+  body_type: sedan
+  class_name: chevrolet_orlando_g_201111_1659_sedan
+  search_path: /chevrolet/orlando/
+  search_params:
+    generation: g_201111_1659
+    body_type: sedan
+- class_id: 180
+  make: Chevrolet
+  model: prizm
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_prizm_g_fallback_01_sedan
+  search_path: /chevrolet/prizm/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 181
+  make: Chevrolet
+  model: rezzo
+  generation: g_200501_2654
+  body_type: sedan
+  class_name: chevrolet_rezzo_g_200501_2654_sedan
+  search_path: /chevrolet/rezzo/
+  search_params:
+    generation: g_200501_2654
+    body_type: sedan
+- class_id: 182
+  make: Chevrolet
+  model: s10
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_s10_g_fallback_01_sedan
+  search_path: /chevrolet/s10/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 183
+  make: Chevrolet
+  model: seeker
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_seeker_g_fallback_01_sedan
+  search_path: /chevrolet/seeker/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 184
+  make: Chevrolet
+  model: silverado
+  generation: g_201801_10711
+  body_type: sedan
+  class_name: chevrolet_silverado_g_201801_10711_sedan
+  search_path: /chevrolet/silverado/
+  search_params:
+    generation: g_201801_10711
+    body_type: sedan
+- class_id: 185
+  make: Chevrolet
+  model: sonic
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_sonic_g_fallback_01_sedan
+  search_path: /chevrolet/sonic/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 186
+  make: Chevrolet
+  model: spark
+  generation: g_200908_1335
+  body_type: sedan
+  class_name: chevrolet_spark_g_200908_1335_sedan
+  search_path: /chevrolet/spark/
+  search_params:
+    generation: g_200908_1335
+    body_type: sedan
+- class_id: 187
+  make: Chevrolet
+  model: ssr
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_ssr_g_fallback_01_sedan
+  search_path: /chevrolet/ssr/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 188
+  make: Chevrolet
+  model: suburban
+  generation: g_199406_11976
+  body_type: sedan
+  class_name: chevrolet_suburban_g_199406_11976_sedan
+  search_path: /chevrolet/suburban/
+  search_params:
+    generation: g_199406_11976
+    body_type: sedan
+- class_id: 189
+  make: Chevrolet
+  model: tacuma
+  generation: g_200409_2656
+  body_type: sedan
+  class_name: chevrolet_tacuma_g_200409_2656_sedan
+  search_path: /chevrolet/tacuma/
+  search_params:
+    generation: g_200409_2656
+    body_type: sedan
+- class_id: 190
+  make: Chevrolet
+  model: tahoe
+  generation: g_200512_1660
+  body_type: sedan
+  class_name: chevrolet_tahoe_g_200512_1660_sedan
+  search_path: /chevrolet/tahoe/
+  search_params:
+    generation: g_200512_1660
+    body_type: sedan
+- class_id: 191
+  make: Chevrolet
+  model: tracker
+  generation: g_199812_11227
+  body_type: sedan
+  class_name: chevrolet_tracker_g_199812_11227_sedan
+  search_path: /chevrolet/tracker/
+  search_params:
+    generation: g_199812_11227
+    body_type: sedan
+- class_id: 192
+  make: Chevrolet
+  model: trailblazer
+  generation: g_200509_6021
+  body_type: sedan
+  class_name: chevrolet_trailblazer_g_200509_6021_sedan
+  search_path: /chevrolet/trailblazer/
+  search_params:
+    generation: g_200509_6021
+    body_type: sedan
+- class_id: 193
+  make: Chevrolet
+  model: trans_sport
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_trans_sport_g_fallback_01_sedan
+  search_path: /chevrolet/trans_sport/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 194
+  make: Chevrolet
+  model: traverse
+  generation: g_201708_7684
+  body_type: sedan
+  class_name: chevrolet_traverse_g_201708_7684_sedan
+  search_path: /chevrolet/traverse/
+  search_params:
+    generation: g_201708_7684
+    body_type: sedan
+- class_id: 195
+  make: Chevrolet
+  model: trax
+  generation: g_201610_15652
+  body_type: sedan
+  class_name: chevrolet_trax_g_201610_15652_sedan
+  search_path: /chevrolet/trax/
+  search_params:
+    generation: g_201610_15652
+    body_type: sedan
+- class_id: 196
+  make: Chevrolet
+  model: uplander
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_uplander_g_fallback_01_sedan
+  search_path: /chevrolet/uplander/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 197
+  make: Chevrolet
+  model: van-model
+  generation: g_198209_13375
+  body_type: sedan
+  class_name: chevrolet_van_model_g_198209_13375_sedan
+  search_path: /chevrolet/van-model/
+  search_params:
+    generation: g_198209_13375
+    body_type: sedan
+- class_id: 198
+  make: Chevrolet
+  model: venture
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_venture_g_fallback_01_sedan
+  search_path: /chevrolet/venture/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 199
+  make: Chevrolet
+  model: viva
+  generation: g_200409_2633
+  body_type: sedan
+  class_name: chevrolet_viva_g_200409_2633_sedan
+  search_path: /chevrolet/viva/
+  search_params:
+    generation: g_200409_2633
+    body_type: sedan
+- class_id: 200
+  make: Chevrolet
+  model: volt
+  generation: g_201012_9504
+  body_type: sedan
+  class_name: chevrolet_volt_g_201012_9504_sedan
+  search_path: /chevrolet/volt/
+  search_params:
+    generation: g_201012_9504
+    body_type: sedan
+- class_id: 201
+  make: Chevrolet
+  model: engine
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_engine_g_fallback_01_sedan
+  search_path: /chevrolet/engine/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 202
+  make: Chevrolet
+  model: frame
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: chevrolet_frame_g_fallback_01_sedan
+  search_path: /chevrolet/frame/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 203
+  make: Ford
+  model: aerostar
+  generation: g_198506_10866
+  body_type: sedan
+  class_name: ford_aerostar_g_198506_10866_sedan
+  search_path: /ford/aerostar/
+  search_params:
+    generation: g_198506_10866
+    body_type: sedan
+- class_id: 204
+  make: Ford
+  model: aspire
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_aspire_g_fallback_01_sedan
+  search_path: /ford/aspire/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 205
+  make: Ford
+  model: b-max
+  generation: g_201203_2469
+  body_type: sedan
+  class_name: ford_b_max_g_201203_2469_sedan
+  search_path: /ford/b-max/
+  search_params:
+    generation: g_201203_2469
+    body_type: sedan
+- class_id: 206
+  make: Ford
+  model: bronco
+  generation: g_202012_21212
+  body_type: sedan
+  class_name: ford_bronco_g_202012_21212_sedan
+  search_path: /ford/bronco/
+  search_params:
+    generation: g_202012_21212
+    body_type: sedan
+- class_id: 207
+  make: Ford
+  model: bronco_2
+  generation: g_198303_15127
+  body_type: sedan
+  class_name: ford_bronco_2_g_198303_15127_sedan
+  search_path: /ford/bronco_2/
+  search_params:
+    generation: g_198303_15127
+    body_type: sedan
+- class_id: 208
+  make: Ford
+  model: bronco_sport
+  generation: g_202012_11768
+  body_type: sedan
+  class_name: ford_bronco_sport_g_202012_11768_sedan
+  search_path: /ford/bronco_sport/
+  search_params:
+    generation: g_202012_11768
+    body_type: sedan
+- class_id: 209
+  make: Ford
+  model: c-max
+  generation: g_200305_5518
+  body_type: sedan
+  class_name: ford_c_max_g_200305_5518_sedan
+  search_path: /ford/c-max/
+  search_params:
+    generation: g_200305_5518
+    body_type: sedan
+- class_id: 210
+  make: Ford
+  model: capri
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_capri_g_fallback_01_sedan
+  search_path: /ford/capri/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 211
+  make: Ford
+  model: contour
+  generation: g_199408_2471
+  body_type: sedan
+  class_name: ford_contour_g_199408_2471_sedan
+  search_path: /ford/contour/
+  search_params:
+    generation: g_199408_2471
+    body_type: sedan
+- class_id: 212
+  make: Ford
+  model: cougar
+  generation: g_199803_2507
+  body_type: sedan
+  class_name: ford_cougar_g_199803_2507_sedan
+  search_path: /ford/cougar/
+  search_params:
+    generation: g_199803_2507
+    body_type: sedan
+- class_id: 213
+  make: Ford
+  model: crown_victoria
+  generation: g_199710_2468
+  body_type: sedan
+  class_name: ford_crown_victoria_g_199710_2468_sedan
+  search_path: /ford/crown_victoria/
+  search_params:
+    generation: g_199710_2468
+    body_type: sedan
+- class_id: 214
+  make: Ford
+  model: econovan
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_econovan_g_fallback_01_sedan
+  search_path: /ford/econovan/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 215
+  make: Ford
+  model: ecosport
+  generation: g_201308_2255
+  body_type: sedan
+  class_name: ford_ecosport_g_201308_2255_sedan
+  search_path: /ford/ecosport/
+  search_params:
+    generation: g_201308_2255
+    body_type: sedan
+- class_id: 216
+  make: Ford
+  model: edge
+  generation: g_201808_11480
+  body_type: sedan
+  class_name: ford_edge_g_201808_11480_sedan
+  search_path: /ford/edge/
+  search_params:
+    generation: g_201808_11480
+    body_type: sedan
+- class_id: 217
+  make: Ford
+  model: eifel
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_eifel_g_fallback_01_sedan
+  search_path: /ford/eifel/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 218
+  make: Ford
+  model: equator
+  generation: g_202104_19720
+  body_type: sedan
+  class_name: ford_equator_g_202104_19720_sedan
+  search_path: /ford/equator/
+  search_params:
+    generation: g_202104_19720
+    body_type: sedan
+- class_id: 219
+  make: Ford
+  model: equator_sport
+  generation: g_202202_19719
+  body_type: sedan
+  class_name: ford_equator_sport_g_202202_19719_sedan
+  search_path: /ford/equator_sport/
+  search_params:
+    generation: g_202202_19719
+    body_type: sedan
+- class_id: 220
+  make: Ford
+  model: escape
+  generation: g_200004_1759
+  body_type: sedan
+  class_name: ford_escape_g_200004_1759_sedan
+  search_path: /ford/escape/
+  search_params:
+    generation: g_200004_1759
+    body_type: sedan
+- class_id: 221
+  make: Ford
+  model: escort
+  generation: g_199501_2527
+  body_type: sedan
+  class_name: ford_escort_g_199501_2527_sedan
+  search_path: /ford/escort/
+  search_params:
+    generation: g_199501_2527
+    body_type: sedan
+- class_id: 222
+  make: Ford
+  model: everest
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_everest_g_fallback_01_sedan
+  search_path: /ford/everest/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 223
+  make: Ford
+  model: evos
+  generation: g_202109_17157
+  body_type: sedan
+  class_name: ford_evos_g_202109_17157_sedan
+  search_path: /ford/evos/
+  search_params:
+    generation: g_202109_17157
+    body_type: sedan
+- class_id: 224
+  make: Ford
+  model: excursion
+  generation: g_199903_2475
+  body_type: sedan
+  class_name: ford_excursion_g_199903_2475_sedan
+  search_path: /ford/excursion/
+  search_params:
+    generation: g_199903_2475
+    body_type: sedan
+- class_id: 225
+  make: Ford
+  model: expedition
+  generation: g_200203_12816
+  body_type: sedan
+  class_name: ford_expedition_g_200203_12816_sedan
+  search_path: /ford/expedition/
+  search_params:
+    generation: g_200203_12816
+    body_type: sedan
+- class_id: 226
+  make: Ford
+  model: explorer
+  generation: g_201012_1476
+  body_type: sedan
+  class_name: ford_explorer_g_201012_1476_sedan
+  search_path: /ford/explorer/
+  search_params:
+    generation: g_201012_1476
+    body_type: sedan
+- class_id: 227
+  make: Ford
+  model: explorer_ev
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_explorer_ev_g_fallback_01_sedan
+  search_path: /ford/explorer_ev/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 228
+  make: Ford
+  model: f150
+  generation: g_202010_12811
+  body_type: sedan
+  class_name: ford_f150_g_202010_12811_sedan
+  search_path: /ford/f150/
+  search_params:
+    generation: g_202010_12811
+    body_type: sedan
+- class_id: 229
+  make: Ford
+  model: f250
+  generation: g_200702_12423
+  body_type: sedan
+  class_name: ford_f250_g_200702_12423_sedan
+  search_path: /ford/f250/
+  search_params:
+    generation: g_200702_12423
+    body_type: sedan
+- class_id: 230
+  make: Ford
+  model: f350
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_f350_g_fallback_01_sedan
+  search_path: /ford/f350/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 231
+  make: Ford
+  model: fairlane
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_fairlane_g_fallback_01_sedan
+  search_path: /ford/fairlane/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 232
+  make: Ford
+  model: festiva
+  generation: g_199608_7825
+  body_type: sedan
+  class_name: ford_festiva_g_199608_7825_sedan
+  search_path: /ford/festiva/
+  search_params:
+    generation: g_199608_7825
+    body_type: sedan
+- class_id: 233
+  make: Ford
+  model: fiesta
+  generation: g_200509_5341
+  body_type: sedan
+  class_name: ford_fiesta_g_200509_5341_sedan
+  search_path: /ford/fiesta/
+  search_params:
+    generation: g_200509_5341
+    body_type: sedan
+- class_id: 234
+  make: Ford
+  model: flex
+  generation: g_201203_2480
+  body_type: sedan
+  class_name: ford_flex_g_201203_2480_sedan
+  search_path: /ford/flex/
+  search_params:
+    generation: g_201203_2480
+    body_type: sedan
+- class_id: 235
+  make: Ford
+  model: focus
+  generation: g_201001_8498
+  body_type: sedan
+  class_name: ford_focus_g_201001_8498_sedan
+  search_path: /ford/focus/
+  search_params:
+    generation: g_201001_8498
+    body_type: sedan
+- class_id: 236
+  make: Ford
+  model: focus_rs
+  generation: g_200901_9121
+  body_type: sedan
+  class_name: ford_focus_rs_g_200901_9121_sedan
+  search_path: /ford/focus_rs/
+  search_params:
+    generation: g_200901_9121
+    body_type: sedan
+- class_id: 237
+  make: Ford
+  model: focus_st
+  generation: g_200509_9117
+  body_type: sedan
+  class_name: ford_focus_st_g_200509_9117_sedan
+  search_path: /ford/focus_st/
+  search_params:
+    generation: g_200509_9117
+    body_type: sedan
+- class_id: 238
+  make: Ford
+  model: freda
+  generation: g_199506_2482
+  body_type: sedan
+  class_name: ford_freda_g_199506_2482_sedan
+  search_path: /ford/freda/
+  search_params:
+    generation: g_199506_2482
+    body_type: sedan
+- class_id: 239
+  make: Ford
+  model: freestyle
+  generation: g_200403_2485
+  body_type: sedan
+  class_name: ford_freestyle_g_200403_2485_sedan
+  search_path: /ford/freestyle/
+  search_params:
+    generation: g_200403_2485
+    body_type: sedan
+- class_id: 240
+  make: Ford
+  model: fusion
+  generation: g_200509_1453
+  body_type: sedan
+  class_name: ford_fusion_g_200509_1453_sedan
+  search_path: /ford/fusion/
+  search_params:
+    generation: g_200509_1453
+    body_type: sedan
+- class_id: 241
+  make: Ford
+  model: galaxie
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_galaxie_g_fallback_01_sedan
+  search_path: /ford/galaxie/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 242
+  make: Ford
+  model: galaxy
+  generation: g_201005_1473
+  body_type: sedan
+  class_name: ford_galaxy_g_201005_1473_sedan
+  search_path: /ford/galaxy/
+  search_params:
+    generation: g_201005_1473
+    body_type: sedan
+- class_id: 243
+  make: Ford
+  model: granada
+  generation: g_197203_19969
+  body_type: sedan
+  class_name: ford_granada_g_197203_19969_sedan
+  search_path: /ford/granada/
+  search_params:
+    generation: g_197203_19969
+    body_type: sedan
+- class_id: 244
+  make: Ford
+  model: grand_c_max
+  generation: g_201012_1472
+  body_type: sedan
+  class_name: ford_grand_c_max_g_201012_1472_sedan
+  search_path: /ford/grand_c_max/
+  search_params:
+    generation: g_201012_1472
+    body_type: sedan
+- class_id: 245
+  make: Ford
+  model: gt
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_gt_g_fallback_01_sedan
+  search_path: /ford/gt/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
+- class_id: 246
+  make: Ford
+  model: ixion
+  generation: g_199905_2500
+  body_type: sedan
+  class_name: ford_ixion_g_199905_2500_sedan
+  search_path: /ford/ixion/
+  search_params:
+    generation: g_199905_2500
+    body_type: sedan
+- class_id: 247
+  make: Ford
+  model: ka
+  generation: g_199609_9105
+  body_type: sedan
+  class_name: ford_ka_g_199609_9105_sedan
+  search_path: /ford/ka/
+  search_params:
+    generation: g_199609_9105
+    body_type: sedan
+- class_id: 248
+  make: Ford
+  model: kuga
+  generation: g_201302_1999
+  body_type: sedan
+  class_name: ford_kuga_g_201302_1999_sedan
+  search_path: /ford/kuga/
+  search_params:
+    generation: g_201302_1999
+    body_type: sedan
+- class_id: 249
+  make: Ford
+  model: laser
+  generation: g_199812_2525
+  body_type: sedan
+  class_name: ford_laser_g_199812_2525_sedan
+  search_path: /ford/laser/
+  search_params:
+    generation: g_199812_2525
+    body_type: sedan
+- class_id: 250
+  make: Ford
+  model: ltd_crown_victoria
+  generation: g_fallback_01
+  body_type: sedan
+  class_name: ford_ltd_crown_victoria_g_fallback_01_sedan
+  search_path: /ford/ltd_crown_victoria/
+  search_params:
+    generation: g_fallback_01
+    body_type: sedan
