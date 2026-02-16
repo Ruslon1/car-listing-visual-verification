@@ -5,6 +5,10 @@
 PROJECT_NAME = car-listing-visual-verification
 PYTHON_VERSION = 3.13
 PYTHON_INTERPRETER = python
+DROM_CLASSES = configs/classes.yaml
+DROM_QPS = 1.5
+DROM_CONCURRENCY = 12
+DROM_CLI = $(PYTHON_INTERPRETER) -m car_listing_visual_verification.data.drom
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -58,9 +62,36 @@ create_environment:
 
 
 ## Make dataset
+.PHONY: drom-discover
+drom-discover:
+	$(DROM_CLI) discover --classes $(DROM_CLASSES) --qps $(DROM_QPS) --concurrency $(DROM_CONCURRENCY)
+
+.PHONY: drom-fetch-meta
+drom-fetch-meta:
+	$(DROM_CLI) fetch-meta --classes $(DROM_CLASSES) --qps $(DROM_QPS) --concurrency $(DROM_CONCURRENCY)
+
+.PHONY: drom-fetch-images
+drom-fetch-images:
+	$(DROM_CLI) fetch-images --classes $(DROM_CLASSES) --qps $(DROM_QPS) --concurrency $(DROM_CONCURRENCY)
+
+.PHONY: drom-validate
+drom-validate:
+	$(DROM_CLI) validate
+
+.PHONY: drom-dedup
+drom-dedup:
+	$(DROM_CLI) dedup
+
+.PHONY: drom-manifest
+drom-manifest:
+	$(DROM_CLI) prepare-manifest
+
+.PHONY: drom-split
+drom-split:
+	$(DROM_CLI) split --val-ratio 0.1 --test-ratio 0.1 --seed 42
+
 .PHONY: data
-data: requirements
-	$(PYTHON_INTERPRETER) car_listing_visual_verification/dataset.py
+data: requirements drom-discover drom-fetch-meta drom-fetch-images drom-validate drom-dedup drom-manifest drom-split
 
 
 #################################################################################
