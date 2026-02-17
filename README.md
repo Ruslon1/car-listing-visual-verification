@@ -34,6 +34,14 @@ Optional all-in-one command:
 python -m car_listing_visual_verification.data.drom run-all --classes configs/classes.yaml
 ```
 
+For 300 photos per class (2 photos/listing), run with `150` listings per class:
+
+```bash
+python -m car_listing_visual_verification.data.drom run-all \
+  --classes configs/classes.yaml \
+  --max-listings-per-class 150
+```
+
 ## Quick Start
 
 Install deps:
@@ -47,6 +55,12 @@ Run full pipeline with Make targets:
 ```bash
 make data
 ```
+
+`make data` is optimized for final dataset output:
+
+- runs end-to-end collection with `--no-cache`
+- keeps labeled images and final processed manifest
+- removes page cache and interim artifacts after completion
 
 Or stage-by-stage:
 
@@ -65,6 +79,7 @@ make drom-split
 Primary config file: `configs/classes.yaml`
 The repository now ships with a generated 250-class config where each class has exactly one `body_type`.
 It also enforces one row per `(make, model)` in this generated config (one generation and one body type per model).
+Source host is `https://auto.drom.ru` for listing discovery/fetch.
 
 - `source`: networking, retries, rate limit, cache, parser patterns.
 - `classes`: target class definitions.
@@ -89,6 +104,7 @@ Use CLI flags for production tuning without editing YAML:
 ```bash
 python -m car_listing_visual_verification.data.drom discover \
   --classes configs/classes.yaml \
+  --max-listings-per-class 150 \
   --qps 1.2 \
   --concurrency 16 \
   --retries 6 \
@@ -121,6 +137,11 @@ Expected layout:
 - `data/interim/drom/dedup.parquet`
 - `data/processed/manifest.parquet`
 - `data/processed/class_mapping.parquet`
+
+After `make data`, cache/interim files are pruned and recreated as empty directories:
+
+- `data/raw/drom/pages/` (empty)
+- `data/interim/drom/` (empty)
 
 ## Manifest Contract
 

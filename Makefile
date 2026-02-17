@@ -8,6 +8,7 @@ PYTHON_INTERPRETER = python
 DROM_CLASSES = configs/classes.yaml
 DROM_QPS = 1.5
 DROM_CONCURRENCY = 12
+DROM_LISTINGS_PER_CLASS = 150
 DROM_CLI = $(PYTHON_INTERPRETER) -m car_listing_visual_verification.data.drom
 
 #################################################################################
@@ -64,7 +65,7 @@ create_environment:
 ## Make dataset
 .PHONY: drom-discover
 drom-discover:
-	$(DROM_CLI) discover --classes $(DROM_CLASSES) --qps $(DROM_QPS) --concurrency $(DROM_CONCURRENCY)
+	$(DROM_CLI) discover --classes $(DROM_CLASSES) --qps $(DROM_QPS) --concurrency $(DROM_CONCURRENCY) --max-listings-per-class $(DROM_LISTINGS_PER_CLASS)
 
 .PHONY: drom-fetch-meta
 drom-fetch-meta:
@@ -90,8 +91,17 @@ drom-manifest:
 drom-split:
 	$(DROM_CLI) split --val-ratio 0.1 --test-ratio 0.1 --seed 42
 
+.PHONY: drom-run-all
+drom-run-all:
+	$(DROM_CLI) run-all --classes $(DROM_CLASSES) --qps $(DROM_QPS) --concurrency $(DROM_CONCURRENCY) --max-listings-per-class $(DROM_LISTINGS_PER_CLASS) --no-cache
+
+.PHONY: drom-prune-artifacts
+drom-prune-artifacts:
+	rm -rf data/raw/drom/pages data/interim/drom
+	mkdir -p data/raw/drom/pages data/interim/drom
+
 .PHONY: data
-data: requirements drom-discover drom-fetch-meta drom-fetch-images drom-validate drom-dedup drom-manifest drom-split
+data: requirements drom-run-all drom-prune-artifacts
 
 
 #################################################################################

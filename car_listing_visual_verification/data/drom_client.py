@@ -41,9 +41,22 @@ class HttpResult:
     body: bytes
     fetched_at: str
     from_cache: bool = False
+    encoding: str | None = None
 
     @property
     def text(self) -> str:
+        if self.encoding:
+            try:
+                return self.body.decode(self.encoding, errors="replace")
+            except LookupError:
+                pass
+
+        for fallback in ("utf-8", "windows-1251", "cp1251"):
+            try:
+                return self.body.decode(fallback, errors="replace")
+            except LookupError:
+                continue
+
         return self.body.decode("utf-8", errors="replace")
 
 
@@ -128,7 +141,7 @@ class DromHttpClient:
             timeout=httpx.Timeout(source.timeout_seconds),
             headers={
                 "User-Agent": source.user_agent,
-                "Accept": "application/json,text/html;q=0.9,*/*;q=0.8",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
                 **source.headers,
             },
             follow_redirects=True,
@@ -313,6 +326,7 @@ class DromHttpClient:
                     body=bytes(cached["body"]),
                     fetched_at=str(cached["fetched_at"]),
                     from_cache=True,
+                    encoding=(str(cached["encoding"]) if cached.get("encoding") else None),
                 )
                 host = urlparse(url).netloc
                 self.metrics.record_request(
@@ -344,6 +358,7 @@ class DromHttpClient:
                     body=response.content,
                     fetched_at=utc_now_iso(),
                     from_cache=False,
+                    encoding=response.encoding,
                 )
 
                 if use_cache and status < 400:
@@ -355,6 +370,7 @@ class DromHttpClient:
                             "headers": dict(response.headers),
                             "body": response.content,
                             "fetched_at": result.fetched_at,
+                            "encoding": result.encoding,
                         },
                         expire=self.source.cache_ttl_seconds,
                     )

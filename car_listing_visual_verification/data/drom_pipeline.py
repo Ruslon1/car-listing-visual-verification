@@ -20,7 +20,12 @@ from car_listing_visual_verification.data.drom_parsers import (
     extract_listing_urls,
     parse_listing_metadata,
 )
-from car_listing_visual_verification.data.drom_types import ClassSpec, DromConfig, PipelinePaths
+from car_listing_visual_verification.data.drom_types import (
+    ClassSpec,
+    DromConfig,
+    PipelinePaths,
+    SourceConfig,
+)
 from car_listing_visual_verification.data.drom_utils import (
     ensure_relative,
     merge_incremental,
@@ -63,6 +68,25 @@ def _as_url(base_url: str, path: str | None, fallback: str) -> str:
     return urljoin(base_url, target)
 
 
+def _discovery_request(
+    search_url: str,
+    spec: ClassSpec,
+    source: SourceConfig,
+    page: int,
+) -> tuple[str, dict[str, Any]]:
+    params = dict(spec.search_params)
+
+    if source.page_mode == "path":
+        request_url = search_url
+        if page > source.start_page:
+            page_suffix = source.page_path_template.format(page=page)
+            request_url = f"{search_url.rstrip('/')}/{page_suffix.lstrip('/')}"
+        return request_url, params
+
+    params[source.page_param] = page
+    return search_url, params
+
+
 async def discover(
     config: DromConfig,
     paths: PipelinePaths,
@@ -71,6 +95,7 @@ async def discover(
     force: bool = False,
     use_cache: bool = True,
     max_pages_override: int | None = None,
+    max_listings_per_class: int | None = None,
 ) -> pd.DataFrame:
     paths.ensure_dirs()
 
@@ -99,6 +124,7 @@ async def discover(
                     known_keys=seen_keys,
                     use_cache=use_cache,
                     max_pages_override=max_pages_override,
+                    max_listings_per_class=max_listings_per_class,
                 )
 
         tasks = [asyncio.create_task(run_for_class(spec)) for spec in config.classes]
@@ -157,6 +183,7 @@ async def _discover_one_class(
     known_keys: set[tuple[str, int]],
     use_cache: bool,
     max_pages_override: int | None,
+    max_listings_per_class: int | None,
 ) -> list[dict[str, Any]]:
     source = config.source
     rows: list[dict[str, Any]] = []
@@ -170,12 +197,16 @@ async def _discover_one_class(
     )
 
     for page in range(source.start_page, source.start_page + max_pages):
-        params = dict(spec.search_params)
-        params[source.page_param] = page
+        request_url, params = _discovery_request(
+            search_url=search_url,
+            spec=spec,
+            source=source,
+            page=page,
+        )
 
         try:
             response = await client.get_text(
-                url=search_url,
+                url=request_url,
                 params=params,
                 use_cache=use_cache,
                 force_refresh=False,
@@ -187,7 +218,7 @@ async def _discover_one_class(
                     "class_id": spec.class_id,
                     "class_name": spec.class_name,
                     "page": page,
-                    "url": search_url,
+                    "url": request_url,
                     "error": str(exc),
                 },
             )
@@ -200,7 +231,7 @@ async def _discover_one_class(
                     "class_id": spec.class_id,
                     "class_name": spec.class_name,
                     "page": page,
-                    "url": search_url,
+                    "url": request_url,
                     "http_status": response.status_code,
                 },
             )
@@ -243,6 +274,11 @@ async def _discover_one_class(
             )
             local_seen.add(key)
             page_new_rows += 1
+            if max_listings_per_class and len(rows) >= max_listings_per_class:
+                break
+
+        if max_listings_per_class and len(rows) >= max_listings_per_class:
+            break
 
         if not listing_urls and source.stop_on_empty_page:
             break
@@ -257,6 +293,7 @@ async def _discover_one_class(
             "class_name": spec.class_name,
             "rows_new": len(rows),
             "search_url": search_url,
+            "max_listings_per_class": max_listings_per_class,
         },
     )
     return rows
@@ -353,11 +390,11 @@ async def fetch_meta(
                         "source": row.get("source") or config.source.name,
                         "url": listing_url,
                         "scraped_at": response.fetched_at,
-                        "make": parsed.get("make") or _clean_optional(row.get("make")),
-                        "model": parsed.get("model") or _clean_optional(row.get("model")),
+                        "make": _clean_optional(row.get("make")) or parsed.get("make"),
+                        "model": _clean_optional(row.get("model")) or parsed.get("model"),
                         "body_type": _clean_optional(row.get("body_type")),
-                        "generation": parsed.get("generation")
-                        or _clean_optional(row.get("generation")),
+                        "generation": _clean_optional(row.get("generation"))
+                        or parsed.get("generation"),
                         "year": parsed.get("year"),
                         "class_name": row.get("class_name"),
                         "class_id": class_id,
@@ -728,10 +765,10 @@ def _validate_image(
     min_height: int,
     min_bytes: int,
 ) -> dict[str, Any]:
-    if not image_path:
+    if image_path is None or pd.isna(image_path):
         return {"ok": False, "error": "missing_image_path"}
 
-    full_path = Path(image_path)
+    full_path = Path(str(image_path))
     if not full_path.is_absolute():
         full_path = PROJ_ROOT / full_path
 

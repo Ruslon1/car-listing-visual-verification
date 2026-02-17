@@ -18,6 +18,10 @@ JSON_ASSIGNMENT_PATTERNS = [
 
 IMAGE_EXT_RE = re.compile(r"\.(?:jpg|jpeg|png|webp|avif)(?:\?.*)?$", re.IGNORECASE)
 YEAR_RE = re.compile(r"\b(19\d{2}|20\d{2})\b")
+LISTING_DETAIL_RE = re.compile(r"/\d{6,}(?:\.html)?(?:\?.*)?$", re.IGNORECASE)
+GEN_VARIANT_RE = re.compile(
+    r"/gen\d+(?:x\d+)?\.(?:jpg|jpeg|png|webp|avif)(?:\?.*)?$", re.IGNORECASE
+)
 
 
 def _try_json_loads(text: str) -> Any | None:
@@ -74,10 +78,46 @@ def _looks_like_listing_url(value: str, listing_patterns: list[re.Pattern[str]])
     return any(pattern.search(value) for pattern in listing_patterns)
 
 
+def _looks_like_listing_detail_url(value: str) -> bool:
+    return bool(LISTING_DETAIL_RE.search(value))
+
+
 def _looks_like_image_url(value: str) -> bool:
     if not _looks_like_url(value):
         return False
     return bool(IMAGE_EXT_RE.search(value))
+
+
+def _is_generic_site_image(url: str) -> bool:
+    parsed = urlparse(url)
+    host = parsed.netloc.lower()
+    path = parsed.path.lower()
+    if host == "r.drom.ru" and "/images/og/" in path:
+        return True
+    return "drom-om" in path
+
+
+def _image_group_key(url: str) -> str:
+    match = GEN_VARIANT_RE.search(url)
+    if match:
+        return url[: match.start()]
+    return url.split("?", maxsplit=1)[0]
+
+
+def _image_priority(url: str) -> int:
+    normalized = url.lower()
+    score = 0
+    if "auto.drom.ru/photo/" in normalized or "/photo/v2/" in normalized:
+        score += 100
+    if "/gen1600" in normalized or "/gen1200" in normalized:
+        score += 20
+    elif "/gen600" in normalized:
+        score += 10
+    elif "/gen115" in normalized:
+        score += 5
+    if _is_generic_site_image(url):
+        score -= 100
+    return score
 
 
 def extract_json_blobs(content: str) -> list[Any]:
@@ -146,6 +186,8 @@ def extract_listing_urls(
         if not _looks_like_listing_url(candidate, compiled_patterns):
             continue
         full_url = urljoin(base_url, candidate)
+        if not _looks_like_listing_detail_url(full_url):
+            continue
         if full_url in seen:
             continue
         seen.add(full_url)
@@ -245,14 +287,26 @@ def parse_listing_metadata(content: str, base_url: str) -> dict[str, Any]:
     for match in YEAR_RE.findall(text_pool):
         year_candidates.append(int(match))
 
-    normalized_images: list[str] = []
+    grouped_images: dict[str, tuple[int, int, str]] = {}
     seen_images: set[str] = set()
-    for url in image_candidates:
-        normalized = urljoin(base_url, url)
+    for index, image_url in enumerate(image_candidates):
+        normalized = urljoin(base_url, image_url)
         if normalized in seen_images:
             continue
         seen_images.add(normalized)
-        normalized_images.append(normalized)
+        if _is_generic_site_image(normalized):
+            continue
+
+        key = _image_group_key(normalized)
+        priority = _image_priority(normalized)
+        previous = grouped_images.get(key)
+        if previous is None or priority > previous[1]:
+            first_index = previous[0] if previous else index
+            grouped_images[key] = (first_index, priority, normalized)
+
+    normalized_images = [
+        item[2] for item in sorted(grouped_images.values(), key=lambda item: (item[0], -item[1]))
+    ]
 
     return {
         "make": normalize_optional_str(make_candidates[0]) if make_candidates else None,

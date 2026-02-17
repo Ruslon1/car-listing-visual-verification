@@ -25,6 +25,8 @@ class SourceConfig:
     base_url: str = "https://www.drom.ru"
     discover_path: str = "/"
     page_param: str = "page"
+    page_mode: str = "path"
+    page_path_template: str = "page{page}/"
     start_page: int = 1
     max_pages_per_class: int = 50
     stop_on_empty_page: bool = True

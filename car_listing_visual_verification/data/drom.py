@@ -126,6 +126,9 @@ def discover_cmd(
     force: bool = typer.Option(False, help="Rebuild output and ignore existing rows"),
     no_cache: bool = typer.Option(False, help="Disable HTTP response cache"),
     max_pages: int | None = typer.Option(None, help="Override max pages per class"),
+    max_listings_per_class: int | None = typer.Option(
+        None, help="Max listings to collect per class"
+    ),
     qps: float | None = typer.Option(None, help="Override host QPS"),
     concurrency: int | None = typer.Option(None, help="Override async concurrency"),
     retries: int | None = typer.Option(None, help="Override max retries"),
@@ -163,6 +166,7 @@ def discover_cmd(
             force=force,
             use_cache=not no_cache,
             max_pages_override=max_pages,
+            max_listings_per_class=max_listings_per_class,
         )
     )
 
@@ -403,6 +407,9 @@ def run_all_cmd(
     force: bool = typer.Option(False, help="Rebuild outputs and ignore existing rows"),
     no_cache: bool = typer.Option(False, help="Disable HTTP response cache"),
     max_pages: int | None = typer.Option(None, help="Override max pages per class"),
+    max_listings_per_class: int | None = typer.Option(
+        None, help="Max listings to collect per class"
+    ),
     qps: float | None = typer.Option(None, help="Override host QPS"),
     concurrency: int | None = typer.Option(None, help="Override async concurrency"),
     retries: int | None = typer.Option(None, help="Override max retries"),
@@ -447,6 +454,7 @@ def run_all_cmd(
             force=force,
             use_cache=not no_cache,
             max_pages_override=max_pages,
+            max_listings_per_class=max_listings_per_class,
         )
     )
     asyncio.run(

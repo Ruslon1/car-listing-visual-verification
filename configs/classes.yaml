@@ -1,8 +1,10 @@
 source:
   name: drom
-  base_url: https://www.drom.ru
+  base_url: https://auto.drom.ru
   discover_path: /
   page_param: page
+  page_mode: path
+  page_path_template: page{page}/
   start_page: 1
   max_pages_per_class: 30
   stop_on_empty_page: true
