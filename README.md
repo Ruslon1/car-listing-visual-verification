@@ -1,220 +1,51 @@
 # car-listing-visual-verification
 
-Production pipeline for collecting authorized Drom car listings and preparing an ML-ready manifest with two photos per listing.
+Application-side repository for car listing visual verification.
 
-## Compliance and Scope
+## Repository split
 
-This repository assumes an explicit agreement with drom.ru for automated data collection.
+Scraping, filtering, and dataset upload pipeline were moved to:
 
-- No bypass behavior is implemented (no CAPTCHA solving, no stealth/evasion logic).
-- The crawler is rate-limited and configurable for agreed traffic limits.
-- Endpoints and request patterns are driven by `configs/classes.yaml` and runtime flags.
+- `/Users/ruslan/Projects/car-listing-data-pipeline`
 
-## Drom Pipeline
+This repository no longer contains Drom pipeline code.
 
-CLI entrypoint:
+## Data location
 
-```bash
-python -m car_listing_visual_verification.data.drom --help
-```
+Local dataset artifacts remain here under:
 
-Stages:
+- `data/`
 
-1. `discover` - enumerate listing URLs/IDs for each configured class.
-2. `fetch-meta` - fetch listing payload/page and parse metadata + first two image URLs.
-3. `fetch-images` - download and normalize first two images per listing.
-4. `validate` - check readability, dimensions, size thresholds, corruption.
-5. `filter-content` - YOLO bbox + CLIP exterior/interior filtering to remove interior/outlier photos.
-6. `dedup` - perceptual-hash dedup across images/listings.
-7. `prepare-manifest` - generate canonical manifest and class mapping.
-8. `split` - assign `train/val/test` by `listing_id` with stratification when possible.
+`data/` is ignored by git, so local files stay available for the app without polluting repository history.
 
-Optional all-in-one command:
+## Quick start
 
-```bash
-python -m car_listing_visual_verification.data.drom run-all --classes configs/classes.yaml
-```
-
-For 300 photos per class (2 photos/listing), run with `150` listings per class:
-
-```bash
-python -m car_listing_visual_verification.data.drom run-all \
-  --classes configs/classes.yaml \
-  --max-listings-per-class 150
-```
-
-## Quick Start
-
-Install deps:
+Install dependencies:
 
 ```bash
 make requirements
 ```
 
-Run full pipeline with Make targets:
+Run quality checks:
 
 ```bash
-make data
+make lint
 ```
 
-`make data` is optimized for final dataset output:
-
-- runs end-to-end collection with `--no-cache`
-- keeps labeled images and final processed manifest
-- removes page cache and interim artifacts after completion
-
-Or stage-by-stage:
+Example module command:
 
 ```bash
-make drom-discover
-make drom-fetch-meta
-make drom-fetch-images
-make drom-validate
-make drom-filter-content
-make drom-dedup
-make drom-manifest
-make drom-split
+python3 -m car_listing_visual_verification.plots --help
 ```
 
-## Configuration
+## Pipeline commands
 
-Primary config file: `configs/classes.yaml`
-The repository now ships with a generated 99-class config where each class has exactly one `body_type`.
-It also enforces one row per `(make, model)` in this generated config (one generation and one body type per model).
-Source host is `https://auto.drom.ru` for listing discovery/fetch.
+If you need scraping/filtering/Hugging Face upload, run them in:
 
-- `source`: networking, retries, rate limit, cache, parser patterns.
-- `classes`: target class definitions.
+- `/Users/ruslan/Projects/car-listing-data-pipeline`
 
-Each class entry contains:
-
-- `class_id`
-- `make`
-- `model`
-- `body_type` (required; exactly one body style per class, e.g. `sedan` or `van`)
-- `generation` (required in current config)
-- `class_name` (canonical)
-- `search_path`
-- `search_params` (endpoint-specific query parameters)
-
-To scale from sample classes to more classes, append class items with unique `class_id` and `class_name`, and keep a single `body_type` per class row.
-
-### Runtime overrides
-
-Use CLI flags for production tuning without editing YAML:
+You can also run:
 
 ```bash
-python -m car_listing_visual_verification.data.drom discover \
-  --classes configs/classes.yaml \
-  --max-listings-per-class 150 \
-  --qps 1.2 \
-  --concurrency 16 \
-  --retries 6 \
-  --timeout-seconds 25 \
-  --metrics-port 9108
+make pipeline-location
 ```
-
-Custom output directories:
-
-```bash
-python -m car_listing_visual_verification.data.drom run-all \
-  --classes configs/classes.yaml \
-  --raw-pages-dir data/raw/drom/pages \
-  --raw-images-dir data/raw/drom/images \
-  --interim-dir data/interim/drom \
-  --processed-dir data/processed \
-  --manifest-path data/processed/manifest.parquet
-```
-
-## Output Artifacts
-
-Expected layout:
-
-- `data/raw/drom/pages/` - diskcache HTTP cache (HTML/JSON responses).
-- `data/raw/drom/images/<class_name>/<listing_id>_1.jpg` and `_2.jpg`.
-- `data/interim/drom/discovery.parquet`
-- `data/interim/drom/meta.parquet`
-- `data/interim/drom/images.parquet`
-- `data/interim/drom/validated.parquet`
-- `data/interim/drom/filtered.parquet`
-- `data/interim/drom/dedup.parquet`
-- `data/processed/manifest.parquet`
-- `data/processed/class_mapping.parquet`
-
-After `make data`, cache/interim files are pruned and recreated as empty directories:
-
-- `data/raw/drom/pages/` (empty)
-- `data/interim/drom/` (empty)
-
-## Manifest Contract
-
-`data/processed/manifest.parquet` includes core columns:
-
-- `listing_id`, `source`, `url`, `scraped_at`
-- `make`, `model`, `body_type`, `generation`, `year`
-- `class_name`, `class_id`
-- `image_1_path`, `image_2_path`
-- `image_1_phash`, `image_2_phash`
-- `width`, `height`, `bytes`, `format`
-- `split` (`train`/`val`/`test`)
-- content filter diagnostics and bbox columns (`image_1_car_bbox_x1`, `image_1_exterior_score`, `image_2_content_label`, etc.)
-
-Diagnostics included:
-
-- `http_status`
-- `parse_version`
-- `meta_error`, `fetch_images_error`, `validation_error`
-- `content_filter_keep`, `content_filter_reason`, `content_filter_error`
-- `is_duplicate`, `duplicate_of_listing_id`, `duplicate_reason`
-- per-image fields (`image_1_width`, `image_2_width`, etc.)
-
-## Reliability Features
-
-- Async HTTP with `httpx`
-- Host token-bucket rate limiting
-- Retry with exponential backoff + jitter
-- Circuit breaker per host
-- Disk cache for pages (`diskcache`)
-- Resumable/idempotent stages (skip existing unless `--force`)
-- Structured JSON logging
-- Optional Prometheus metrics exporter (`--metrics-port`)
-
-## Hugging Face Release
-
-Build a Hugging Face-ready dataset folder from your local manifest/images:
-
-```bash
-make hf-release
-```
-
-Equivalent direct CLI command:
-
-```bash
-python -m car_listing_visual_verification.data.drom prepare-hf-release \
-  --manifest-path data/processed/manifest.parquet \
-  --class-mapping-path data/processed/class_mapping.parquet \
-  --output-dir data/processed/hf_release \
-  --dataset-name drom-car-listings-99-classes \
-  --file-mode hardlink \
-  --force
-```
-
-Generated `data/processed/hf_release/` artifacts:
-
-- `train.parquet`, `validation.parquet`, `test.parquet` (image-level rows)
-- `metadata.parquet` (all image rows)
-- `listings.parquet` (listing-level rows with two photo references)
-- `images/<split>/<class_name>/<listing_id>_<slot>.jpg`
-- `README.md` (Hugging Face dataset card)
-- `release_stats.json`
-
-Upload from terminal (after `hf auth login`):
-
-```bash
-make hf-upload DATASET_REPO=<hf-user>/<dataset-name>
-```
-
-## Notes
-
-- Keep `qps`, `concurrency`, and endpoint params aligned with your Drom agreement.
-- If endpoint HTML/API structure changes, tune `listing_url_patterns` and class search params in `configs/classes.yaml`.
