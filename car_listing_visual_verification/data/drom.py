@@ -11,6 +11,7 @@ from car_listing_visual_verification.config import (
     PROCESSED_DATA_DIR,
     RAW_DATA_DIR,
 )
+from car_listing_visual_verification.data.drom_hf import prepare_hf_release
 from car_listing_visual_verification.data.drom_metrics import DromMetrics
 from car_listing_visual_verification.data.drom_pipeline import (
     dedup,
@@ -18,6 +19,7 @@ from car_listing_visual_verification.data.drom_pipeline import (
     discover,
     fetch_images,
     fetch_meta,
+    filter_content,
     prepare_manifest,
     split_manifest,
     validate,
@@ -57,6 +59,7 @@ def _build_paths(
         meta_path=interim / "meta.parquet",
         images_path=interim / "images.parquet",
         validated_path=interim / "validated.parquet",
+        filtered_path=interim / "filtered.parquet",
         dedup_path=interim / "dedup.parquet",
         manifest_path=manifest,
         class_mapping_path=class_mapping,
@@ -328,6 +331,80 @@ def dedup_cmd(
     dedup(paths=paths, logger=logger, metrics=metrics, drop_duplicates=drop_duplicates)
 
 
+@app.command("filter-content")
+def filter_content_cmd(
+    yolo_model: str = typer.Option("yolov8n.pt", help="YOLO model name or path"),
+    clip_model: str = typer.Option(
+        "openai/clip-vit-base-patch32",
+        help="CLIP model id from Hugging Face",
+    ),
+    device: str = typer.Option(
+        "auto",
+        help="Inference device: auto|cpu|mps|cuda:0",
+    ),
+    min_car_conf: float = typer.Option(0.25, help="Minimum car detection confidence"),
+    min_car_area_ratio: float = typer.Option(
+        0.2,
+        help="Minimum ratio of car bbox area to image area",
+    ),
+    min_exterior_score: float = typer.Option(
+        0.55,
+        help="Minimum CLIP exterior probability score",
+    ),
+    min_exterior_margin: float = typer.Option(
+        0.05,
+        help="Minimum exterior-vs-interior score margin",
+    ),
+    min_pass_images: int = typer.Option(
+        2,
+        help="How many listing images must pass content filtering (1 or 2)",
+    ),
+    keep_filtered_rows: bool = typer.Option(
+        False,
+        help="Keep rows that fail content filtering in filtered output",
+    ),
+    force: bool = typer.Option(False, help="Rebuild content filter output from scratch"),
+    max_rows: int | None = typer.Option(None, help="Process at most N pending rows"),
+    raw_pages_dir: Path | None = typer.Option(None, help="Override raw pages cache directory"),
+    raw_images_dir: Path | None = typer.Option(None, help="Override raw images directory"),
+    interim_dir: Path | None = typer.Option(None, help="Override interim directory"),
+    processed_dir: Path | None = typer.Option(None, help="Override processed directory"),
+    manifest_path: Path | None = typer.Option(None, help="Override final manifest path"),
+    class_mapping_path: Path | None = typer.Option(
+        None, help="Override class mapping output path"
+    ),
+    metrics_port: int = typer.Option(0, help="Prometheus port (0 disables exporter)"),
+    log_level: str = typer.Option("INFO", help="Log level"),
+) -> None:
+    logger = _build_logger(log_level)
+    paths = _build_paths(
+        raw_pages_dir=raw_pages_dir,
+        raw_images_dir=raw_images_dir,
+        interim_dir=interim_dir,
+        processed_dir=processed_dir,
+        manifest_path=manifest_path,
+        class_mapping_path=class_mapping_path,
+    )
+    metrics = _build_metrics(metrics_port, logger)
+
+    filter_content(
+        paths=paths,
+        logger=logger,
+        metrics=metrics,
+        yolo_model=yolo_model,
+        clip_model=clip_model,
+        device=device,
+        min_car_conf=min_car_conf,
+        min_car_area_ratio=min_car_area_ratio,
+        min_exterior_score=min_exterior_score,
+        min_exterior_margin=min_exterior_margin,
+        min_pass_images=min_pass_images,
+        drop_filtered_rows=not keep_filtered_rows,
+        force=force,
+        max_rows=max_rows,
+    )
+
+
 @app.command("prepare-manifest")
 @app.command("build-manifest")
 def prepare_manifest_cmd(
@@ -401,6 +478,63 @@ def split_cmd(
     )
 
 
+@app.command("prepare-hf-release")
+def prepare_hf_release_cmd(
+    manifest_path: Path = typer.Option(
+        PROCESSED_DATA_DIR / "manifest.parquet",
+        help="Source manifest path",
+    ),
+    class_mapping_path: Path = typer.Option(
+        PROCESSED_DATA_DIR / "class_mapping.parquet",
+        help="Class mapping path (optional if file does not exist)",
+    ),
+    output_dir: Path = typer.Option(
+        PROCESSED_DATA_DIR / "hf_release",
+        help="Target HF release directory",
+    ),
+    dataset_name: str = typer.Option(
+        "drom-car-listings-99-classes",
+        help="Dataset display name for README card",
+    ),
+    dataset_id: str | None = typer.Option(
+        None,
+        help="Hugging Face repo id (<user>/<dataset>) used in README card",
+    ),
+    license_id: str = typer.Option("other", help="Hugging Face license tag"),
+    agreement_note: str = typer.Option(
+        "Publication and usage are allowed only under an explicit agreement with drom.ru.",
+        help="Compliance note written into dataset card",
+    ),
+    file_mode: str = typer.Option(
+        "hardlink",
+        help="How to materialize images: hardlink|copy|symlink",
+    ),
+    force: bool = typer.Option(False, help="Recreate output directory from scratch"),
+    log_level: str = typer.Option("INFO", help="Log level"),
+) -> None:
+    logger = _build_logger(log_level)
+
+    summary = prepare_hf_release(
+        manifest_path=manifest_path,
+        class_mapping_path=class_mapping_path,
+        output_dir=output_dir,
+        dataset_name=dataset_name,
+        dataset_id=dataset_id,
+        license_id=license_id,
+        agreement_note=agreement_note,
+        file_mode=file_mode,
+        force=force,
+    )
+
+    logger.info("prepare_hf_release completed", extra=summary)
+    typer.echo(
+        (
+            f"HF release prepared at {summary['output_dir']} "
+            f"(images={summary['image_count']}, classes={summary['class_count']})"
+        )
+    )
+
+
 @app.command("run-all")
 def run_all_cmd(
     classes: Path = typer.Option(Path("configs/classes.yaml"), help="Path to classes.yaml"),
@@ -417,6 +551,32 @@ def run_all_cmd(
     min_width: int = typer.Option(224, help="Minimum image width"),
     min_height: int = typer.Option(224, help="Minimum image height"),
     min_bytes: int = typer.Option(10000, help="Minimum image size in bytes"),
+    yolo_model: str = typer.Option("yolov8n.pt", help="YOLO model name or path"),
+    clip_model: str = typer.Option(
+        "openai/clip-vit-base-patch32",
+        help="CLIP model id from Hugging Face",
+    ),
+    content_device: str = typer.Option(
+        "auto",
+        help="Content filtering device: auto|cpu|mps|cuda:0",
+    ),
+    min_car_conf: float = typer.Option(0.25, help="Minimum car detection confidence"),
+    min_car_area_ratio: float = typer.Option(
+        0.2,
+        help="Minimum ratio of car bbox area to image area",
+    ),
+    min_exterior_score: float = typer.Option(
+        0.55,
+        help="Minimum CLIP exterior probability score",
+    ),
+    min_exterior_margin: float = typer.Option(
+        0.05,
+        help="Minimum exterior-vs-interior score margin",
+    ),
+    min_pass_images: int = typer.Option(
+        2,
+        help="How many listing images must pass content filtering (1 or 2)",
+    ),
     val_ratio: float = typer.Option(0.1, help="Validation split ratio"),
     test_ratio: float = typer.Option(0.1, help="Test split ratio"),
     seed: int = typer.Option(42, help="Random seed"),
@@ -484,6 +644,21 @@ def run_all_cmd(
         min_height=min_height,
         min_bytes=min_bytes,
         drop_invalid_rows=True,
+    )
+    filter_content(
+        paths=paths,
+        logger=logger,
+        metrics=metrics,
+        yolo_model=yolo_model,
+        clip_model=clip_model,
+        device=content_device,
+        min_car_conf=min_car_conf,
+        min_car_area_ratio=min_car_area_ratio,
+        min_exterior_score=min_exterior_score,
+        min_exterior_margin=min_exterior_margin,
+        min_pass_images=min_pass_images,
+        drop_filtered_rows=True,
+        force=force,
     )
     dedup(paths=paths, logger=logger, metrics=metrics, drop_duplicates=False)
     prepare_manifest(paths=paths, logger=logger, metrics=metrics, include_duplicates=False)

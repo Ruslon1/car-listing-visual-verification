@@ -24,9 +24,10 @@ Stages:
 2. `fetch-meta` - fetch listing payload/page and parse metadata + first two image URLs.
 3. `fetch-images` - download and normalize first two images per listing.
 4. `validate` - check readability, dimensions, size thresholds, corruption.
-5. `dedup` - perceptual-hash dedup across images/listings.
-6. `prepare-manifest` - generate canonical manifest and class mapping.
-7. `split` - assign `train/val/test` by `listing_id` with stratification when possible.
+5. `filter-content` - YOLO bbox + CLIP exterior/interior filtering to remove interior/outlier photos.
+6. `dedup` - perceptual-hash dedup across images/listings.
+7. `prepare-manifest` - generate canonical manifest and class mapping.
+8. `split` - assign `train/val/test` by `listing_id` with stratification when possible.
 
 Optional all-in-one command:
 
@@ -69,6 +70,7 @@ make drom-discover
 make drom-fetch-meta
 make drom-fetch-images
 make drom-validate
+make drom-filter-content
 make drom-dedup
 make drom-manifest
 make drom-split
@@ -77,7 +79,7 @@ make drom-split
 ## Configuration
 
 Primary config file: `configs/classes.yaml`
-The repository now ships with a generated 100-class config where each class has exactly one `body_type`.
+The repository now ships with a generated 99-class config where each class has exactly one `body_type`.
 It also enforces one row per `(make, model)` in this generated config (one generation and one body type per model).
 Source host is `https://auto.drom.ru` for listing discovery/fetch.
 
@@ -134,6 +136,7 @@ Expected layout:
 - `data/interim/drom/meta.parquet`
 - `data/interim/drom/images.parquet`
 - `data/interim/drom/validated.parquet`
+- `data/interim/drom/filtered.parquet`
 - `data/interim/drom/dedup.parquet`
 - `data/processed/manifest.parquet`
 - `data/processed/class_mapping.parquet`
@@ -154,12 +157,14 @@ After `make data`, cache/interim files are pruned and recreated as empty directo
 - `image_1_phash`, `image_2_phash`
 - `width`, `height`, `bytes`, `format`
 - `split` (`train`/`val`/`test`)
+- content filter diagnostics and bbox columns (`image_1_car_bbox_x1`, `image_1_exterior_score`, `image_2_content_label`, etc.)
 
 Diagnostics included:
 
 - `http_status`
 - `parse_version`
 - `meta_error`, `fetch_images_error`, `validation_error`
+- `content_filter_keep`, `content_filter_reason`, `content_filter_error`
 - `is_duplicate`, `duplicate_of_listing_id`, `duplicate_reason`
 - per-image fields (`image_1_width`, `image_2_width`, etc.)
 
@@ -173,6 +178,41 @@ Diagnostics included:
 - Resumable/idempotent stages (skip existing unless `--force`)
 - Structured JSON logging
 - Optional Prometheus metrics exporter (`--metrics-port`)
+
+## Hugging Face Release
+
+Build a Hugging Face-ready dataset folder from your local manifest/images:
+
+```bash
+make hf-release
+```
+
+Equivalent direct CLI command:
+
+```bash
+python -m car_listing_visual_verification.data.drom prepare-hf-release \
+  --manifest-path data/processed/manifest.parquet \
+  --class-mapping-path data/processed/class_mapping.parquet \
+  --output-dir data/processed/hf_release \
+  --dataset-name drom-car-listings-99-classes \
+  --file-mode hardlink \
+  --force
+```
+
+Generated `data/processed/hf_release/` artifacts:
+
+- `train.parquet`, `validation.parquet`, `test.parquet` (image-level rows)
+- `metadata.parquet` (all image rows)
+- `listings.parquet` (listing-level rows with two photo references)
+- `images/<split>/<class_name>/<listing_id>_<slot>.jpg`
+- `README.md` (Hugging Face dataset card)
+- `release_stats.json`
+
+Upload from terminal (after `hf auth login`):
+
+```bash
+make hf-upload DATASET_REPO=<hf-user>/<dataset-name>
+```
 
 ## Notes
 

@@ -81,6 +81,7 @@ class PipelinePaths:
     meta_path: Path = INTERIM_DATA_DIR / "drom" / "meta.parquet"
     images_path: Path = INTERIM_DATA_DIR / "drom" / "images.parquet"
     validated_path: Path = INTERIM_DATA_DIR / "drom" / "validated.parquet"
+    filtered_path: Path = INTERIM_DATA_DIR / "drom" / "filtered.parquet"
     dedup_path: Path = INTERIM_DATA_DIR / "drom" / "dedup.parquet"
     manifest_path: Path = PROCESSED_DATA_DIR / "manifest.parquet"
     class_mapping_path: Path = PROCESSED_DATA_DIR / "class_mapping.parquet"

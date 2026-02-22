@@ -14,6 +14,10 @@ from sklearn.model_selection import train_test_split
 
 from car_listing_visual_verification.config import PROJ_ROOT
 from car_listing_visual_verification.data.drom_client import DromHttpClient
+from car_listing_visual_verification.data.drom_content_filter import (
+    ContentFilter,
+    ContentFilterConfig,
+)
 from car_listing_visual_verification.data.drom_metrics import DromMetrics
 from car_listing_visual_verification.data.drom_parsers import (
     extract_listing_id,
@@ -38,6 +42,7 @@ from car_listing_visual_verification.data.drom_utils import (
 PARSE_VERSION_DISCOVERY = "drom_discovery_v1"
 PARSE_VERSION_META = "drom_meta_v1"
 PARSE_VERSION_VALIDATE = "drom_validate_v1"
+PARSE_VERSION_FILTER_CONTENT = "drom_filter_content_v1"
 PARSE_VERSION_DEDUP = "drom_dedup_v1"
 PARSE_VERSION_MANIFEST = "drom_manifest_v1"
 
@@ -811,19 +816,175 @@ def _validate_image(
         return {"ok": False, "error": f"corrupted_image: {exc}"}
 
 
+def filter_content(
+    paths: PipelinePaths,
+    logger: logging.Logger,
+    metrics: DromMetrics,
+    yolo_model: str = "yolov8n.pt",
+    clip_model: str = "openai/clip-vit-base-patch32",
+    device: str = "auto",
+    min_car_conf: float = 0.25,
+    min_car_area_ratio: float = 0.2,
+    min_exterior_score: float = 0.55,
+    min_exterior_margin: float = 0.05,
+    min_pass_images: int = 2,
+    drop_filtered_rows: bool = True,
+    force: bool = False,
+    max_rows: int | None = None,
+) -> pd.DataFrame:
+    if paths.validated_path.exists():
+        validated_df = read_table(paths.validated_path, required=True)
+    else:
+        validated_df = read_table(paths.manifest_path, required=False)
+        if not validated_df.empty:
+            validated_df = validated_df.copy()
+            validated_df["is_valid"] = True
+            validated_df["validation_error"] = None
+            logger.warning(
+                "Validated input missing; using manifest as filter_content source",
+                extra={
+                    "validated_path": paths.validated_path.as_posix(),
+                    "manifest_path": paths.manifest_path.as_posix(),
+                },
+            )
+        else:
+            raise FileNotFoundError(
+                f"Neither validated nor manifest input found for filter_content: "
+                f"{paths.validated_path} / {paths.manifest_path}"
+            )
+    existing_df = pd.DataFrame() if force else read_table(paths.filtered_path)
+
+    if validated_df.empty:
+        logger.warning("Validated input is empty", extra={"path": paths.validated_path.as_posix()})
+        write_table(existing_df, paths.filtered_path)
+        return existing_df
+
+    done_keys: set[tuple[str, int]] = set()
+    if not existing_df.empty and not force:
+        for row in existing_df[["listing_id", "class_id"]].itertuples(index=False):
+            done_keys.add((str(row.listing_id), int(row.class_id)))
+
+    pending_rows: list[dict[str, Any]] = []
+    for row in validated_df.to_dict(orient="records"):
+        key = (str(row["listing_id"]), int(row["class_id"]))
+        if key in done_keys and not force:
+            continue
+        pending_rows.append(row)
+
+    if max_rows is not None:
+        pending_rows = pending_rows[: max(0, max_rows)]
+
+    if not pending_rows:
+        logger.info("No new rows for filter_content", extra={"rows_pending": 0})
+        write_table(existing_df, paths.filtered_path)
+        return existing_df
+
+    filter_engine = ContentFilter(
+        ContentFilterConfig(
+            yolo_model=yolo_model,
+            clip_model=clip_model,
+            device=device,
+            min_car_conf=min_car_conf,
+            min_car_area_ratio=min_car_area_ratio,
+            min_exterior_score=min_exterior_score,
+            min_exterior_margin=min_exterior_margin,
+        )
+    )
+
+    rows: list[dict[str, Any]] = []
+    for row in pending_rows:
+        row_out = dict(row)
+        pass_images = 0
+        image_errors: list[str] = []
+        image_reasons: list[str] = []
+
+        for slot in (1, 2):
+            image_path_value = row.get(f"image_{slot}_path")
+            image_path = _resolve_image_path(image_path_value)
+            image_result = filter_engine.evaluate_image(image_path)
+
+            if image_result["content_keep"]:
+                pass_images += 1
+
+            for key, value in image_result.items():
+                row_out[f"image_{slot}_{key}"] = value
+
+            error_text = image_result.get("content_error")
+            if error_text:
+                image_errors.append(f"image_{slot}: {error_text}")
+
+            reason_text = image_result.get("content_reason")
+            if reason_text and reason_text != "ok":
+                image_reasons.append(f"image_{slot}: {reason_text}")
+
+        content_keep = pass_images >= min_pass_images
+        row_out["content_filter_keep"] = bool(content_keep)
+        row_out["content_filter_pass_images"] = int(pass_images)
+        row_out["content_filter_reason"] = None if content_keep else "; ".join(image_reasons)
+        row_out["content_filter_error"] = "; ".join(image_errors) if image_errors else None
+        row_out["content_filter_version"] = PARSE_VERSION_FILTER_CONTENT
+        rows.append(row_out)
+
+    new_df = pd.DataFrame(rows)
+    if force:
+        out_df = new_df.drop_duplicates(subset=["listing_id", "class_id"], keep="last")
+    else:
+        out_df = merge_incremental(
+            existing=existing_df,
+            incoming=new_df,
+            subset=["listing_id", "class_id"],
+        )
+
+    total_rows = len(out_df)
+    filtered_out = 0
+    if drop_filtered_rows and not out_df.empty:
+        keep_mask = out_df["content_filter_keep"].fillna(False).astype(bool)
+        filtered_out = int((~keep_mask).sum())
+        out_df = out_df[keep_mask].copy()
+
+    out_df = out_df.reset_index(drop=True)
+    write_table(out_df, paths.filtered_path)
+    metrics.record_stage_rows(stage="filter_content", count=len(out_df))
+
+    logger.info(
+        "filter_content stage completed",
+        extra={
+            "rows_total_before_drop": int(total_rows),
+            "rows_total": int(len(out_df)),
+            "rows_new": int(len(new_df)),
+            "rows_filtered_out": filtered_out,
+            "min_pass_images": min_pass_images,
+            "drop_filtered_rows": drop_filtered_rows,
+            "output": paths.filtered_path.as_posix(),
+        },
+    )
+    return out_df
+
+
+def _resolve_image_path(value: Any) -> Path:
+    if value is None or pd.isna(value):
+        return PROJ_ROOT / "__missing_image_path__.jpg"
+
+    path = Path(str(value))
+    if not path.is_absolute():
+        path = PROJ_ROOT / path
+    return path
+
+
 def dedup(
     paths: PipelinePaths,
     logger: logging.Logger,
     metrics: DromMetrics,
     drop_duplicates: bool = False,
 ) -> pd.DataFrame:
-    validated_df = read_table(paths.validated_path, required=True)
-    if validated_df.empty:
-        logger.warning("Validated input is empty", extra={"path": paths.validated_path.as_posix()})
-        write_table(validated_df, paths.dedup_path)
-        return validated_df
+    source_path = paths.filtered_path if paths.filtered_path.exists() else paths.validated_path
+    source_df = read_table(source_path, required=True)
+    if source_df.empty:
+        logger.warning("Dedup input is empty", extra={"path": source_path.as_posix()})
+        write_table(source_df, paths.dedup_path)
+        return source_df
 
-    working = validated_df.sort_values(by=["class_id", "listing_id"], kind="stable").copy()
+    working = source_df.sort_values(by=["class_id", "listing_id"], kind="stable").copy()
     seen_hashes: dict[str, str] = {}
 
     duplicate_flags: list[bool] = []
@@ -940,6 +1101,37 @@ def prepare_manifest(
             "image_2_height": working.get("image_2_height"),
             "image_2_bytes": working.get("image_2_bytes"),
             "image_2_format": working.get("image_2_format"),
+            "content_filter_keep": working.get("content_filter_keep"),
+            "content_filter_pass_images": working.get("content_filter_pass_images"),
+            "content_filter_reason": working.get("content_filter_reason"),
+            "content_filter_error": working.get("content_filter_error"),
+            "content_filter_version": working.get("content_filter_version"),
+            "image_1_car_detected": working.get("image_1_car_detected"),
+            "image_1_car_conf": working.get("image_1_car_conf"),
+            "image_1_car_bbox_x1": working.get("image_1_car_bbox_x1"),
+            "image_1_car_bbox_y1": working.get("image_1_car_bbox_y1"),
+            "image_1_car_bbox_x2": working.get("image_1_car_bbox_x2"),
+            "image_1_car_bbox_y2": working.get("image_1_car_bbox_y2"),
+            "image_1_car_bbox_area_ratio": working.get("image_1_car_bbox_area_ratio"),
+            "image_1_exterior_score": working.get("image_1_exterior_score"),
+            "image_1_interior_score": working.get("image_1_interior_score"),
+            "image_1_content_label": working.get("image_1_content_label"),
+            "image_1_content_keep": working.get("image_1_content_keep"),
+            "image_1_content_reason": working.get("image_1_content_reason"),
+            "image_1_content_error": working.get("image_1_content_error"),
+            "image_2_car_detected": working.get("image_2_car_detected"),
+            "image_2_car_conf": working.get("image_2_car_conf"),
+            "image_2_car_bbox_x1": working.get("image_2_car_bbox_x1"),
+            "image_2_car_bbox_y1": working.get("image_2_car_bbox_y1"),
+            "image_2_car_bbox_x2": working.get("image_2_car_bbox_x2"),
+            "image_2_car_bbox_y2": working.get("image_2_car_bbox_y2"),
+            "image_2_car_bbox_area_ratio": working.get("image_2_car_bbox_area_ratio"),
+            "image_2_exterior_score": working.get("image_2_exterior_score"),
+            "image_2_interior_score": working.get("image_2_interior_score"),
+            "image_2_content_label": working.get("image_2_content_label"),
+            "image_2_content_keep": working.get("image_2_content_keep"),
+            "image_2_content_reason": working.get("image_2_content_reason"),
+            "image_2_content_error": working.get("image_2_content_error"),
         }
     )
 

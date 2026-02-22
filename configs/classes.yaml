@@ -756,15 +756,6 @@ classes:
   search_params:
     body_type: sedan
 - class_id: 82
-  make: Mercedes-Benz
-  model: g-class
-  generation: generation2
-  body_type: suv
-  class_name: mercedes_benz_g_class_generation2_suv
-  search_path: /mercedes-benz/g-class/generation2/
-  search_params:
-    body_type: suv
-- class_id: 83
   make: Lada
   model: '2108'
   generation: generation1
@@ -773,7 +764,7 @@ classes:
   search_path: /lada/2108/generation1/
   search_params:
     body_type: hatchback
-- class_id: 84
+- class_id: 83
   make: Toyota
   model: carina
   generation: generation6
@@ -782,7 +773,7 @@ classes:
   search_path: /toyota/carina/generation6/
   search_params:
     body_type: sedan
-- class_id: 85
+- class_id: 84
   make: Honda
   model: accord
   generation: generation9
@@ -791,7 +782,7 @@ classes:
   search_path: /honda/accord/generation9/
   search_params:
     body_type: sedan
-- class_id: 86
+- class_id: 85
   make: Mitsubishi
   model: colt
   generation: generation6
@@ -800,7 +791,7 @@ classes:
   search_path: /mitsubishi/colt/generation6/
   search_params:
     body_type: hatchback
-- class_id: 87
+- class_id: 86
   make: Kia
   model: sorento
   generation: generation3
@@ -809,7 +800,7 @@ classes:
   search_path: /kia/sorento/generation3/
   search_params:
     body_type: suv
-- class_id: 88
+- class_id: 87
   make: Nissan
   model: pathfinder
   generation: generation3
@@ -818,7 +809,7 @@ classes:
   search_path: /nissan/pathfinder/generation3/
   search_params:
     body_type: suv
-- class_id: 89
+- class_id: 88
   make: Ford
   model: mondeo
   generation: generation3
@@ -827,7 +818,7 @@ classes:
   search_path: /ford/mondeo/generation3/
   search_params:
     body_type: sedan
-- class_id: 90
+- class_id: 89
   make: Opel
   model: insignia
   generation: generation1
@@ -836,7 +827,7 @@ classes:
   search_path: /opel/insignia/generation1/
   search_params:
     body_type: sedan
-- class_id: 91
+- class_id: 90
   make: Hyundai
   model: i40
   generation: generation1
@@ -845,7 +836,7 @@ classes:
   search_path: /hyundai/i40/generation1/
   search_params:
     body_type: sedan
-- class_id: 92
+- class_id: 91
   make: Nissan
   model: patrol
   generation: generation6
@@ -854,7 +845,7 @@ classes:
   search_path: /nissan/patrol/generation6/
   search_params:
     body_type: suv
-- class_id: 93
+- class_id: 92
   make: Peugeot
   model: '307'
   generation: generation1
@@ -863,7 +854,7 @@ classes:
   search_path: /peugeot/307/generation1/
   search_params:
     body_type: hatchback
-- class_id: 94
+- class_id: 93
   make: Renault
   model: megane
   generation: generation3
@@ -872,7 +863,7 @@ classes:
   search_path: /renault/megane/generation3/
   search_params:
     body_type: hatchback
-- class_id: 95
+- class_id: 94
   make: Kia
   model: soul
   generation: generation2
@@ -881,7 +872,7 @@ classes:
   search_path: /kia/soul/generation2/
   search_params:
     body_type: hatchback
-- class_id: 96
+- class_id: 95
   make: Peugeot
   model: '408'
   generation: generation1
@@ -890,7 +881,7 @@ classes:
   search_path: /peugeot/408/generation1/
   search_params:
     body_type: sedan
-- class_id: 97
+- class_id: 96
   make: Subaru
   model: legacy
   generation: generation4
@@ -899,7 +890,7 @@ classes:
   search_path: /subaru/legacy/generation4/
   search_params:
     body_type: sedan
-- class_id: 98
+- class_id: 97
   make: Geely
   model: emgrand
   generation: generation1
@@ -908,7 +899,7 @@ classes:
   search_path: /geely/emgrand/generation1/
   search_params:
     body_type: sedan
-- class_id: 99
+- class_id: 98
   make: Skoda
   model: superb
   generation: generation2
@@ -917,7 +908,7 @@ classes:
   search_path: /skoda/superb/generation2/
   search_params:
     body_type: liftback
-- class_id: 100
+- class_id: 99
   make: Mercedes-Benz
   model: s-class
   generation: generation4

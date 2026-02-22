@@ -10,6 +10,10 @@ DROM_QPS = 1.5
 DROM_CONCURRENCY = 12
 DROM_LISTINGS_PER_CLASS = 150
 DROM_CLI = $(PYTHON_INTERPRETER) -m car_listing_visual_verification.data.drom
+HF_RELEASE_DIR = data/processed/hf_release
+HF_DATASET_NAME = drom-car-listings-99-classes
+HF_FILE_MODE = hardlink
+HF_LICENSE = other
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -79,6 +83,10 @@ drom-fetch-images:
 drom-validate:
 	$(DROM_CLI) validate
 
+.PHONY: drom-filter-content
+drom-filter-content:
+	$(DROM_CLI) filter-content
+
 .PHONY: drom-dedup
 drom-dedup:
 	$(DROM_CLI) dedup
@@ -102,6 +110,16 @@ drom-prune-artifacts:
 
 .PHONY: data
 data: requirements drom-run-all drom-prune-artifacts
+
+.PHONY: hf-release
+hf-release:
+	$(DROM_CLI) prepare-hf-release --manifest-path data/processed/manifest.parquet --class-mapping-path data/processed/class_mapping.parquet --output-dir $(HF_RELEASE_DIR) --dataset-name $(HF_DATASET_NAME) --file-mode $(HF_FILE_MODE) --license-id $(HF_LICENSE)
+
+.PHONY: hf-upload
+hf-upload: hf-release
+	@if [ -z "$(DATASET_REPO)" ]; then echo "Usage: make hf-upload DATASET_REPO=<hf-user>/<dataset-name>"; exit 1; fi
+	hf repo create $(DATASET_REPO) --repo-type dataset --private || true
+	hf upload-large-folder --repo-type dataset $(DATASET_REPO) $(HF_RELEASE_DIR) --num-workers 16
 
 
 #################################################################################
