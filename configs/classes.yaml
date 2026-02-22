@@ -27,330 +27,6 @@ source:
   - /auto/[^\s\"'<>]+
 classes:
 - class_id: 1
-  make: Aito
-  model: m5
-  generation: generation1
-  body_type: suv
-  class_name: aito_m5_generation1_suv
-  search_path: /aito/m5/generation1/
-  search_params:
-    body_type: suv
-- class_id: 2
-  make: Aito
-  model: m7
-  generation: generation1
-  body_type: suv
-  class_name: aito_m7_generation1_suv
-  search_path: /aito/m7/generation1/
-  search_params:
-    body_type: suv
-- class_id: 3
-  make: Aito
-  model: m8
-  generation: generation1
-  body_type: suv
-  class_name: aito_m8_generation1_suv
-  search_path: /aito/m8/generation1/
-  search_params:
-    body_type: suv
-- class_id: 4
-  make: Aito
-  model: m9
-  generation: generation1
-  body_type: suv
-  class_name: aito_m9_generation1_suv
-  search_path: /aito/m9/generation1/
-  search_params:
-    body_type: suv
-- class_id: 5
-  make: Amc
-  model: marlin
-  generation: generation2
-  body_type: coupe
-  class_name: amc_marlin_generation2_coupe
-  search_path: /amc/marlin/generation2/
-  search_params:
-    body_type: coupe
-- class_id: 6
-  make: Abarth
-  model: '595'
-  generation: generation1
-  body_type: hatchback
-  class_name: abarth_595_generation1_hatchback
-  search_path: /abarth/595/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 7
-  make: Abarth
-  model: '695'
-  generation: generation1
-  body_type: hatchback
-  class_name: abarth_695_generation1_hatchback
-  search_path: /abarth/695/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 8
-  make: Acura
-  model: cl
-  generation: generation2
-  body_type: coupe
-  class_name: acura_cl_generation2_coupe
-  search_path: /acura/cl/generation2/
-  search_params:
-    body_type: coupe
-- class_id: 9
-  make: Acura
-  model: el
-  generation: generation1
-  body_type: sedan
-  class_name: acura_el_generation1_sedan
-  search_path: /acura/el/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 10
-  make: Acura
-  model: ilx
-  generation: generation1
-  body_type: sedan
-  class_name: acura_ilx_generation1_sedan
-  search_path: /acura/ilx/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 11
-  make: Acura
-  model: legend
-  generation: generation2
-  body_type: sedan
-  class_name: acura_legend_generation2_sedan
-  search_path: /acura/legend/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 12
-  make: Acura
-  model: mdx
-  generation: generation1
-  body_type: suv
-  class_name: acura_mdx_generation1_suv
-  search_path: /acura/mdx/generation1/
-  search_params:
-    body_type: suv
-- class_id: 13
-  make: Acura
-  model: rdx
-  generation: generation3
-  body_type: suv
-  class_name: acura_rdx_generation3_suv
-  search_path: /acura/rdx/generation3/
-  search_params:
-    body_type: suv
-- class_id: 14
-  make: Acura
-  model: rl
-  generation: generation2
-  body_type: sedan
-  class_name: acura_rl_generation2_sedan
-  search_path: /acura/rl/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 15
-  make: Acura
-  model: rsx
-  generation: generation1
-  body_type: hatchback
-  class_name: acura_rsx_generation1_hatchback
-  search_path: /acura/rsx/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 16
-  make: Acura
-  model: tl
-  generation: generation1
-  body_type: sedan
-  class_name: acura_tl_generation1_sedan
-  search_path: /acura/tl/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 17
-  make: Acura
-  model: tlx
-  generation: generation1
-  body_type: sedan
-  class_name: acura_tlx_generation1_sedan
-  search_path: /acura/tlx/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 18
-  make: Acura
-  model: tsx
-  generation: generation1
-  body_type: sedan
-  class_name: acura_tsx_generation1_sedan
-  search_path: /acura/tsx/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 19
-  make: Acura
-  model: zdx
-  generation: generation1
-  body_type: suv
-  class_name: acura_zdx_generation1_suv
-  search_path: /acura/zdx/generation1/
-  search_params:
-    body_type: suv
-- class_id: 20
-  make: Alpina
-  model: xb7
-  generation: generation1
-  body_type: suv
-  class_name: alpina_xb7_generation1_suv
-  search_path: /alpina/xb7/generation1/
-  search_params:
-    body_type: suv
-- class_id: 21
-  make: Alpina
-  model: xd3
-  generation: generation2
-  body_type: suv
-  class_name: alpina_xd3_generation2_suv
-  search_path: /alpina/xd3/generation2/
-  search_params:
-    body_type: suv
-- class_id: 22
-  make: Alpine
-  model: a110
-  generation: generation2
-  body_type: coupe
-  class_name: alpine_a110_generation2_coupe
-  search_path: /alpine/a110/generation2/
-  search_params:
-    body_type: coupe
-- class_id: 23
-  make: Ambertruck
-  model: work
-  generation: generation1
-  body_type: pickup
-  class_name: ambertruck_work_generation1_pickup
-  search_path: /ambertruck/work/generation1/
-  search_params:
-    body_type: pickup
-- class_id: 24
-  make: Aro
-  model: '24'
-  generation: generation1
-  body_type: suv
-  class_name: aro_24_generation1_suv
-  search_path: /aro/24/generation1/
-  search_params:
-    body_type: suv
-- class_id: 25
-  make: Audi
-  model: '100'
-  generation: generation2
-  body_type: sedan
-  class_name: audi_100_generation2_sedan
-  search_path: /audi/100/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 26
-  make: Audi
-  model: '200'
-  generation: generation2
-  body_type: sedan
-  class_name: audi_200_generation2_sedan
-  search_path: /audi/200/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 27
-  make: Audi
-  model: '80'
-  generation: generation2
-  body_type: sedan
-  class_name: audi_80_generation2_sedan
-  search_path: /audi/80/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 28
-  make: Audi
-  model: '90'
-  generation: generation2
-  body_type: sedan
-  class_name: audi_90_generation2_sedan
-  search_path: /audi/90/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 29
-  make: Audi
-  model: a1
-  generation: generation1
-  body_type: sedan
-  class_name: audi_a1_generation1_sedan
-  search_path: /audi/a1/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 30
-  make: Audi
-  model: a2
-  generation: generation1
-  body_type: hatchback
-  class_name: audi_a2_generation1_hatchback
-  search_path: /audi/a2/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 31
-  make: Audi
-  model: a3
-  generation: generation1
-  body_type: hatchback
-  class_name: audi_a3_generation1_hatchback
-  search_path: /audi/a3/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 32
-  make: Audi
-  model: a4
-  generation: generation1
-  body_type: sedan
-  class_name: audi_a4_generation1_sedan
-  search_path: /audi/a4/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 33
-  make: Audi
-  model: a4_allroad_quattro
-  generation: generation1
-  body_type: wagon
-  class_name: audi_a4_allroad_quattro_generation1_wagon
-  search_path: /audi/a4_allroad_quattro/generation1/
-  search_params:
-    body_type: wagon
-- class_id: 34
-  make: Audi
-  model: a5
-  generation: generation1
-  body_type: liftback
-  class_name: audi_a5_generation1_liftback
-  search_path: /audi/a5/generation1/
-  search_params:
-    body_type: liftback
-- class_id: 35
-  make: Audi
-  model: a6
-  generation: generation1
-  body_type: sedan
-  class_name: audi_a6_generation1_sedan
-  search_path: /audi/a6/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 36
-  make: Audi
-  model: a6_allroad_quattro
-  generation: generation1
-  body_type: wagon
-  class_name: audi_a6_allroad_quattro_generation1_wagon
-  search_path: /audi/a6_allroad_quattro/generation1/
-  search_params:
-    body_type: wagon
-- class_id: 37
   make: Audi
   model: a7
   generation: generation1
@@ -359,574 +35,7 @@ classes:
   search_path: /audi/a7/generation1/
   search_params:
     body_type: liftback
-- class_id: 38
-  make: Audi
-  model: a8
-  generation: generation1
-  body_type: sedan
-  class_name: audi_a8_generation1_sedan
-  search_path: /audi/a8/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 39
-  make: Audi
-  model: cabriolet
-  generation: generation1
-  body_type: van
-  class_name: audi_cabriolet_generation1_van
-  search_path: /audi/cabriolet/generation1/
-  search_params:
-    body_type: van
-- class_id: 40
-  make: Audi
-  model: coupe-model
-  generation: generation1
-  body_type: sedan
-  class_name: audi_coupe_model_generation1_sedan
-  search_path: /audi/coupe-model/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 41
-  make: Audi
-  model: q2
-  generation: generation1
-  body_type: suv
-  class_name: audi_q2_generation1_suv
-  search_path: /audi/q2/generation1/
-  search_params:
-    body_type: suv
-- class_id: 42
-  make: Audi
-  model: q2_e-tron
-  generation: generation1
-  body_type: suv
-  class_name: audi_q2_e_tron_generation1_suv
-  search_path: /audi/q2_e-tron/generation1/
-  search_params:
-    body_type: suv
-- class_id: 43
-  make: Audi
-  model: q3
-  generation: generation1
-  body_type: suv
-  class_name: audi_q3_generation1_suv
-  search_path: /audi/q3/generation1/
-  search_params:
-    body_type: suv
-- class_id: 44
-  make: Audi
-  model: q3_sportback
-  generation: generation1
-  body_type: suv
-  class_name: audi_q3_sportback_generation1_suv
-  search_path: /audi/q3_sportback/generation1/
-  search_params:
-    body_type: suv
-- class_id: 45
-  make: Audi
-  model: q4_sportback_e-tron
-  generation: generation1
-  body_type: suv
-  class_name: audi_q4_sportback_e_tron_generation1_suv
-  search_path: /audi/q4_sportback_e-tron/generation1/
-  search_params:
-    body_type: suv
-- class_id: 46
-  make: Audi
-  model: q4_e-tron
-  generation: generation1
-  body_type: suv
-  class_name: audi_q4_e_tron_generation1_suv
-  search_path: /audi/q4_e-tron/generation1/
-  search_params:
-    body_type: suv
-- class_id: 47
-  make: Audi
-  model: q5
-  generation: generation3
-  body_type: suv
-  class_name: audi_q5_generation3_suv
-  search_path: /audi/q5/generation3/
-  search_params:
-    body_type: suv
-- class_id: 48
-  make: Audi
-  model: q5_sportback
-  generation: generation1
-  body_type: suv
-  class_name: audi_q5_sportback_generation1_suv
-  search_path: /audi/q5_sportback/generation1/
-  search_params:
-    body_type: suv
-- class_id: 49
-  make: Audi
-  model: q5_e-tron
-  generation: generation1
-  body_type: suv
-  class_name: audi_q5_e_tron_generation1_suv
-  search_path: /audi/q5_e-tron/generation1/
-  search_params:
-    body_type: suv
-- class_id: 50
-  make: Audi
-  model: q6
-  generation: generation1
-  body_type: suv
-  class_name: audi_q6_generation1_suv
-  search_path: /audi/q6/generation1/
-  search_params:
-    body_type: suv
-- class_id: 51
-  make: Audi
-  model: q7
-  generation: generation1
-  body_type: suv
-  class_name: audi_q7_generation1_suv
-  search_path: /audi/q7/generation1/
-  search_params:
-    body_type: suv
-- class_id: 52
-  make: Audi
-  model: q8
-  generation: generation1
-  body_type: suv
-  class_name: audi_q8_generation1_suv
-  search_path: /audi/q8/generation1/
-  search_params:
-    body_type: suv
-- class_id: 53
-  make: Audi
-  model: r8
-  generation: generation1
-  body_type: coupe
-  class_name: audi_r8_generation1_coupe
-  search_path: /audi/r8/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 54
-  make: Audi
-  model: rs_q3
-  generation: generation1
-  body_type: suv
-  class_name: audi_rs_q3_generation1_suv
-  search_path: /audi/rs_q3/generation1/
-  search_params:
-    body_type: suv
-- class_id: 55
-  make: Audi
-  model: rs_q3_sportback
-  generation: generation1
-  body_type: suv
-  class_name: audi_rs_q3_sportback_generation1_suv
-  search_path: /audi/rs_q3_sportback/generation1/
-  search_params:
-    body_type: suv
-- class_id: 56
-  make: Audi
-  model: rs_q8
-  generation: generation1
-  body_type: suv
-  class_name: audi_rs_q8_generation1_suv
-  search_path: /audi/rs_q8/generation1/
-  search_params:
-    body_type: suv
-- class_id: 57
-  make: Audi
-  model: rs_e-tron_gt
-  generation: generation1
-  body_type: sedan
-  class_name: audi_rs_e_tron_gt_generation1_sedan
-  search_path: /audi/rs_e-tron_gt/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 58
-  make: Audi
-  model: rs3
-  generation: generation2
-  body_type: hatchback
-  class_name: audi_rs3_generation2_hatchback
-  search_path: /audi/rs3/generation2/
-  search_params:
-    body_type: hatchback
-- class_id: 59
-  make: Audi
-  model: rs4
-  generation: generation3
-  body_type: sedan
-  class_name: audi_rs4_generation3_sedan
-  search_path: /audi/rs4/generation3/
-  search_params:
-    body_type: sedan
-- class_id: 60
-  make: Audi
-  model: rs5
-  generation: generation1
-  body_type: coupe
-  class_name: audi_rs5_generation1_coupe
-  search_path: /audi/rs5/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 61
-  make: Audi
-  model: rs6
-  generation: generation3
-  body_type: sedan
-  class_name: audi_rs6_generation3_sedan
-  search_path: /audi/rs6/generation3/
-  search_params:
-    body_type: sedan
-- class_id: 62
-  make: Audi
-  model: rs7
-  generation: generation1
-  body_type: liftback
-  class_name: audi_rs7_generation1_liftback
-  search_path: /audi/rs7/generation1/
-  search_params:
-    body_type: liftback
-- class_id: 63
-  make: Audi
-  model: s2
-  generation: generation1
-  body_type: hatchback
-  class_name: audi_s2_generation1_hatchback
-  search_path: /audi/s2/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 64
-  make: Audi
-  model: s3
-  generation: generation1
-  body_type: hatchback
-  class_name: audi_s3_generation1_hatchback
-  search_path: /audi/s3/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 65
-  make: Audi
-  model: s4
-  generation: generation2
-  body_type: sedan
-  class_name: audi_s4_generation2_sedan
-  search_path: /audi/s4/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 66
-  make: Audi
-  model: s5
-  generation: generation1
-  body_type: coupe
-  class_name: audi_s5_generation1_coupe
-  search_path: /audi/s5/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 67
-  make: Audi
-  model: s6
-  generation: generation1
-  body_type: wagon
-  class_name: audi_s6_generation1_wagon
-  search_path: /audi/s6/generation1/
-  search_params:
-    body_type: wagon
-- class_id: 68
-  make: Audi
-  model: s7
-  generation: generation1
-  body_type: liftback
-  class_name: audi_s7_generation1_liftback
-  search_path: /audi/s7/generation1/
-  search_params:
-    body_type: liftback
-- class_id: 69
-  make: Audi
-  model: s8
-  generation: generation1
-  body_type: sedan
-  class_name: audi_s8_generation1_sedan
-  search_path: /audi/s8/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 70
-  make: Audi
-  model: sq2
-  generation: generation1
-  body_type: suv
-  class_name: audi_sq2_generation1_suv
-  search_path: /audi/sq2/generation1/
-  search_params:
-    body_type: suv
-- class_id: 71
-  make: Audi
-  model: sq5
-  generation: generation1
-  body_type: suv
-  class_name: audi_sq5_generation1_suv
-  search_path: /audi/sq5/generation1/
-  search_params:
-    body_type: suv
-- class_id: 72
-  make: Audi
-  model: sq7
-  generation: generation1
-  body_type: suv
-  class_name: audi_sq7_generation1_suv
-  search_path: /audi/sq7/generation1/
-  search_params:
-    body_type: suv
-- class_id: 73
-  make: Audi
-  model: sq8
-  generation: generation2
-  body_type: suv
-  class_name: audi_sq8_generation2_suv
-  search_path: /audi/sq8/generation2/
-  search_params:
-    body_type: suv
-- class_id: 74
-  make: Audi
-  model: tt
-  generation: generation2
-  body_type: hatchback
-  class_name: audi_tt_generation2_hatchback
-  search_path: /audi/tt/generation2/
-  search_params:
-    body_type: hatchback
-- class_id: 75
-  make: Audi
-  model: tt_rs
-  generation: generation2
-  body_type: hatchback
-  class_name: audi_tt_rs_generation2_hatchback
-  search_path: /audi/tt_rs/generation2/
-  search_params:
-    body_type: hatchback
-- class_id: 76
-  make: Audi
-  model: tts
-  generation: generation2
-  body_type: hatchback
-  class_name: audi_tts_generation2_hatchback
-  search_path: /audi/tts/generation2/
-  search_params:
-    body_type: hatchback
-- class_id: 77
-  make: Audi
-  model: v8
-  generation: generation1
-  body_type: sedan
-  class_name: audi_v8_generation1_sedan
-  search_path: /audi/v8/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 78
-  make: Audi
-  model: e-tron
-  generation: generation1
-  body_type: suv
-  class_name: audi_e_tron_generation1_suv
-  search_path: /audi/e-tron/generation1/
-  search_params:
-    body_type: suv
-- class_id: 79
-  make: Audi
-  model: e-tron_gt
-  generation: generation1
-  body_type: sedan
-  class_name: audi_e_tron_gt_generation1_sedan
-  search_path: /audi/e-tron_gt/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 80
-  make: Audi
-  model: e-tron_sportback
-  generation: generation1
-  body_type: suv
-  class_name: audi_e_tron_sportback_generation1_suv
-  search_path: /audi/e-tron_sportback/generation1/
-  search_params:
-    body_type: suv
-- class_id: 81
-  make: Audi
-  model: e-tron_sportback_s
-  generation: generation1
-  body_type: suv
-  class_name: audi_e_tron_sportback_s_generation1_suv
-  search_path: /audi/e-tron_sportback_s/generation1/
-  search_params:
-    body_type: suv
-- class_id: 82
-  make: Aurus
-  model: senat
-  generation: generation1
-  body_type: sedan
-  class_name: aurus_senat_generation1_sedan
-  search_path: /aurus/senat/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 83
-  make: Avatr
-  model: '06'
-  generation: generation1
-  body_type: sedan
-  class_name: avatr_06_generation1_sedan
-  search_path: /avatr/06/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 84
-  make: Avatr
-  model: '07'
-  generation: generation1
-  body_type: suv
-  class_name: avatr_07_generation1_suv
-  search_path: /avatr/07/generation1/
-  search_params:
-    body_type: suv
-- class_id: 85
-  make: Avatr
-  model: '11'
-  generation: generation1
-  body_type: suv
-  class_name: avatr_11_generation1_suv
-  search_path: /avatr/11/generation1/
-  search_params:
-    body_type: suv
-- class_id: 86
-  make: Avatr
-  model: '12'
-  generation: generation1
-  body_type: liftback
-  class_name: avatr_12_generation1_liftback
-  search_path: /avatr/12/generation1/
-  search_params:
-    body_type: liftback
-- class_id: 87
-  make: Baic
-  model: beijing_bj30
-  generation: generation2
-  body_type: suv
-  class_name: baic_beijing_bj30_generation2_suv
-  search_path: /baic/beijing_bj30/generation2/
-  search_params:
-    body_type: suv
-- class_id: 88
-  make: Baic
-  model: beijing_bj40
-  generation: generation1
-  body_type: suv
-  class_name: baic_beijing_bj40_generation1_suv
-  search_path: /baic/beijing_bj40/generation1/
-  search_params:
-    body_type: suv
-- class_id: 89
-  make: Baic
-  model: beijing_bj60
-  generation: generation1
-  body_type: suv
-  class_name: baic_beijing_bj60_generation1_suv
-  search_path: /baic/beijing_bj60/generation1/
-  search_params:
-    body_type: suv
-- class_id: 90
-  make: Baic
-  model: beijing_bj80
-  generation: generation1
-  body_type: suv
-  class_name: baic_beijing_bj80_generation1_suv
-  search_path: /baic/beijing_bj80/generation1/
-  search_params:
-    body_type: suv
-- class_id: 91
-  make: Baic
-  model: u5_plus
-  generation: generation1
-  body_type: sedan
-  class_name: baic_u5_plus_generation1_sedan
-  search_path: /baic/u5_plus/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 92
-  make: Baic
-  model: beijing_x3
-  generation: generation1
-  body_type: suv
-  class_name: baic_beijing_x3_generation1_suv
-  search_path: /baic/beijing_x3/generation1/
-  search_params:
-    body_type: suv
-- class_id: 93
-  make: Baic
-  model: x35
-  generation: generation1
-  body_type: suv
-  class_name: baic_x35_generation1_suv
-  search_path: /baic/x35/generation1/
-  search_params:
-    body_type: suv
-- class_id: 94
-  make: Baic
-  model: x55
-  generation: generation1
-  body_type: suv
-  class_name: baic_x55_generation1_suv
-  search_path: /baic/x55/generation1/
-  search_params:
-    body_type: suv
-- class_id: 95
-  make: Baic
-  model: beijing_x7
-  generation: generation1
-  body_type: suv
-  class_name: baic_beijing_x7_generation1_suv
-  search_path: /baic/beijing_x7/generation1/
-  search_params:
-    body_type: suv
-- class_id: 96
-  make: Baic
-  model: x75
-  generation: generation1
-  body_type: suv
-  class_name: baic_x75_generation1_suv
-  search_path: /baic/x75/generation1/
-  search_params:
-    body_type: suv
-- class_id: 97
-  make: Baw
-  model: ace_m7
-  generation: generation1
-  body_type: minivan
-  class_name: baw_ace_m7_generation1_minivan
-  search_path: /baw/ace_m7/generation1/
-  search_params:
-    body_type: minivan
-- class_id: 98
-  make: Baw
-  model: bj212
-  generation: generation1
-  body_type: suv
-  class_name: baw_bj212_generation1_suv
-  search_path: /baw/bj212/generation1/
-  search_params:
-    body_type: suv
-- class_id: 99
-  make: Baw
-  model: '007'
-  generation: generation1
-  body_type: suv
-  class_name: baw_007_generation1_suv
-  search_path: /baw/007/generation1/
-  search_params:
-    body_type: suv
-- class_id: 100
-  make: Bmw
-  model: 1-series
-  generation: generation1
-  body_type: suv
-  class_name: bmw_1_series_generation1_suv
-  search_path: /bmw/1-series/generation1/
-  search_params:
-    body_type: suv
-- class_id: 101
+- class_id: 2
   make: Bmw
   model: 2-series_active_tourer
   generation: generation1
@@ -935,241 +44,7 @@ classes:
   search_path: /bmw/2-series_active_tourer/generation1/
   search_params:
     body_type: wagon
-- class_id: 102
-  make: Bmw
-  model: 2-series
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_2_series_generation1_sedan
-  search_path: /bmw/2-series/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 103
-  make: Bmw
-  model: 2-series_gran_tourer
-  generation: generation1
-  body_type: minivan
-  class_name: bmw_2_series_gran_tourer_generation1_minivan
-  search_path: /bmw/2-series_gran_tourer/generation1/
-  search_params:
-    body_type: minivan
-- class_id: 104
-  make: Bmw
-  model: 3-series
-  generation: generation1
-  body_type: coupe
-  class_name: bmw_3_series_generation1_coupe
-  search_path: /bmw/3-series/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 105
-  make: Bmw
-  model: 3-series_gran_turismo
-  generation: generation6
-  body_type: suv
-  class_name: bmw_3_series_gran_turismo_generation6_suv
-  search_path: /bmw/3-series_gran_turismo/generation6/
-  search_params:
-    body_type: suv
-- class_id: 106
-  make: Bmw
-  model: '321'
-  generation: generation1
-  body_type: coupe
-  class_name: bmw_321_generation1_coupe
-  search_path: /bmw/321/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 107
-  make: Bmw
-  model: '326'
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_326_generation1_sedan
-  search_path: /bmw/326/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 108
-  make: Bmw
-  model: '340'
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_340_generation1_sedan
-  search_path: /bmw/340/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 109
-  make: Bmw
-  model: 4-series
-  generation: generation1
-  body_type: coupe
-  class_name: bmw_4_series_generation1_coupe
-  search_path: /bmw/4-series/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 110
-  make: Bmw
-  model: 5-series
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_5_series_generation1_sedan
-  search_path: /bmw/5-series/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 111
-  make: Bmw
-  model: 5-series_gran_turismo
-  generation: generation6
-  body_type: liftback
-  class_name: bmw_5_series_gran_turismo_generation6_liftback
-  search_path: /bmw/5-series_gran_turismo/generation6/
-  search_params:
-    body_type: liftback
-- class_id: 112
-  make: Bmw
-  model: 6-series
-  generation: generation1
-  body_type: coupe
-  class_name: bmw_6_series_generation1_coupe
-  search_path: /bmw/6-series/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 113
-  make: Bmw
-  model: 6-series_gran_turismo
-  generation: generation1
-  body_type: suv
-  class_name: bmw_6_series_gran_turismo_generation1_suv
-  search_path: /bmw/6-series_gran_turismo/generation1/
-  search_params:
-    body_type: suv
-- class_id: 114
-  make: Bmw
-  model: 7-series
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_7_series_generation1_sedan
-  search_path: /bmw/7-series/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 115
-  make: Bmw
-  model: 8-series
-  generation: generation1
-  body_type: coupe
-  class_name: bmw_8_series_generation1_coupe
-  search_path: /bmw/8-series/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 116
-  make: Bmw
-  model: m2
-  generation: generation1
-  body_type: coupe
-  class_name: bmw_m2_generation1_coupe
-  search_path: /bmw/m2/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 117
-  make: Bmw
-  model: m3
-  generation: generation2
-  body_type: coupe
-  class_name: bmw_m3_generation2_coupe
-  search_path: /bmw/m3/generation2/
-  search_params:
-    body_type: coupe
-- class_id: 118
-  make: Bmw
-  model: m4
-  generation: generation1
-  body_type: coupe
-  class_name: bmw_m4_generation1_coupe
-  search_path: /bmw/m4/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 119
-  make: Bmw
-  model: m5
-  generation: generation2
-  body_type: sedan
-  class_name: bmw_m5_generation2_sedan
-  search_path: /bmw/m5/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 120
-  make: Bmw
-  model: m6
-  generation: generation2
-  body_type: coupe
-  class_name: bmw_m6_generation2_coupe
-  search_path: /bmw/m6/generation2/
-  search_params:
-    body_type: coupe
-- class_id: 121
-  make: Bmw
-  model: m8
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_m8_generation1_sedan
-  search_path: /bmw/m8/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 122
-  make: Bmw
-  model: x1
-  generation: generation1
-  body_type: suv
-  class_name: bmw_x1_generation1_suv
-  search_path: /bmw/x1/generation1/
-  search_params:
-    body_type: suv
-- class_id: 123
-  make: Bmw
-  model: x2
-  generation: generation1
-  body_type: suv
-  class_name: bmw_x2_generation1_suv
-  search_path: /bmw/x2/generation1/
-  search_params:
-    body_type: suv
-- class_id: 124
-  make: Bmw
-  model: x3
-  generation: generation1
-  body_type: suv
-  class_name: bmw_x3_generation1_suv
-  search_path: /bmw/x3/generation1/
-  search_params:
-    body_type: suv
-- class_id: 125
-  make: Bmw
-  model: x4
-  generation: generation1
-  body_type: suv
-  class_name: bmw_x4_generation1_suv
-  search_path: /bmw/x4/generation1/
-  search_params:
-    body_type: suv
-- class_id: 126
-  make: Bmw
-  model: x5
-  generation: generation1
-  body_type: suv
-  class_name: bmw_x5_generation1_suv
-  search_path: /bmw/x5/generation1/
-  search_params:
-    body_type: suv
-- class_id: 127
-  make: Bmw
-  model: x6
-  generation: generation1
-  body_type: suv
-  class_name: bmw_x6_generation1_suv
-  search_path: /bmw/x6/generation1/
-  search_params:
-    body_type: suv
-- class_id: 128
+- class_id: 3
   make: Bmw
   model: x7
   generation: generation1
@@ -1178,961 +53,34 @@ classes:
   search_path: /bmw/x7/generation1/
   search_params:
     body_type: suv
-- class_id: 129
-  make: Bmw
-  model: xm
+- class_id: 4
+  make: Audi
+  model: q3
   generation: generation1
   body_type: suv
-  class_name: bmw_xm_generation1_suv
-  search_path: /bmw/xm/generation1/
+  class_name: audi_q3_generation1_suv
+  search_path: /audi/q3/generation1/
   search_params:
     body_type: suv
-- class_id: 130
-  make: Bmw
-  model: z1
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_z1_generation1_sedan
-  search_path: /bmw/z1/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 131
-  make: Bmw
-  model: z3
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_z3_generation1_sedan
-  search_path: /bmw/z3/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 132
-  make: Bmw
-  model: z4
-  generation: generation1
-  body_type: roadster
-  class_name: bmw_z4_generation1_roadster
-  search_path: /bmw/z4/generation1/
-  search_params:
-    body_type: roadster
-- class_id: 133
-  make: Bmw
-  model: i3
-  generation: generation1
-  body_type: hatchback
-  class_name: bmw_i3_generation1_hatchback
-  search_path: /bmw/i3/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 134
-  make: Bmw
-  model: i4
-  generation: generation1
-  body_type: liftback
-  class_name: bmw_i4_generation1_liftback
-  search_path: /bmw/i4/generation1/
-  search_params:
-    body_type: liftback
-- class_id: 135
-  make: Bmw
-  model: i5
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_i5_generation1_sedan
-  search_path: /bmw/i5/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 136
-  make: Bmw
-  model: i7
-  generation: generation1
-  body_type: sedan
-  class_name: bmw_i7_generation1_sedan
-  search_path: /bmw/i7/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 137
-  make: Bmw
-  model: i8
-  generation: generation1
-  body_type: coupe
-  class_name: bmw_i8_generation1_coupe
-  search_path: /bmw/i8/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 138
-  make: Bmw
-  model: ix
-  generation: generation1
-  body_type: suv
-  class_name: bmw_ix_generation1_suv
-  search_path: /bmw/ix/generation1/
-  search_params:
-    body_type: suv
-- class_id: 139
-  make: Bmw
-  model: ix1
-  generation: generation1
-  body_type: suv
-  class_name: bmw_ix1_generation1_suv
-  search_path: /bmw/ix1/generation1/
-  search_params:
-    body_type: suv
-- class_id: 140
-  make: Bmw
-  model: ix3
-  generation: generation1
-  body_type: suv
-  class_name: bmw_ix3_generation1_suv
-  search_path: /bmw/ix3/generation1/
-  search_params:
-    body_type: suv
-- class_id: 141
-  make: Byd
-  model: destroyer_05
-  generation: generation1
-  body_type: sedan
-  class_name: byd_destroyer_05_generation1_sedan
-  search_path: /byd/destroyer_05/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 142
-  make: Byd
-  model: dolphin
-  generation: generation1
-  body_type: hatchback
-  class_name: byd_dolphin_generation1_hatchback
-  search_path: /byd/dolphin/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 143
-  make: Byd
-  model: f0
-  generation: generation1
-  body_type: hatchback
-  class_name: byd_f0_generation1_hatchback
-  search_path: /byd/f0/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 144
-  make: Byd
-  model: f3
-  generation: generation1
-  body_type: sedan
-  class_name: byd_f3_generation1_sedan
-  search_path: /byd/f3/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 145
-  make: Byd
-  model: f6
-  generation: generation1
-  body_type: sedan
-  class_name: byd_f6_generation1_sedan
-  search_path: /byd/f6/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 146
-  make: Byd
-  model: fangchengbao_leopard_5
-  generation: generation1
-  body_type: suv
-  class_name: byd_fangchengbao_leopard_5_generation1_suv
-  search_path: /byd/fangchengbao_leopard_5/generation1/
-  search_params:
-    body_type: suv
-- class_id: 147
-  make: Byd
-  model: fangchengbao_leopard_8
-  generation: generation1
-  body_type: suv
-  class_name: byd_fangchengbao_leopard_8_generation1_suv
-  search_path: /byd/fangchengbao_leopard_8/generation1/
-  search_params:
-    body_type: suv
-- class_id: 148
-  make: Byd
-  model: fangchengbao_titanium_3
-  generation: generation1
-  body_type: suv
-  class_name: byd_fangchengbao_titanium_3_generation1_suv
-  search_path: /byd/fangchengbao_titanium_3/generation1/
-  search_params:
-    body_type: suv
-- class_id: 149
-  make: Byd
-  model: flyer
-  generation: generation1
-  body_type: hatchback
-  class_name: byd_flyer_generation1_hatchback
-  search_path: /byd/flyer/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 150
-  make: Byd
-  model: frigate_07
-  generation: generation1
-  body_type: suv
-  class_name: byd_frigate_07_generation1_suv
-  search_path: /byd/frigate_07/generation1/
-  search_params:
-    body_type: suv
-- class_id: 151
-  make: Byd
-  model: han
-  generation: generation1
-  body_type: sedan
-  class_name: byd_han_generation1_sedan
-  search_path: /byd/han/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 152
-  make: Byd
-  model: qin_l
-  generation: generation1
-  body_type: sedan
-  class_name: byd_qin_l_generation1_sedan
-  search_path: /byd/qin_l/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 153
-  make: Byd
-  model: qin_plus
-  generation: generation1
-  body_type: sedan
-  class_name: byd_qin_plus_generation1_sedan
-  search_path: /byd/qin_plus/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 154
-  make: Byd
-  model: sea_lion_07
-  generation: generation1
-  body_type: suv
-  class_name: byd_sea_lion_07_generation1_suv
-  search_path: /byd/sea_lion_07/generation1/
-  search_params:
-    body_type: suv
-- class_id: 155
-  make: Byd
-  model: seagull
-  generation: generation1
-  body_type: hatchback
-  class_name: byd_seagull_generation1_hatchback
-  search_path: /byd/seagull/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 156
-  make: Byd
-  model: seal
-  generation: generation1
-  body_type: sedan
-  class_name: byd_seal_generation1_sedan
-  search_path: /byd/seal/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 157
-  make: Byd
-  model: song_l_dm
-  generation: generation1
-  body_type: suv
-  class_name: byd_song_l_dm_generation1_suv
-  search_path: /byd/song_l_dm/generation1/
-  search_params:
-    body_type: suv
-- class_id: 158
-  make: Byd
-  model: song_l
-  generation: generation1
-  body_type: suv
-  class_name: byd_song_l_generation1_suv
-  search_path: /byd/song_l/generation1/
-  search_params:
-    body_type: suv
-- class_id: 159
-  make: Byd
-  model: song_max
-  generation: generation1
-  body_type: minivan
-  class_name: byd_song_max_generation1_minivan
-  search_path: /byd/song_max/generation1/
-  search_params:
-    body_type: minivan
-- class_id: 160
-  make: Byd
-  model: song_plus
-  generation: generation1
-  body_type: suv
-  class_name: byd_song_plus_generation1_suv
-  search_path: /byd/song_plus/generation1/
-  search_params:
-    body_type: suv
-- class_id: 161
-  make: Byd
-  model: song_pro
-  generation: generation1
-  body_type: suv
-  class_name: byd_song_pro_generation1_suv
-  search_path: /byd/song_pro/generation1/
-  search_params:
-    body_type: suv
-- class_id: 162
-  make: Byd
-  model: song
-  generation: generation1
-  body_type: suv
-  class_name: byd_song_generation1_suv
-  search_path: /byd/song/generation1/
-  search_params:
-    body_type: suv
-- class_id: 163
-  make: Byd
-  model: tang
-  generation: generation2
-  body_type: sedan
-  class_name: byd_tang_generation2_sedan
-  search_path: /byd/tang/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 164
-  make: Byd
-  model: tang_l
-  generation: generation1
-  body_type: suv
-  class_name: byd_tang_l_generation1_suv
-  search_path: /byd/tang_l/generation1/
-  search_params:
-    body_type: suv
-- class_id: 165
-  make: Byd
-  model: yangwang_u7
-  generation: generation1
-  body_type: sedan
-  class_name: byd_yangwang_u7_generation1_sedan
-  search_path: /byd/yangwang_u7/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 166
-  make: Byd
-  model: yangwang_u8
-  generation: generation1
-  body_type: suv
-  class_name: byd_yangwang_u8_generation1_suv
-  search_path: /byd/yangwang_u8/generation1/
-  search_params:
-    body_type: suv
-- class_id: 167
-  make: Byd
-  model: yangwang_u9
-  generation: generation1
-  body_type: sedan
-  class_name: byd_yangwang_u9_generation1_sedan
-  search_path: /byd/yangwang_u9/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 168
-  make: Byd
-  model: yuan
-  generation: generation1
-  body_type: suv
-  class_name: byd_yuan_generation1_suv
-  search_path: /byd/yuan/generation1/
-  search_params:
-    body_type: suv
-- class_id: 169
-  make: Byd
-  model: yuan_plus
-  generation: generation1
-  body_type: suv
-  class_name: byd_yuan_plus_generation1_suv
-  search_path: /byd/yuan_plus/generation1/
-  search_params:
-    body_type: suv
-- class_id: 170
-  make: Byd
-  model: yuan_pro
-  generation: generation1
-  body_type: suv
-  class_name: byd_yuan_pro_generation1_suv
-  search_path: /byd/yuan_pro/generation1/
-  search_params:
-    body_type: suv
-- class_id: 171
-  make: Byd
-  model: yuan_up
-  generation: generation1
-  body_type: suv
-  class_name: byd_yuan_up_generation1_suv
-  search_path: /byd/yuan_up/generation1/
-  search_params:
-    body_type: suv
-- class_id: 172
-  make: Byd
-  model: e2
-  generation: generation1
-  body_type: hatchback
-  class_name: byd_e2_generation1_hatchback
-  search_path: /byd/e2/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 173
-  make: Byd
-  model: e6
-  generation: generation1
-  body_type: suv
-  class_name: byd_e6_generation1_suv
-  search_path: /byd/e6/generation1/
-  search_params:
-    body_type: suv
-- class_id: 174
-  make: Baojun
-  model: '530'
-  generation: generation1
-  body_type: suv
-  class_name: baojun_530_generation1_suv
-  search_path: /baojun/530/generation1/
-  search_params:
-    body_type: suv
-- class_id: 175
-  make: Baojun
-  model: rs-3
-  generation: generation1
-  body_type: suv
-  class_name: baojun_rs_3_generation1_suv
-  search_path: /baojun/rs-3/generation1/
-  search_params:
-    body_type: suv
-- class_id: 176
-  make: Baojun
-  model: yunduo
-  generation: generation1
-  body_type: hatchback
-  class_name: baojun_yunduo_generation1_hatchback
-  search_path: /baojun/yunduo/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 177
-  make: Belgee
-  model: x50
-  generation: generation1
-  body_type: suv
-  class_name: belgee_x50_generation1_suv
-  search_path: /belgee/x50/generation1/
-  search_params:
-    body_type: suv
-- class_id: 178
-  make: Belgee
-  model: x70
-  generation: generation1
-  body_type: suv
-  class_name: belgee_x70_generation1_suv
-  search_path: /belgee/x70/generation1/
-  search_params:
-    body_type: suv
-- class_id: 179
-  make: Bentley
-  model: arnage
-  generation: generation1
-  body_type: sedan
-  class_name: bentley_arnage_generation1_sedan
-  search_path: /bentley/arnage/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 180
-  make: Bentley
-  model: bentayga
-  generation: generation1
-  body_type: suv
-  class_name: bentley_bentayga_generation1_suv
-  search_path: /bentley/bentayga/generation1/
-  search_params:
-    body_type: suv
-- class_id: 181
-  make: Bentley
-  model: continental_gt
-  generation: generation1
-  body_type: coupe
-  class_name: bentley_continental_gt_generation1_coupe
-  search_path: /bentley/continental_gt/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 182
-  make: Bentley
-  model: flying_spur
-  generation: generation1
-  body_type: sedan
-  class_name: bentley_flying_spur_generation1_sedan
-  search_path: /bentley/flying_spur/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 183
-  make: Bentley
-  model: mulsanne
-  generation: generation2
-  body_type: sedan
-  class_name: bentley_mulsanne_generation2_sedan
-  search_path: /bentley/mulsanne/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 184
-  make: Bestune
-  model: b70
-  generation: generation4
-  body_type: liftback
-  class_name: bestune_b70_generation4_liftback
-  search_path: /bestune/b70/generation4/
-  search_params:
-    body_type: liftback
-- class_id: 185
-  make: Bestune
-  model: t77
-  generation: generation1
-  body_type: suv
-  class_name: bestune_t77_generation1_suv
-  search_path: /bestune/t77/generation1/
-  search_params:
-    body_type: suv
-- class_id: 186
-  make: Bestune
-  model: t90
-  generation: generation1
-  body_type: suv
-  class_name: bestune_t90_generation1_suv
-  search_path: /bestune/t90/generation1/
-  search_params:
-    body_type: suv
-- class_id: 187
-  make: Bogdan
-  model: '2110'
-  generation: generation1
-  body_type: sedan
-  class_name: bogdan_2110_generation1_sedan
-  search_path: /bogdan/2110/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 188
-  make: Bogdan
-  model: '2111'
-  generation: generation1
-  body_type: wagon
-  class_name: bogdan_2111_generation1_wagon
-  search_path: /bogdan/2111/generation1/
-  search_params:
-    body_type: wagon
-- class_id: 189
-  make: Brilliance
-  model: h230
-  generation: generation1
-  body_type: hatchback
-  class_name: brilliance_h230_generation1_hatchback
-  search_path: /brilliance/h230/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 190
-  make: Brilliance
-  model: h530
-  generation: generation1
-  body_type: sedan
-  class_name: brilliance_h530_generation1_sedan
-  search_path: /brilliance/h530/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 191
-  make: Brilliance
-  model: m1
-  generation: generation1
-  body_type: sedan
-  class_name: brilliance_m1_generation1_sedan
-  search_path: /brilliance/m1/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 192
-  make: Brilliance
-  model: m2
-  generation: generation1
-  body_type: sedan
-  class_name: brilliance_m2_generation1_sedan
-  search_path: /brilliance/m2/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 193
-  make: Brilliance
-  model: m3
-  generation: generation1
-  body_type: coupe
-  class_name: brilliance_m3_generation1_coupe
-  search_path: /brilliance/m3/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 194
-  make: Brilliance
-  model: v3
-  generation: generation1
-  body_type: suv
-  class_name: brilliance_v3_generation1_suv
-  search_path: /brilliance/v3/generation1/
-  search_params:
-    body_type: suv
-- class_id: 195
-  make: Brilliance
-  model: v5
-  generation: generation1
-  body_type: suv
-  class_name: brilliance_v5_generation1_suv
-  search_path: /brilliance/v5/generation1/
-  search_params:
-    body_type: suv
-- class_id: 196
-  make: Bugatti
-  model: chiron
-  generation: generation1
-  body_type: coupe
-  class_name: bugatti_chiron_generation1_coupe
-  search_path: /bugatti/chiron/generation1/
-  search_params:
-    body_type: coupe
-- class_id: 197
-  make: Buick
-  model: cascada
-  generation: generation1
-  body_type: van
-  class_name: buick_cascada_generation1_van
-  search_path: /buick/cascada/generation1/
-  search_params:
-    body_type: van
-- class_id: 198
-  make: Buick
-  model: century
-  generation: generation5
-  body_type: sedan
-  class_name: buick_century_generation5_sedan
-  search_path: /buick/century/generation5/
-  search_params:
-    body_type: sedan
-- class_id: 199
-  make: Buick
-  model: enclave
-  generation: generation1
-  body_type: suv
-  class_name: buick_enclave_generation1_suv
-  search_path: /buick/enclave/generation1/
-  search_params:
-    body_type: suv
-- class_id: 200
-  make: Buick
-  model: encore
-  generation: generation1
-  body_type: suv
-  class_name: buick_encore_generation1_suv
-  search_path: /buick/encore/generation1/
-  search_params:
-    body_type: suv
-- class_id: 201
-  make: Buick
-  model: encore_gx
-  generation: generation1
-  body_type: suv
-  class_name: buick_encore_gx_generation1_suv
-  search_path: /buick/encore_gx/generation1/
-  search_params:
-    body_type: suv
-- class_id: 202
-  make: Buick
-  model: envision
-  generation: generation1
-  body_type: suv
-  class_name: buick_envision_generation1_suv
-  search_path: /buick/envision/generation1/
-  search_params:
-    body_type: suv
-- class_id: 203
-  make: Buick
-  model: envista
-  generation: generation1
-  body_type: suv
-  class_name: buick_envista_generation1_suv
-  search_path: /buick/envista/generation1/
-  search_params:
-    body_type: suv
-- class_id: 204
-  make: Buick
-  model: gl6
-  generation: generation1
-  body_type: minivan
-  class_name: buick_gl6_generation1_minivan
-  search_path: /buick/gl6/generation1/
-  search_params:
-    body_type: minivan
-- class_id: 205
-  make: Buick
-  model: gl8
-  generation: generation2
-  body_type: suv
-  class_name: buick_gl8_generation2_suv
-  search_path: /buick/gl8/generation2/
-  search_params:
-    body_type: suv
-- class_id: 206
-  make: Buick
-  model: lacrosse
-  generation: generation2
-  body_type: sedan
-  class_name: buick_lacrosse_generation2_sedan
-  search_path: /buick/lacrosse/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 207
-  make: Buick
-  model: park_avenue
-  generation: generation1
-  body_type: sedan
-  class_name: buick_park_avenue_generation1_sedan
-  search_path: /buick/park_avenue/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 208
-  make: Buick
-  model: regal
+- class_id: 5
+  make: Audi
+  model: q5
   generation: generation3
-  body_type: sedan
-  class_name: buick_regal_generation3_sedan
-  search_path: /buick/regal/generation3/
-  search_params:
-    body_type: sedan
-- class_id: 209
-  make: Buick
-  model: rendezvous
-  generation: generation1
   body_type: suv
-  class_name: buick_rendezvous_generation1_suv
-  search_path: /buick/rendezvous/generation1/
+  class_name: audi_q5_generation3_suv
+  search_path: /audi/q5/generation3/
   search_params:
     body_type: suv
-- class_id: 210
-  make: Buick
-  model: skylark
-  generation: generation7
-  body_type: sedan
-  class_name: buick_skylark_generation7_sedan
-  search_path: /buick/skylark/generation7/
-  search_params:
-    body_type: sedan
-- class_id: 211
-  make: Cadillac
-  model: ats
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_ats_generation1_sedan
-  search_path: /cadillac/ats/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 212
-  make: Cadillac
-  model: bls
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_bls_generation1_sedan
-  search_path: /cadillac/bls/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 213
-  make: Cadillac
-  model: brougham
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_brougham_generation1_sedan
-  search_path: /cadillac/brougham/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 214
-  make: Cadillac
-  model: ct4
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_ct4_generation1_sedan
-  search_path: /cadillac/ct4/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 215
-  make: Cadillac
-  model: ct5
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_ct5_generation1_sedan
-  search_path: /cadillac/ct5/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 216
-  make: Cadillac
-  model: ct6
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_ct6_generation1_sedan
-  search_path: /cadillac/ct6/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 217
-  make: Cadillac
-  model: cts
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_cts_generation1_sedan
-  search_path: /cadillac/cts/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 218
-  make: Cadillac
-  model: dts
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_dts_generation1_sedan
-  search_path: /cadillac/dts/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 219
-  make: Cadillac
-  model: deville
-  generation: generation8
-  body_type: sedan
-  class_name: cadillac_deville_generation8_sedan
-  search_path: /cadillac/deville/generation8/
-  search_params:
-    body_type: sedan
-- class_id: 220
-  make: Cadillac
-  model: elr
-  generation: generation1
-  body_type: hatchback
-  class_name: cadillac_elr_generation1_hatchback
-  search_path: /cadillac/elr/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 221
-  make: Cadillac
-  model: eldorado
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_eldorado_generation1_sedan
-  search_path: /cadillac/eldorado/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 222
-  make: Cadillac
-  model: escalade_iq
+- class_id: 6
+  make: Bmw
+  model: x3
   generation: generation1
   body_type: suv
-  class_name: cadillac_escalade_iq_generation1_suv
-  search_path: /cadillac/escalade_iq/generation1/
+  class_name: bmw_x3_generation1_suv
+  search_path: /bmw/x3/generation1/
   search_params:
     body_type: suv
-- class_id: 223
-  make: Cadillac
-  model: fleetwood
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_fleetwood_generation1_sedan
-  search_path: /cadillac/fleetwood/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 224
-  make: Cadillac
-  model: lyriq
-  generation: generation1
-  body_type: suv
-  class_name: cadillac_lyriq_generation1_suv
-  search_path: /cadillac/lyriq/generation1/
-  search_params:
-    body_type: suv
-- class_id: 225
-  make: Cadillac
-  model: srx
-  generation: generation1
-  body_type: suv
-  class_name: cadillac_srx_generation1_suv
-  search_path: /cadillac/srx/generation1/
-  search_params:
-    body_type: suv
-- class_id: 226
-  make: Cadillac
-  model: sts
-  generation: generation1
-  body_type: sedan
-  class_name: cadillac_sts_generation1_sedan
-  search_path: /cadillac/sts/generation1/
-  search_params:
-    body_type: sedan
-- class_id: 227
-  make: Cadillac
-  model: seville
-  generation: generation2
-  body_type: sedan
-  class_name: cadillac_seville_generation2_sedan
-  search_path: /cadillac/seville/generation2/
-  search_params:
-    body_type: sedan
-- class_id: 228
-  make: Cadillac
-  model: xt4
-  generation: generation1
-  body_type: suv
-  class_name: cadillac_xt4_generation1_suv
-  search_path: /cadillac/xt4/generation1/
-  search_params:
-    body_type: suv
-- class_id: 229
-  make: Cadillac
-  model: xt5
-  generation: generation1
-  body_type: suv
-  class_name: cadillac_xt5_generation1_suv
-  search_path: /cadillac/xt5/generation1/
-  search_params:
-    body_type: suv
-- class_id: 230
-  make: Cadillac
-  model: xt6
-  generation: generation1
-  body_type: suv
-  class_name: cadillac_xt6_generation1_suv
-  search_path: /cadillac/xt6/generation1/
-  search_params:
-    body_type: suv
-- class_id: 231
-  make: Changan
-  model: alsvin
-  generation: generation3
-  body_type: sedan
-  class_name: changan_alsvin_generation3_sedan
-  search_path: /changan/alsvin/generation3/
-  search_params:
-    body_type: sedan
-- class_id: 232
-  make: Changan
-  model: benben
-  generation: generation1
-  body_type: hatchback
-  class_name: changan_benben_generation1_hatchback
-  search_path: /changan/benben/generation1/
-  search_params:
-    body_type: hatchback
-- class_id: 233
-  make: Changan
-  model: cs15
-  generation: generation1
-  body_type: suv
-  class_name: changan_cs15_generation1_suv
-  search_path: /changan/cs15/generation1/
-  search_params:
-    body_type: suv
-- class_id: 234
-  make: Changan
-  model: cs35
-  generation: generation1
-  body_type: suv
-  class_name: changan_cs35_generation1_suv
-  search_path: /changan/cs35/generation1/
-  search_params:
-    body_type: suv
-- class_id: 235
+- class_id: 7
   make: Changan
   model: cs35_plus
   generation: generation1
@@ -2141,138 +89,840 @@ classes:
   search_path: /changan/cs35_plus/generation1/
   search_params:
     body_type: suv
-- class_id: 236
-  make: Changan
-  model: cs55
+- class_id: 8
+  make: Audi
+  model: q7
   generation: generation1
   body_type: suv
-  class_name: changan_cs55_generation1_suv
-  search_path: /changan/cs55/generation1/
+  class_name: audi_q7_generation1_suv
+  search_path: /audi/q7/generation1/
   search_params:
     body_type: suv
-- class_id: 237
-  make: Changan
-  model: cs55_plus
+- class_id: 9
+  make: Audi
+  model: q8
   generation: generation1
   body_type: suv
-  class_name: changan_cs55_plus_generation1_suv
-  search_path: /changan/cs55_plus/generation1/
+  class_name: audi_q8_generation1_suv
+  search_path: /audi/q8/generation1/
   search_params:
     body_type: suv
-- class_id: 238
-  make: Changan
-  model: cs75
+- class_id: 10
+  make: Bmw
+  model: 1-series
   generation: generation1
   body_type: suv
-  class_name: changan_cs75_generation1_suv
-  search_path: /changan/cs75/generation1/
+  class_name: bmw_1_series_generation1_suv
+  search_path: /bmw/1-series/generation1/
   search_params:
     body_type: suv
-- class_id: 239
-  make: Changan
-  model: cs75_plus
+- class_id: 11
+  make: Bmw
+  model: x2
   generation: generation1
   body_type: suv
-  class_name: changan_cs75_plus_generation1_suv
-  search_path: /changan/cs75_plus/generation1/
+  class_name: bmw_x2_generation1_suv
+  search_path: /bmw/x2/generation1/
   search_params:
     body_type: suv
-- class_id: 240
-  make: Changan
-  model: cs85_coupe
-  generation: generation1
-  body_type: suv
-  class_name: changan_cs85_coupe_generation1_suv
-  search_path: /changan/cs85_coupe/generation1/
-  search_params:
-    body_type: suv
-- class_id: 241
-  make: Changan
-  model: cs95
-  generation: generation1
-  body_type: suv
-  class_name: changan_cs95_generation1_suv
-  search_path: /changan/cs95/generation1/
-  search_params:
-    body_type: suv
-- class_id: 242
-  make: Changan
-  model: cs95_plus
-  generation: generation1
-  body_type: suv
-  class_name: changan_cs95_plus_generation1_suv
-  search_path: /changan/cs95_plus/generation1/
-  search_params:
-    body_type: suv
-- class_id: 243
-  make: Changan
-  model: deepal_shenlan_g318
-  generation: generation1
-  body_type: suv
-  class_name: changan_deepal_shenlan_g318_generation1_suv
-  search_path: /changan/deepal_shenlan_g318/generation1/
-  search_params:
-    body_type: suv
-- class_id: 244
-  make: Changan
-  model: deepal_shenlan_l07
+- class_id: 12
+  make: Audi
+  model: a5
   generation: generation1
   body_type: liftback
-  class_name: changan_deepal_shenlan_l07_generation1_liftback
-  search_path: /changan/deepal_shenlan_l07/generation1/
+  class_name: audi_a5_generation1_liftback
+  search_path: /audi/a5/generation1/
   search_params:
     body_type: liftback
-- class_id: 245
-  make: Changan
-  model: deepal_shenlan_s05
+- class_id: 13
+  make: Bmw
+  model: x5
   generation: generation1
   body_type: suv
-  class_name: changan_deepal_shenlan_s05_generation1_suv
-  search_path: /changan/deepal_shenlan_s05/generation1/
+  class_name: bmw_x5_generation1_suv
+  search_path: /bmw/x5/generation1/
   search_params:
     body_type: suv
-- class_id: 246
+- class_id: 14
   make: Changan
-  model: deepal_shenlan_s7
-  generation: generation1
-  body_type: suv
-  class_name: changan_deepal_shenlan_s7_generation1_suv
-  search_path: /changan/deepal_shenlan_s7/generation1/
-  search_params:
-    body_type: suv
-- class_id: 247
-  make: Changan
-  model: deepal_shenlan_s09
-  generation: generation1
-  body_type: suv
-  class_name: changan_deepal_shenlan_s09_generation1_suv
-  search_path: /changan/deepal_shenlan_s09/generation1/
-  search_params:
-    body_type: suv
-- class_id: 248
-  make: Changan
-  model: deepal_shenlan_sl03
-  generation: generation1
-  body_type: liftback
-  class_name: changan_deepal_shenlan_sl03_generation1_liftback
-  search_path: /changan/deepal_shenlan_sl03/generation1/
-  search_params:
-    body_type: liftback
-- class_id: 249
-  make: Changan
-  model: eado
-  generation: generation1
+  model: alsvin
+  generation: generation3
   body_type: sedan
-  class_name: changan_eado_generation1_sedan
-  search_path: /changan/eado/generation1/
+  class_name: changan_alsvin_generation3_sedan
+  search_path: /changan/alsvin/generation3/
   search_params:
     body_type: sedan
-- class_id: 250
+- class_id: 15
   make: Changan
   model: eado_plus
   generation: generation1
   body_type: sedan
   class_name: changan_eado_plus_generation1_sedan
   search_path: /changan/eado_plus/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 16
+  make: Audi
+  model: a4
+  generation: generation1
+  body_type: sedan
+  class_name: audi_a4_generation1_sedan
+  search_path: /audi/a4/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 17
+  make: Bmw
+  model: 4-series
+  generation: generation1
+  body_type: coupe
+  class_name: bmw_4_series_generation1_coupe
+  search_path: /bmw/4-series/generation1/
+  search_params:
+    body_type: coupe
+- class_id: 18
+  make: Bmw
+  model: x1
+  generation: generation1
+  body_type: suv
+  class_name: bmw_x1_generation1_suv
+  search_path: /bmw/x1/generation1/
+  search_params:
+    body_type: suv
+- class_id: 19
+  make: Bogdan
+  model: '2110'
+  generation: generation1
+  body_type: sedan
+  class_name: bogdan_2110_generation1_sedan
+  search_path: /bogdan/2110/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 20
+  make: Bmw
+  model: x6
+  generation: generation1
+  body_type: suv
+  class_name: bmw_x6_generation1_suv
+  search_path: /bmw/x6/generation1/
+  search_params:
+    body_type: suv
+- class_id: 21
+  make: Baic
+  model: u5_plus
+  generation: generation1
+  body_type: sedan
+  class_name: baic_u5_plus_generation1_sedan
+  search_path: /baic/u5_plus/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 22
+  make: Bmw
+  model: x4
+  generation: generation1
+  body_type: suv
+  class_name: bmw_x4_generation1_suv
+  search_path: /bmw/x4/generation1/
+  search_params:
+    body_type: suv
+- class_id: 23
+  make: Lada
+  model: granta
+  generation: generation1
+  body_type: liftback
+  class_name: lada_granta_generation1_liftback
+  search_path: /lada/granta/generation1/
+  search_params:
+    body_type: liftback
+- class_id: 24
+  make: Lada
+  model: priora
+  generation: generation1
+  body_type: hatchback
+  class_name: lada_priora_generation1_hatchback
+  search_path: /lada/priora/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 25
+  make: Lada
+  model: vesta
+  generation: generation1
+  body_type: sedan
+  class_name: lada_vesta_generation1_sedan
+  search_path: /lada/vesta/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 26
+  make: Lada
+  model: '2114'
+  generation: generation1
+  body_type: hatchback
+  class_name: lada_2114_generation1_hatchback
+  search_path: /lada/2114/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 27
+  make: Hyundai
+  model: solaris
+  generation: generation1
+  body_type: hatchback
+  class_name: hyundai_solaris_generation1_hatchback
+  search_path: /hyundai/solaris/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 28
+  make: Lada
+  model: kalina
+  generation: generation1
+  body_type: hatchback
+  class_name: lada_kalina_generation1_hatchback
+  search_path: /lada/kalina/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 29
+  make: Volkswagen
+  model: polo
+  generation: generation5
+  body_type: sedan
+  class_name: volkswagen_polo_generation5_sedan
+  search_path: /volkswagen/polo/generation5/
+  search_params:
+    body_type: sedan
+- class_id: 30
+  make: Ford
+  model: focus
+  generation: generation3
+  body_type: hatchback
+  class_name: ford_focus_generation3_hatchback
+  search_path: /ford/focus/generation3/
+  search_params:
+    body_type: hatchback
+- class_id: 31
+  make: Nissan
+  model: note
+  generation: generation2
+  body_type: hatchback
+  class_name: nissan_note_generation2_hatchback
+  search_path: /nissan/note/generation2/
+  search_params:
+    body_type: hatchback
+- class_id: 32
+  make: Lada
+  model: '2112'
+  generation: generation1
+  body_type: hatchback
+  class_name: lada_2112_generation1_hatchback
+  search_path: /lada/2112/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 33
+  make: Toyota
+  model: camry
+  generation: generation8
+  body_type: sedan
+  class_name: toyota_camry_generation8_sedan
+  search_path: /toyota/camry/generation8/
+  search_params:
+    body_type: sedan
+- class_id: 34
+  make: Lada
+  model: largus
+  generation: generation1
+  body_type: wagon
+  class_name: lada_largus_generation1_wagon
+  search_path: /lada/largus/generation1/
+  search_params:
+    body_type: wagon
+- class_id: 35
+  make: Toyota
+  model: corolla
+  generation: generation9
+  body_type: sedan
+  class_name: toyota_corolla_generation9_sedan
+  search_path: /toyota/corolla/generation9/
+  search_params:
+    body_type: sedan
+- class_id: 36
+  make: Chevrolet
+  model: lacetti
+  generation: generation1
+  body_type: sedan
+  class_name: chevrolet_lacetti_generation1_sedan
+  search_path: /chevrolet/lacetti/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 37
+  make: Chevrolet
+  model: cruze
+  generation: generation1
+  body_type: hatchback
+  class_name: chevrolet_cruze_generation1_hatchback
+  search_path: /chevrolet/cruze/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 38
+  make: Renault
+  model: logan
+  generation: generation1
+  body_type: sedan
+  class_name: renault_logan_generation1_sedan
+  search_path: /renault/logan/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 39
+  make: Daewoo
+  model: nexia
+  generation: generation1
+  body_type: sedan
+  class_name: daewoo_nexia_generation1_sedan
+  search_path: /daewoo/nexia/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 40
+  make: Hyundai
+  model: accent
+  generation: generation2
+  body_type: sedan
+  class_name: hyundai_accent_generation2_sedan
+  search_path: /hyundai/accent/generation2/
+  search_params:
+    body_type: sedan
+- class_id: 41
+  make: Opel
+  model: astra
+  generation: generation3
+  body_type: wagon
+  class_name: opel_astra_generation3_wagon
+  search_path: /opel/astra/generation3/
+  search_params:
+    body_type: wagon
+- class_id: 42
+  make: Kia
+  model: rio
+  generation: generation4
+  body_type: sedan
+  class_name: kia_rio_generation4_sedan
+  search_path: /kia/rio/generation4/
+  search_params:
+    body_type: sedan
+- class_id: 43
+  make: Skoda
+  model: octavia
+  generation: generation3
+  body_type: liftback
+  class_name: skoda_octavia_generation3_liftback
+  search_path: /skoda/octavia/generation3/
+  search_params:
+    body_type: liftback
+- class_id: 44
+  make: Mitsubishi
+  model: lancer
+  generation: generation9
+  body_type: sedan
+  class_name: mitsubishi_lancer_generation9_sedan
+  search_path: /mitsubishi/lancer/generation9/
+  search_params:
+    body_type: sedan
+- class_id: 45
+  make: Mazda
+  model: mazda3
+  generation: generation1
+  body_type: sedan
+  class_name: mazda_mazda3_generation1_sedan
+  search_path: /mazda/mazda3/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 46
+  make: Mercedes-Benz
+  model: e-class
+  generation: generation4
+  body_type: sedan
+  class_name: mercedes_benz_e_class_generation4_sedan
+  search_path: /mercedes-benz/e-class/generation4/
+  search_params:
+    body_type: sedan
+- class_id: 47
+  make: Honda
+  model: civic
+  generation: generation8
+  body_type: sedan
+  class_name: honda_civic_generation8_sedan
+  search_path: /honda/civic/generation8/
+  search_params:
+    body_type: sedan
+- class_id: 48
+  make: Chevrolet
+  model: aveo
+  generation: generation1
+  body_type: sedan
+  class_name: chevrolet_aveo_generation1_sedan
+  search_path: /chevrolet/aveo/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 49
+  make: Kia
+  model: sportage
+  generation: generation4
+  body_type: suv
+  class_name: kia_sportage_generation4_suv
+  search_path: /kia/sportage/generation4/
+  search_params:
+    body_type: suv
+- class_id: 50
+  make: Peugeot
+  model: '308'
+  generation: generation1
+  body_type: hatchback
+  class_name: peugeot_308_generation1_hatchback
+  search_path: /peugeot/308/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 51
+  make: Kia
+  model: optima
+  generation: generation4
+  body_type: sedan
+  class_name: kia_optima_generation4_sedan
+  search_path: /kia/optima/generation4/
+  search_params:
+    body_type: sedan
+- class_id: 52
+  make: Mazda
+  model: mazda6
+  generation: generation2
+  body_type: sedan
+  class_name: mazda_mazda6_generation2_sedan
+  search_path: /mazda/mazda6/generation2/
+  search_params:
+    body_type: sedan
+- class_id: 53
+  make: BMW
+  model: 5-series
+  generation: generation7
+  body_type: sedan
+  class_name: bmw_5_series_generation7_sedan
+  search_path: /bmw/5-series/generation7/
+  search_params:
+    body_type: sedan
+- class_id: 54
+  make: Nissan
+  model: almera
+  generation: generation3
+  body_type: sedan
+  class_name: nissan_almera_generation3_sedan
+  search_path: /nissan/almera/generation3/
+  search_params:
+    body_type: sedan
+- class_id: 55
+  make: Hyundai
+  model: getz
+  generation: generation1
+  body_type: hatchback
+  class_name: hyundai_getz_generation1_hatchback
+  search_path: /hyundai/getz/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 56
+  make: Volkswagen
+  model: jetta
+  generation: generation6
+  body_type: sedan
+  class_name: volkswagen_jetta_generation6_sedan
+  search_path: /volkswagen/jetta/generation6/
+  search_params:
+    body_type: sedan
+- class_id: 57
+  make: Honda
+  model: insight
+  generation: generation2
+  body_type: liftback
+  class_name: honda_insight_generation2_liftback
+  search_path: /honda/insight/generation2/
+  search_params:
+    body_type: liftback
+- class_id: 58
+  make: Honda
+  model: hr-v
+  generation: generation1
+  body_type: suv
+  class_name: honda_hr_v_generation1_suv
+  search_path: /honda/hr-v/generation1/
+  search_params:
+    body_type: suv
+- class_id: 59
+  make: Kia
+  model: spectra
+  generation: generation1
+  body_type: sedan
+  class_name: kia_spectra_generation1_sedan
+  search_path: /kia/spectra/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 60
+  make: Honda
+  model: shuttle
+  generation: generation2
+  body_type: wagon
+  class_name: honda_shuttle_generation2_wagon
+  search_path: /honda/shuttle/generation2/
+  search_params:
+    body_type: wagon
+- class_id: 61
+  make: BMW
+  model: 3-series
+  generation: generation6
+  body_type: sedan
+  class_name: bmw_3_series_generation6_sedan
+  search_path: /bmw/3-series/generation6/
+  search_params:
+    body_type: sedan
+- class_id: 62
+  make: Mazda
+  model: axela
+  generation: generation3
+  body_type: hatchback
+  class_name: mazda_axela_generation3_hatchback
+  search_path: /mazda/axela/generation3/
+  search_params:
+    body_type: hatchback
+- class_id: 63
+  make: Suzuki
+  model: jimny
+  generation: generation3
+  body_type: suv
+  class_name: suzuki_jimny_generation3_suv
+  search_path: /suzuki/jimny/generation3/
+  search_params:
+    body_type: suv
+- class_id: 64
+  make: Opel
+  model: corsa
+  generation: generation4
+  body_type: hatchback
+  class_name: opel_corsa_generation4_hatchback
+  search_path: /opel/corsa/generation4/
+  search_params:
+    body_type: hatchback
+- class_id: 65
+  make: Mitsubishi
+  model: pajero
+  generation: generation4
+  body_type: suv
+  class_name: mitsubishi_pajero_generation4_suv
+  search_path: /mitsubishi/pajero/generation4/
+  search_params:
+    body_type: suv
+- class_id: 66
+  make: Nissan
+  model: leaf
+  generation: generation1
+  body_type: hatchback
+  class_name: nissan_leaf_generation1_hatchback
+  search_path: /nissan/leaf/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 67
+  make: Toyota
+  model: corona
+  generation: generation10
+  body_type: sedan
+  class_name: toyota_corona_generation10_sedan
+  search_path: /toyota/corona/generation10/
+  search_params:
+    body_type: sedan
+- class_id: 68
+  make: Volkswagen
+  model: passat
+  generation: generation5
+  body_type: sedan
+  class_name: volkswagen_passat_generation5_sedan
+  search_path: /volkswagen/passat/generation5/
+  search_params:
+    body_type: sedan
+- class_id: 69
+  make: Nissan
+  model: murano
+  generation: generation2
+  body_type: suv
+  class_name: nissan_murano_generation2_suv
+  search_path: /nissan/murano/generation2/
+  search_params:
+    body_type: suv
+- class_id: 70
+  make: Skoda
+  model: fabia
+  generation: generation2
+  body_type: hatchback
+  class_name: skoda_fabia_generation2_hatchback
+  search_path: /skoda/fabia/generation2/
+  search_params:
+    body_type: hatchback
+- class_id: 71
+  make: Ford
+  model: fusion
+  generation: generation1
+  body_type: hatchback
+  class_name: ford_fusion_generation1_hatchback
+  search_path: /ford/fusion/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 72
+  make: Suzuki
+  model: sx4
+  generation: generation1
+  body_type: hatchback
+  class_name: suzuki_sx4_generation1_hatchback
+  search_path: /suzuki/sx4/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 73
+  make: Toyota
+  model: auris
+  generation: generation1
+  body_type: hatchback
+  class_name: toyota_auris_generation1_hatchback
+  search_path: /toyota/auris/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 74
+  make: Changan
+  model: uni-v
+  generation: generation1
+  body_type: liftback
+  class_name: changan_uni_v_generation1_liftback
+  search_path: /changan/uni-v/generation1/
+  search_params:
+    body_type: liftback
+- class_id: 75
+  make: Citroen
+  model: c4
+  generation: generation2
+  body_type: sedan
+  class_name: citroen_c4_generation2_sedan
+  search_path: /citroen/c4/generation2/
+  search_params:
+    body_type: sedan
+- class_id: 76
+  make: Lada
+  model: '2101'
+  generation: generation1
+  body_type: sedan
+  class_name: lada_2101_generation1_sedan
+  search_path: /lada/2101/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 77
+  make: Subaru
+  model: impreza
+  generation: generation2
+  body_type: sedan
+  class_name: subaru_impreza_generation2_sedan
+  search_path: /subaru/impreza/generation2/
+  search_params:
+    body_type: sedan
+- class_id: 78
+  make: Kia
+  model: cerato
+  generation: generation2
+  body_type: sedan
+  class_name: kia_cerato_generation2_sedan
+  search_path: /kia/cerato/generation2/
+  search_params:
+    body_type: sedan
+- class_id: 79
+  make: Lada
+  model: iskra
+  generation: generation1
+  body_type: sedan
+  class_name: lada_iskra_generation1_sedan
+  search_path: /lada/iskra/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 80
+  make: Skoda
+  model: rapid
+  generation: generation2
+  body_type: liftback
+  class_name: skoda_rapid_generation2_liftback
+  search_path: /skoda/rapid/generation2/
+  search_params:
+    body_type: liftback
+- class_id: 81
+  make: Peugeot
+  model: '206'
+  generation: generation1
+  body_type: sedan
+  class_name: peugeot_206_generation1_sedan
+  search_path: /peugeot/206/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 82
+  make: Mercedes-Benz
+  model: g-class
+  generation: generation2
+  body_type: suv
+  class_name: mercedes_benz_g_class_generation2_suv
+  search_path: /mercedes-benz/g-class/generation2/
+  search_params:
+    body_type: suv
+- class_id: 83
+  make: Lada
+  model: '2108'
+  generation: generation1
+  body_type: hatchback
+  class_name: lada_2108_generation1_hatchback
+  search_path: /lada/2108/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 84
+  make: Toyota
+  model: carina
+  generation: generation6
+  body_type: sedan
+  class_name: toyota_carina_generation6_sedan
+  search_path: /toyota/carina/generation6/
+  search_params:
+    body_type: sedan
+- class_id: 85
+  make: Honda
+  model: accord
+  generation: generation9
+  body_type: sedan
+  class_name: honda_accord_generation9_sedan
+  search_path: /honda/accord/generation9/
+  search_params:
+    body_type: sedan
+- class_id: 86
+  make: Mitsubishi
+  model: colt
+  generation: generation6
+  body_type: hatchback
+  class_name: mitsubishi_colt_generation6_hatchback
+  search_path: /mitsubishi/colt/generation6/
+  search_params:
+    body_type: hatchback
+- class_id: 87
+  make: Kia
+  model: sorento
+  generation: generation3
+  body_type: suv
+  class_name: kia_sorento_generation3_suv
+  search_path: /kia/sorento/generation3/
+  search_params:
+    body_type: suv
+- class_id: 88
+  make: Nissan
+  model: pathfinder
+  generation: generation3
+  body_type: suv
+  class_name: nissan_pathfinder_generation3_suv
+  search_path: /nissan/pathfinder/generation3/
+  search_params:
+    body_type: suv
+- class_id: 89
+  make: Ford
+  model: mondeo
+  generation: generation3
+  body_type: sedan
+  class_name: ford_mondeo_generation3_sedan
+  search_path: /ford/mondeo/generation3/
+  search_params:
+    body_type: sedan
+- class_id: 90
+  make: Opel
+  model: insignia
+  generation: generation1
+  body_type: sedan
+  class_name: opel_insignia_generation1_sedan
+  search_path: /opel/insignia/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 91
+  make: Hyundai
+  model: i40
+  generation: generation1
+  body_type: sedan
+  class_name: hyundai_i40_generation1_sedan
+  search_path: /hyundai/i40/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 92
+  make: Nissan
+  model: patrol
+  generation: generation6
+  body_type: suv
+  class_name: nissan_patrol_generation6_suv
+  search_path: /nissan/patrol/generation6/
+  search_params:
+    body_type: suv
+- class_id: 93
+  make: Peugeot
+  model: '307'
+  generation: generation1
+  body_type: hatchback
+  class_name: peugeot_307_generation1_hatchback
+  search_path: /peugeot/307/generation1/
+  search_params:
+    body_type: hatchback
+- class_id: 94
+  make: Renault
+  model: megane
+  generation: generation3
+  body_type: hatchback
+  class_name: renault_megane_generation3_hatchback
+  search_path: /renault/megane/generation3/
+  search_params:
+    body_type: hatchback
+- class_id: 95
+  make: Kia
+  model: soul
+  generation: generation2
+  body_type: hatchback
+  class_name: kia_soul_generation2_hatchback
+  search_path: /kia/soul/generation2/
+  search_params:
+    body_type: hatchback
+- class_id: 96
+  make: Peugeot
+  model: '408'
+  generation: generation1
+  body_type: sedan
+  class_name: peugeot_408_generation1_sedan
+  search_path: /peugeot/408/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 97
+  make: Subaru
+  model: legacy
+  generation: generation4
+  body_type: sedan
+  class_name: subaru_legacy_generation4_sedan
+  search_path: /subaru/legacy/generation4/
+  search_params:
+    body_type: sedan
+- class_id: 98
+  make: Geely
+  model: emgrand
+  generation: generation1
+  body_type: sedan
+  class_name: geely_emgrand_generation1_sedan
+  search_path: /geely/emgrand/generation1/
+  search_params:
+    body_type: sedan
+- class_id: 99
+  make: Skoda
+  model: superb
+  generation: generation2
+  body_type: liftback
+  class_name: skoda_superb_generation2_liftback
+  search_path: /skoda/superb/generation2/
+  search_params:
+    body_type: liftback
+- class_id: 100
+  make: Mercedes-Benz
+  model: s-class
+  generation: generation4
+  body_type: sedan
+  class_name: mercedes_benz_s_class_generation4_sedan
+  search_path: /mercedes-benz/s-class/generation4/
   search_params:
     body_type: sedan

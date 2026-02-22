@@ -77,7 +77,7 @@ make drom-split
 ## Configuration
 
 Primary config file: `configs/classes.yaml`
-The repository now ships with a generated 250-class config where each class has exactly one `body_type`.
+The repository now ships with a generated 100-class config where each class has exactly one `body_type`.
 It also enforces one row per `(make, model)` in this generated config (one generation and one body type per model).
 Source host is `https://auto.drom.ru` for listing discovery/fetch.
 
