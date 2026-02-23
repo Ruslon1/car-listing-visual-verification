@@ -1,3 +1,4 @@
+import math
 from pathlib import Path
 
 import pandas as pd
@@ -24,6 +25,21 @@ class CarDataset(Dataset):
 
         img_path = self.root_dir / row["image_file_name"]
         image = Image.open(img_path).convert("RGB")
+
+        x1, y1, x2, y2 = (
+            row["car_bbox_x1"],
+            row["car_bbox_y1"],
+            row["car_bbox_x2"],
+            row["car_bbox_y2"],
+        )
+
+        if all(math.isfinite(float(v)) for v in (x1, y1, x2, y2)) and x2 > x1 and y2 > y1:
+            w, h = image.size
+            x1 = max(0, min(int(x1), w - 1))
+            y1 = max(0, min(int(y1), h - 1))
+            x2 = max(x1 + 1, min(int(x2), w))
+            y2 = max(y1 + 1, min(int(y2), h))
+            image = image.crop((x1, y1, x2, y2))
 
         target = row["class_id"]
 
