@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import torch
 from loguru import logger
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, precision_recall_fscore_support
 from torch import nn
 from torch.utils.data import DataLoader
 from torchvision import models
@@ -76,7 +76,18 @@ def test(
     plt.close()
 
     test_acc = (np.array(all_preds) == np.array(all_labels)).mean()
+
+    precision_macro, recall_macro, f1_macro, _ = precision_recall_fscore_support(
+        all_labels,
+        all_preds,
+        average="macro",
+        zero_division=0,
+    )
+
     logger.success(f"Test Acc: {test_acc:.4f}")
+    logger.success(f"Macro Precision: {precision_macro:.4f}")
+    logger.success(f"Macro Recall:    {recall_macro:.4f}")
+    logger.success(f"Macro F1:        {f1_macro:.4f}")
 
 if __name__ == '__main__':
     test()
