@@ -32,6 +32,11 @@ val_transforms = transforms.Compose([
     transforms.Normalize(imagenet_mean, imagenet_std)
 ])
 
+device = torch.device(
+    "cuda" if torch.cuda.is_available()
+    else "mps" if torch.backends.mps.is_available()
+    else "cpu"
+)
 
 def train(train_path: Path = HF_RELEASE_TRAIN_FILE,
           validation_path: Path = HF_RELEASE_VALIDATION_FILE,
@@ -43,12 +48,6 @@ def train(train_path: Path = HF_RELEASE_TRAIN_FILE,
 
     train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True, num_workers=2, pin_memory=True)
     val_dataloader = DataLoader(val_dataset, batch_size=64, shuffle=False, num_workers=2, pin_memory=True)
-
-    device = torch.device(
-        "cuda" if torch.cuda.is_available()
-        else "mps" if torch.backends.mps.is_available()
-        else "cpu"
-    )
 
     model = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
     for param in model.parameters():
@@ -124,7 +123,6 @@ def train(train_path: Path = HF_RELEASE_TRAIN_FILE,
         scheduler.step(val_acc)
 
         torch.save(model.state_dict(), MODELS_DIR / "model.pkl")
-
 
 if __name__ == '__main__':
     train()
