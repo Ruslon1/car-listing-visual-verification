@@ -3,7 +3,6 @@ from pathlib import Path
 import pandas as pd
 import torch
 from PIL import Image
-from loguru import logger
 from torch import nn
 from torchvision import models, transforms
 
@@ -75,5 +74,4 @@ class Predictor:
         class_name = self.class_mapping.get(class_id, str(class_id))
         score = float(confidence.item())
 
-        logger.success(f"Prediction: {class_name} (class_id={class_id}, prob={score:.4f})")
         return class_id, class_name, score
